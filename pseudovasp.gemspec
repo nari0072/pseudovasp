@@ -1,11 +1,12 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'pseudovasp/poscar'
 require 'pseudovasp/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "pseudovasp"
-  spec.version       = Pseudovasp::VERSION
+  spec.version       = PseudoVASP::VERSION
   spec.authors       = ["Shigeto R. Nishitani"]
   spec.email         = ["shigeto_nishitani@me.com"]
 
