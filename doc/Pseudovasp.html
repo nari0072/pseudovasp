@@ -96,7 +96,9 @@
   
   
     <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">lib/pseudovasp/pseudovasp.rb</dd>
+    <dd class="r2 last">lib/pseudovasp/pseudovasp.rb<span class="defines">,<br />
+  lib/pseudovasp/version.rb</span>
+</dd>
   
 </dl>
 <div class="clear"></div>
@@ -109,8 +111,10 @@
 <p>西谷 滋人</p>
 </td></tr><tr><td class='label'>Version</td><td>
 <p>1.1 2014-12-20 bob</p>
+</td></tr><tr><td class='label'>Version</td><td>
+<p>1.2 2015-05-31 bob</p>
 </td></tr><tr><td class='label'>Copyright</td><td>
-<p>Copyright (C) Shigeto R. Nishitani, 2014. All rights reserved.</p>
+<p>Copyright (C) Shigeto R. Nishitani, 2014-16. All rights reserved.</p>
 </td></tr><tr><td class='label'>License</td><td>
 <p>Ruby ライセンスに準拠</p>
 </td></tr></tbody></table>
@@ -140,10 +144,19 @@
 </div>
   <h2>Constant Summary</h2>
   
+    <dl class="constants">
+      
+        <dt id="VERSION-constant" class="">VERSION =
+          
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>0.1.0</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+    </dl>
+  
 
 
 
-  <h2>Constant Summary</h2>
+  
   
   <h3 class="inherited">Constants inherited
      from <span class='object_link'><a href="Poscar.html" title="Poscar (class)">Poscar</a></span></h3>
@@ -480,7 +493,6 @@
       <pre class="lines">
 
 
-45
 46
 47
 48
@@ -490,10 +502,11 @@
 52
 53
 54
-55</pre>
+55
+56</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 45</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 46</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_poscar_name'>poscar_name</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='op'>=</span><span class='lbrace'>{</span><span class='label'>output:</span> <span class='symbol'>:show_force</span><span class='comma'>,</span> <span class='label'>potential:</span> <span class='symbol'>:eam</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_poscar_name'>poscar_name</span><span class='rparen'>)</span>
@@ -544,12 +557,12 @@
       <pre class="lines">
 
 
-41
 42
-43</pre>
+43
+44</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 41</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 42</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_atom_list'>atom_list</span>
   <span class='ivar'>@atom_list</span>
@@ -587,12 +600,12 @@
       <pre class="lines">
 
 
-41
 42
-43</pre>
+43
+44</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 41</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 42</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_options'>options</span>
   <span class='ivar'>@options</span>
@@ -624,16 +637,16 @@
       <pre class="lines">
 
 
-147
 148
 149
 150
 151
 152
-153</pre>
+153
+154</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 147</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 148</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_a0'>a0</span>
   <span class='id identifier rubyid_x'>x</span><span class='comma'>,</span><span class='id identifier rubyid_y'>y</span><span class='comma'>,</span><span class='id identifier rubyid_z'>z</span><span class='op'>=</span><span class='ivar'>@lat_vec</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='ivar'>@lat_vec</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='ivar'>@lat_vec</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span>
@@ -662,7 +675,6 @@
       <pre class="lines">
 
 
-94
 95
 96
 97
@@ -671,10 +683,11 @@
 100
 101
 102
-103</pre>
+103
+104</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 94</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 95</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_display'>display</span>
   <span class='id identifier rubyid_text'>text</span><span class='op'>=</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
@@ -706,13 +719,13 @@
       <pre class="lines">
 
 
-155
 156
 157
-158</pre>
+158
+159</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 155</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 156</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_display_at'>display_at</span><span class='lparen'>(</span><span class='id identifier rubyid_iatom'>iatom</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_iatom'>iatom</span>
@@ -738,7 +751,6 @@
       <pre class="lines">
 
 
-57
 58
 59
 60
@@ -756,10 +768,11 @@
 72
 73
 74
-75</pre>
+75
+76</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 57</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 58</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_mk_lattice'>mk_lattice</span>
   <span class='ivar'>@atom_list</span><span class='op'>=</span><span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -800,7 +813,6 @@
       <pre class="lines">
 
 
-77
 78
 79
 80
@@ -811,10 +823,11 @@
 85
 86
 87
-88</pre>
+88
+89</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 77</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 78</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_mk_nl'>mk_nl</span>
   <span class='id identifier rubyid_nmax'>nmax</span><span class='op'>=</span><span class='ivar'>@atom_list</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span><span class='op'>-</span><span class='int'>1</span>
@@ -848,7 +861,6 @@
       <pre class="lines">
 
 
-105
 106
 107
 108
@@ -876,10 +888,11 @@
 130
 131
 132
-133</pre>
+133
+134</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 105</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 106</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_show_pos_force'>show_pos_force</span>
   <span class='id identifier rubyid_show_list'>show_list</span><span class='op'>=</span><span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span><span class='int'>7</span><span class='comma'>,</span><span class='int'>9</span><span class='comma'>,</span><span class='int'>11</span><span class='comma'>,</span><span class='int'>13</span><span class='comma'>,</span><span class='int'>15</span><span class='comma'>,</span><span class='int'>16</span><span class='comma'>,</span><span class='int'>19</span><span class='comma'>,</span><span class='int'>20</span><span class='comma'>,</span><span class='int'>23</span><span class='comma'>,</span><span class='int'>24</span><span class='comma'>,</span><span class='int'>25</span><span class='comma'>,</span><span class='int'>26</span><span class='rbracket'>]</span>
@@ -930,12 +943,12 @@
       <pre class="lines">
 
 
-90
 91
-92</pre>
+92
+93</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 90</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 91</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_total_energy'>total_energy</span>
   <span class='ivar'>@atom_list</span><span class='period'>.</span><span class='id identifier rubyid_inject'>inject</span><span class='lparen'>(</span><span class='float'>0.0</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_sum'>sum</span><span class='comma'>,</span> <span class='id identifier rubyid_ai'>ai</span><span class='op'>|</span> <span class='id identifier rubyid_sum'>sum</span> <span class='op'>+</span> <span class='id identifier rubyid_ai'>ai</span><span class='period'>.</span><span class='id identifier rubyid_energy'>energy</span> <span class='rbrace'>}</span>
@@ -971,7 +984,6 @@
       <pre class="lines">
 
 
-137
 138
 139
 140
@@ -979,10 +991,11 @@
 142
 143
 144
-145</pre>
+145
+146</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 137</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 138</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_virial'>virial</span>
   <span class='id identifier rubyid_virial'>virial</span><span class='op'>=</span><span class='float'>0.0</span>
@@ -1003,7 +1016,7 @@
 </div>
 
     <div id="footer">
-  Generated on Tue May 31 13:25:40 2016 by
+  Generated on Tue May 31 16:46:21 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.2).
 </div>

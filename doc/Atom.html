@@ -99,18 +99,7 @@
 </dl>
 <div class="clear"></div>
 
-<h2>Overview</h2><div class="docstring">
-  <div class="discussion">
-    
-<p>原子class エネルギーと力の計算はeamあるいはljへ出している． 今はincludeで切り替えている．</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><div id="subclasses">
+<div id="subclasses">
   <h2>Direct Known Subclasses</h2>
   <p class="children"><span class='object_link'><a href="EAMAtom.html" title="EAMAtom (class)">EAMAtom</a></span>, <span class='object_link'><a href="LJAtom.html" title="LJAtom (class)">LJAtom</a></span></p>
 </div>
@@ -142,7 +131,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>include EAM  include LJ.</p>
+<p>Returns the value of attribute cut_off.</p>
 </div></span>
   
 </li>
@@ -169,7 +158,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>include EAM  include LJ.</p>
+<p>Returns the value of attribute element.</p>
 </div></span>
   
 </li>
@@ -196,7 +185,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>include EAM  include LJ.</p>
+<p>Returns the value of attribute nl.</p>
 </div></span>
   
 </li>
@@ -223,7 +212,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>include EAM  include LJ.</p>
+<p>Returns the value of attribute number.</p>
 </div></span>
   
 </li>
@@ -250,7 +239,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>include EAM  include LJ.</p>
+<p>Returns the value of attribute pos.</p>
 </div></span>
   
 </li>
@@ -393,20 +382,18 @@
       <pre class="lines">
 
 
-171
-172
-173
-174
-175
-176</pre>
+165
+166
+167
+168
+169</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 171</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 165</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_pos'>pos</span><span class='comma'>,</span><span class='id identifier rubyid_number'>number</span><span class='comma'>,</span><span class='id identifier rubyid_element'>element</span><span class='rparen'>)</span>
   <span class='ivar'>@nl</span><span class='op'>=</span><span class='lbracket'>[</span><span class='rbracket'>]</span>
-<span class='comment'>#    @cut_off = CUT_OFF
-</span>  <span class='ivar'>@pos</span><span class='comma'>,</span><span class='ivar'>@number</span><span class='op'>=</span><span class='id identifier rubyid_pos'>pos</span><span class='comma'>,</span><span class='id identifier rubyid_number'>number</span>
+  <span class='ivar'>@pos</span><span class='comma'>,</span><span class='ivar'>@number</span><span class='op'>=</span><span class='id identifier rubyid_pos'>pos</span><span class='comma'>,</span><span class='id identifier rubyid_number'>number</span>
   <span class='ivar'>@element</span> <span class='op'>=</span> <span class='id identifier rubyid_element'>element</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -433,10 +420,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>include EAM</p>
-
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_include'>include</span> <span class='const'>LJ</span>
-</code></pre>
+<p>Returns the value of attribute cut_off</p>
 
 
   </div>
@@ -450,12 +434,12 @@
       <pre class="lines">
 
 
-169
-170
-171</pre>
+163
+164
+165</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 169</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 163</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_cut_off'>cut_off</span>
   <span class='ivar'>@cut_off</span>
@@ -479,10 +463,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>include EAM</p>
-
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_include'>include</span> <span class='const'>LJ</span>
-</code></pre>
+<p>Returns the value of attribute element</p>
 
 
   </div>
@@ -496,12 +477,12 @@
       <pre class="lines">
 
 
-169
-170
-171</pre>
+163
+164
+165</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 169</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 163</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_element'>element</span>
   <span class='ivar'>@element</span>
@@ -525,10 +506,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>include EAM</p>
-
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_include'>include</span> <span class='const'>LJ</span>
-</code></pre>
+<p>Returns the value of attribute nl</p>
 
 
   </div>
@@ -542,12 +520,12 @@
       <pre class="lines">
 
 
-169
-170
-171</pre>
+163
+164
+165</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 169</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 163</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_nl'>nl</span>
   <span class='ivar'>@nl</span>
@@ -571,10 +549,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>include EAM</p>
-
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_include'>include</span> <span class='const'>LJ</span>
-</code></pre>
+<p>Returns the value of attribute number</p>
 
 
   </div>
@@ -588,12 +563,12 @@
       <pre class="lines">
 
 
-169
-170
-171</pre>
+163
+164
+165</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 169</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 163</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_number'>number</span>
   <span class='ivar'>@number</span>
@@ -617,10 +592,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>include EAM</p>
-
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_include'>include</span> <span class='const'>LJ</span>
-</code></pre>
+<p>Returns the value of attribute pos</p>
 
 
   </div>
@@ -634,12 +606,12 @@
       <pre class="lines">
 
 
-169
-170
-171</pre>
+163
+164
+165</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 169</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 163</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_pos'>pos</span>
   <span class='ivar'>@pos</span>
@@ -671,10 +643,10 @@
       <pre class="lines">
 
 
-177</pre>
+170</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 177</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 170</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_energy'>energy</span><span class='semicolon'>;</span> <span class='id identifier rubyid_atom_energy'>atom_energy</span><span class='semicolon'>;</span>  <span class='kw'>end</span></pre>
     </td>
@@ -697,10 +669,10 @@
       <pre class="lines">
 
 
-178</pre>
+171</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 178</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 171</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_force'>force</span><span class='semicolon'>;</span> <span class='id identifier rubyid_atom_force'>atom_force</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -723,10 +695,10 @@
       <pre class="lines">
 
 
-179</pre>
+172</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 179</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 172</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_show_nl'>show_nl</span><span class='semicolon'>;</span> <span class='ivar'>@nl</span><span class='period'>.</span><span class='id identifier rubyid_inject'>inject</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_res'>res</span><span class='comma'>,</span> <span class='id identifier rubyid_aj'>aj</span><span class='op'>|</span> <span class='id identifier rubyid_res'>res</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_aj'>aj</span><span class='period'>.</span><span class='id identifier rubyid_number'>number</span> <span class='rbrace'>}</span><span class='semicolon'>;</span>  <span class='kw'>end</span></pre>
     </td>
@@ -739,7 +711,7 @@
 </div>
 
     <div id="footer">
-  Generated on Tue May 31 13:25:40 2016 by
+  Generated on Tue May 31 16:46:21 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.2).
 </div>

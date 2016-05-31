@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe Pseudovasp do
+describe PseudoVASP do
   it 'has a version number.' do
-    expect(Pseudovasp::VERSION).not_to be nil
+    expect(PseudoVASP::VERSION).not_to be nil
   end
 
   it 'should return Al_eam_perfect.res from Al_POSCAR.' do

@@ -26,7 +26,8 @@ $lattice=[[0.0,0.0,0.0],[0.0,0.0,0.0],[0.0,0.0,0.0]]
 #
 #Authors::   西谷 滋人
 #Version::   1.1 2014-12-20 bob
-#Copyright:: Copyright (C) Shigeto R. Nishitani, 2014. All rights reserved.
+#Version::   1.2 2015-05-31 bob
+#Copyright:: Copyright (C) Shigeto R. Nishitani, 2014-16. All rights reserved.
 #License::   Ruby ライセンスに準拠
 #
 #== 詳細
@@ -158,19 +159,11 @@ class PseudoVASP < Poscar
   end
 end
 
-=begin 
-原子class
-エネルギーと力の計算はeamあるいはljへ出している．
-今はincludeで切り替えている．
-=end
 class Atom 
-#  include EAM
-#  include LJ
   attr_accessor :pos, :nl, :cut_off, :number, :element
-  
+
   def initialize(pos,number,element)
     @nl=[]
-#    @cut_off = CUT_OFF
     @pos,@number=pos,number
     @element = element
   end
@@ -202,7 +195,6 @@ end
 
 class EAMAtom < Atom
   include EAM
-  
   def initialize(pos,number,element)
     super(pos,number,element)
     @cut_off = CUT_OFF
@@ -211,20 +203,12 @@ end
 
 class LJAtom < Atom
   include LJ
-  
   def initialize(pos,number,element)
     super(pos,number,element)
     @cut_off = CUT_OFF
   end
 end
 
-if __FILE__ == $0 then
-  poscar_name = ARGV[0] || 'POSCAR'
-  lattice=PseudoVASP.new(poscar_name, output: :show_force, potential: :eam)
-  file=File.open("tmp.res",'w')
-  file.print lattice.display+"\n"
-  file.close
-end
 
 
 

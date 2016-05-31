@@ -61,35 +61,51 @@
 
     <iframe id="search_frame"></iframe>
 
-    <div id="content"><div id='filecontents'><h1>【概要】</h1>
+    <div id="content"><div id='filecontents'><h1>概要</h1>
 
-<p>VASPに似せて系のエネルギーを計算するソフト．</p>
+<p>VASPに似せて系のエネルギーをeam, ljポテンシャルで計算する．</p>
 
-<h1>【Directory構造】</h1>
+<h1>install</h1>
+
+<p>githubからdaddygongon/pseudovaspをdown load. あるいは</p>
+
+<blockquote>
+<p>gem install pseudovasp
+かな．．．</p>
+</blockquote>
+
+<h1>usage</h1>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>pseudovasp</span><span class='tstring_end'>&#39;</span></span>
+
+<span class='id identifier rubyid_opts'>opts</span><span class='op'>=</span><span class='lbrace'>{</span><span class='label'>output:</span> <span class='symbol'>:show_force</span><span class='comma'>,</span> <span class='label'>potential:</span> <span class='symbol'>:eam</span><span class='rbrace'>}</span>
+<span class='ivar'>@lattice</span><span class='op'>=</span><span class='const'>PseudoVASP</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_poscar_name'>poscar_name</span><span class='comma'>,</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_print'>print</span> <span class='ivar'>@lattice</span><span class='period'>.</span><span class='id identifier rubyid_display'>display</span><span class='op'>+</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+</code></pre>
+
+<p>or，command line on terminal,</p>
+
+<pre class="code ruby"><code class="ruby">Usage: pvasp [options] FILE
+    -v, --version                    show program Version.
+        --potential TYPE             potential selection, TYPEs=eam or lj.
+</code></pre>
+
+<h1>構造</h1>
 
 <ul>
-<li><a href="eam">eam</a></li>
-<li><a href="pseudovasp">pseudovasp</a></li>
+<li><a href="file.atom.html">ポテンシャルeam,ljのパラメータ他</a></li>
+<li>pseudovasp -&gt; class PseudoVASPに記述</li>
 <li><a href="MonteCarloSimulations">平衡モンテカルロ法の実装，nvt, npt, Frenkelなどを含む．</a></li>
-<li><a href="BoundaryModel">粒界構築maker, viewer, adjuster</a></li>
-<li><a href="poscar">POSCARを読み込むlibrary</a></li>
-<li><a href="pseudo_vasp">pseudoVASPの本体．eam, ljをmoduleとして読み込んでいる</a></li>
 <li><a href="force_check">力の解析解と数値解の一致検証</a>
 
 <ul>
 <li><a href="EAM_force"> </a>,<a href="LJ_force"> </a>,</li>
 </ul></li>
 </ul>
-
-<h1>【変更履歴と改修メモ】</h1>
-
-<ul>
-<li><a href="pVASP_EAM-LJSelector">pVASP_EAM-LJSelector</a></li>
-</ul>
 </div></div>
 
     <div id="footer">
-  Generated on Tue May 31 13:25:39 2016 by
+  Generated on Tue May 31 16:46:20 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.2).
 </div>
