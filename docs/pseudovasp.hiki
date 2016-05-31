@@ -2,22 +2,7 @@
 VASPに似せて，POSCARの入力を受け取り，LJあるいはEAMのエネルギー計算を実行し，OUTCAR形式で出力する．VASPを用いた粒子シミュレーションの開発段階において，実行を加速するため，もしくはtrue VASPでは実行に時間がかかりすぎる系のだいたいの値を求めるために活用．
 
 !構成
-* pseudovasp
-* poscar
-* eam
-* lj
+*[[poscar|poscar]]
+*[[eam|eam]]
+*[[lj|lj]]
 
-!! spec
-assertでは ちょっとした違いも表示してくれないので，
-<<<
-  728	   10:44	ruby pseudoVASP.rb > tmp.res
-  729	   10:44	diff tmp.res OUTCAR
->>>
-として変更を見たほうがいいかも．
-
-あるいはsystemのdiffを使って，違いがなければsuccessを返す．
-systemuをgem installしておく必要がある． systemでの呼び出しでは，false, trueしかとりだせないため．
-
-test unitを使ってみて，debugの時にはあまり役に立たない． pしてもそれを追うのがしんどいから．
-
-test unitはあくまでもrefactoringの時か，おおきなテストの時かも． 逆に出来上がったprogramがincludeしているclassの変更に対して 用意しておくのは正解かも．
