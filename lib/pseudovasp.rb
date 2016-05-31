@@ -1,5 +1,7 @@
 require "pseudovasp/version"
+require "pseudovasp/pseudovasp"
 
-module Pseudovasp
+#module Pseudovasp
   # Your code goes here...
-end
+
+#end
