@@ -64,3 +64,52 @@ phi(r0);
 >>>
 
 [[lj_ev_plot.gif]]
+
+!EAM fitting
+
+EAM potentialの種々の構築手法を詳解する．
+!!background
+MCにおいてNPT一定の計算がうまくいっていない．
+*覚埜式のE-Vプロットをすると小体積でのエネルギの上がりが低い．
+*T=0.1[eV]で融けているよう
+なので，もう少し精密にEAMポテンシャルを構築してみる．
+
+!!poq fixed
+
+EAM potentialにおいて単原子空孔の生成エネルギEvは
+
+<<<math
+E_v = -\frac{E_c}{2}\frac{2-poq}{1-poq}
+>>>
+
+の関係がある．したがって，
+<<< maple
+Ev:=0.8;                         
+Ec:=3.39;                    
+eq1:=Ev=Ec/2*(2-poq)/(1-poq);
+solve(eq1,poq);              
+                          2.893854749
+>>>
+
+さらにこの値を使ってポテンシャルのパラメータを求めるのは以下の通り．ここで，qを設定している．
+
+<<< maple
+phi:=r->12.0*A*exp(-p*r)-sqrt(12.0*(B*exp(-q*r))^2);
+poq:=2.893854749;
+q:=3.00*0.2474390089;
+a0:=8.0828/2;     
+r0:=evalf(a0*sqrt(2)/2.0); #2.857701345
+eq1:=phi(r0)=-3.39;
+s2:=solve(eq1,A);
+p:=poq*q; #2.148157653
+eq2:=subs(r=r0,diff(phi(r),r));
+#plot(subs(A=s2,eq2),B=0..20);
+b0:=fsolve(subs(A=s2,eq2),B=10);
+a0:=subs(B=b0,s2);
+phi0:=unapply(subs({A=a0,B=b0},phi(r)),r);
+plot(phi0(r),r=2..5);
+phi0(r0);
+a0,b0,p,poq,q;
+#69.1378255, 12.47431958, 2.148157653, 2.893854749, 0.7423170267
+>>>
+[[eam_ev.png]]

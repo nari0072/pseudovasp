@@ -513,13 +513,23 @@
 31
 32
 33
-34</pre>
+34
+35
+36
+37
+38
+39</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/pseudovasp/poscar.rb', line 7</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_file_name'>file_name</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_file'>file</span> <span class='op'>=</span> <span class='id identifier rubyid_open'>open</span><span class='lparen'>(</span><span class='id identifier rubyid_file_name'>file_name</span><span class='rparen'>)</span>
+  <span class='kw'>begin</span>
+    <span class='id identifier rubyid_file'>file</span> <span class='op'>=</span> <span class='id identifier rubyid_open'>open</span><span class='lparen'>(</span><span class='id identifier rubyid_file_name'>file_name</span><span class='rparen'>)</span>
+  <span class='kw'>rescue</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_evar'>evar</span>
+    <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_evar'>evar</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
+    <span class='id identifier rubyid_exit'>exit</span>
+  <span class='kw'>end</span>
   <span class='ivar'>@head</span> <span class='op'>=</span> <span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_gets'>gets</span><span class='period'>.</span><span class='id identifier rubyid_chomp'>chomp</span>
   <span class='ivar'>@whole_scale</span> <span class='op'>=</span> <span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_gets'>gets</span><span class='period'>.</span><span class='id identifier rubyid_chomp'>chomp</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span>
 
@@ -890,19 +900,19 @@
       <pre class="lines">
 
 
-36
-37
-38
-39
-40
 41
 42
 43
 44
-45</pre>
+45
+46
+47
+48
+49
+50</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/poscar.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/poscar.rb', line 41</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_display'>display</span> <span class='comment'># poscar format
 </span>  <span class='id identifier rubyid_text'>text</span><span class='op'>=</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
@@ -945,11 +955,6 @@
       <pre class="lines">
 
 
-47
-48
-49
-50
-51
 52
 53
 54
@@ -957,10 +962,15 @@
 56
 57
 58
-59</pre>
+59
+60
+61
+62
+63
+64</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/poscar.rb', line 47</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/poscar.rb', line 52</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_display2'>display2</span> <span class='comment'>#real POSCAR for Al 2times 
 </span>  <span class='id identifier rubyid_text'>text</span><span class='op'>=</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
@@ -995,19 +1005,19 @@
       <pre class="lines">
 
 
-61
-62
-63
-64
-65
 66
 67
 68
 69
-70</pre>
+70
+71
+72
+73
+74
+75</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/poscar.rb', line 61</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/poscar.rb', line 66</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_processing'>to_processing</span>
   <span class='id identifier rubyid_text'>text</span><span class='op'>=</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
@@ -1050,11 +1060,6 @@
       <pre class="lines">
 
 
-72
-73
-74
-75
-76
 77
 78
 79
@@ -1062,10 +1067,15 @@
 81
 82
 83
-84</pre>
+84
+85
+86
+87
+88
+89</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/poscar.rb', line 72</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/poscar.rb', line 77</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_processing2'>to_processing2</span>  <span class='comment'>#shift for periodicity
 </span>  <span class='id identifier rubyid_text'>text</span><span class='op'>=</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
@@ -1090,7 +1100,7 @@
 </div>
 
     <div id="footer">
-  Generated on Tue May 31 16:50:29 2016 by
+  Generated on Thu Jun  2 16:42:30 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.2).
 </div>

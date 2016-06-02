@@ -28,6 +28,8 @@ task :yard do
   system "cp #{basename}.wiki/README_ja.md #{basename}.wiki/Home.md"
   system "cp docs/*.gif #{basename}.wiki"
   system "cp docs/*.gif doc"
+  system "cp docs/*.png #{basename}.wiki"
+  system "cp docs/*.png doc"
   YARD::Rake::YardocTask.new
 end
 

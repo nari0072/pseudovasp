@@ -355,13 +355,13 @@
       <pre class="lines">
 
 
+37
 38
 39
-40
-41</pre>
+40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp.rb', line 37</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_bare_run'>bare_run</span><span class='lparen'>(</span><span class='id identifier rubyid_file'>file</span><span class='rparen'>)</span>
   <span class='ivar'>@lattice</span><span class='op'>=</span><span class='const'>PseudoVASP</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_file'>file</span><span class='rparen'>)</span>
@@ -387,14 +387,14 @@
       <pre class="lines">
 
 
+42
 43
 44
 45
-46
-47</pre>
+46</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp.rb', line 43</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp.rb', line 42</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_calc_system'>calc_system</span><span class='lparen'>(</span><span class='id identifier rubyid_file'>file</span><span class='op'>=</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>POSCAR</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span><span class='id identifier rubyid_type'>type</span><span class='rparen'>)</span>
   <span class='ivar'>@lattice</span><span class='op'>=</span><span class='const'>PseudoVASP</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_file'>file</span><span class='comma'>,</span>
@@ -435,14 +435,12 @@
 32
 33
 34
-35
-36</pre>
+35</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/pseudovasp.rb', line 21</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_execute'>execute</span>
-  <span class='ivar'>@argv</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>--help</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='ivar'>@argv</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span><span class='op'>==</span><span class='int'>0</span>
   <span class='id identifier rubyid_command_parser'>command_parser</span> <span class='op'>=</span> <span class='const'>OptionParser</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_opt'>opt</span><span class='op'>|</span>
     <span class='id identifier rubyid_opt'>opt</span><span class='period'>.</span><span class='id identifier rubyid_on'>on</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>-v</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>--version</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>show program Version.</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='lbrace'>{</span>
       <span class='id identifier rubyid_opt'>opt</span><span class='period'>.</span><span class='id identifier rubyid_version'>version</span> <span class='op'>=</span> <span class='const'>PseudoVASP</span><span class='op'>::</span><span class='const'>VERSION</span>
@@ -455,7 +453,7 @@
   <span class='kw'>end</span>
   <span class='id identifier rubyid_command_parser'>command_parser</span><span class='period'>.</span><span class='id identifier rubyid_banner'>banner</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Usage: pvasp [options] FILE</span><span class='tstring_end'>&quot;</span></span>
   <span class='id identifier rubyid_command_parser'>command_parser</span><span class='period'>.</span><span class='id identifier rubyid_parse!'>parse!</span><span class='lparen'>(</span><span class='ivar'>@argv</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_bare_run'>bare_run</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>POSCAR</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='ivar'>@argv</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='op'>==</span><span class='kw'>nil</span>
+  <span class='ivar'>@argv</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='op'>!=</span><span class='kw'>nil</span> <span class='op'>?</span>  <span class='id identifier rubyid_bare_run'>bare_run</span><span class='lparen'>(</span><span class='ivar'>@argv</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='id identifier rubyid_bare_run'>bare_run</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>POSCAR</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -467,7 +465,7 @@
 </div>
 
     <div id="footer">
-  Generated on Tue May 31 16:50:29 2016 by
+  Generated on Thu Jun  2 16:42:30 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.2).
 </div>

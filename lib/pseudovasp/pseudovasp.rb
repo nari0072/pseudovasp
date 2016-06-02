@@ -111,12 +111,12 @@ class PseudoVASP < Poscar
       case @options[:output]
       when :show_force then
         3.times {|i| text << sprintf("%10.6f",pos[i]/($lattice[i][i])) }
-        3.times {|i| text << sprintf("%10.6f",f[i]) }
+        3.times {|i| text << sprintf("%10.4f",f[i]) }
         text << sprintf("%4d",ii) #not VASP but convenience to see
         text << sprintf("\n")
       when :show_energy then
         3.times {|i| text << sprintf("%10.6f",pos[i]/($lattice[i][i])) }
-        3.times {|i| text << sprintf("%14.6f",f[i]) }
+        3.times {|i| text << sprintf("%14.4f",f[i]) }
         text << sprintf("%10.6f",ai.energy) 
         text << sprintf("%4d",ii) #not VASP but convenience to see
         text << sprintf("\n")

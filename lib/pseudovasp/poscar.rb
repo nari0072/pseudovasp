@@ -5,7 +5,12 @@ class Poscar
   RE_3F3W=/([-+]?[\d\.]+)\s*([-+]?[\d\.]+)\s*([-+]?[\d\.]+)\s*(\w)\s*(\w)\s*(\w)/
 
   def initialize(file_name)
-    file = open(file_name)
+    begin
+      file = open(file_name)
+    rescue => evar
+      puts evar.to_s
+      exit
+    end
     @head = file.gets.chomp
     @whole_scale = file.gets.chomp.to_f
 
