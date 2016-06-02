@@ -19,7 +19,6 @@ module PVasp
     end
 
     def execute
-      @argv << '--help' if @argv.size==0
       command_parser = OptionParser.new do |opt|
         opt.on('-v', '--version','show program Version.') {
           opt.version = PseudoVASP::VERSION
