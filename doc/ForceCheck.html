@@ -102,8 +102,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>pseudoVASPでforceの解析解と数値解が一致しているかを確かめるclass. LJでは一致を確認． ruby force_check.rb
-0などで起動． ruby force_check_test.rbで0番原子，およびすべての原子をcheck.</p>
+<p>pseudoVASPでforceの解析解と数値解が一致しているかを確かめるclass. LJでは一致を確認．</p>
 
 
   </div>
@@ -112,40 +111,20 @@
   
 
 </div>
-
-
-
-  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
-  <ul class="summary">
-    
-      <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#dir_path-instance_method" title="#dir_path (instance method)">- (Object) <strong>dir_path</strong> </a>
-    
-
-    
-  </span>
+  <h2>Constant Summary</h2>
   
-  
-  
-    
-    
-  
-  
-  
-  
+    <dl class="constants">
+      
+        <dt id="PRINT_3F-constant" class="">PRINT_3F =
+          
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>||%4d|| %10.5f|| %10.5f|| %10.5f\n</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+    </dl>
   
 
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the value of attribute dir_path.</p>
-</div></span>
-  
-</li>
 
-    
-  </ul>
+
 
 
 
@@ -157,31 +136,6 @@
     </h2>
 
     <ul class="summary">
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#all_calc-instance_method" title="#all_calc (instance method)">- (Object) <strong>all_calc</strong>(i_atom) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>i_atomに対する微小移動に対するエネルギー変化をspec_moveで取得し， mapleにcenter_calc.mwでfittingさせ，
-tmp1.txtから取得している．.</p>
-</div></span>
-  
-</li>
-
       
         <li class="public ">
   <span class="summary_signature">
@@ -200,10 +154,7 @@ tmp1.txtから取得している．.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>計算をすべての原子にわたるか，特定の原子で行うかのcontroller 
-ii&lt;0ならすべての原子，それ以外はtarget_listの特定原子のforce_check.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -211,7 +162,7 @@ ii&lt;0ならすべての原子，それ以外はtarget_listの特定原子のfo
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">- (ForceCheck) <strong>initialize</strong>(dir_path) </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (ForceCheck) <strong>initialize</strong>(dir_path, opts) </a>
     
 
     
@@ -230,6 +181,53 @@ ii&lt;0ならすべての原子，それ以外はtarget_listの特定原子のfo
     <span class="summary_desc"><div class='inline'>
 <p>A new instance of ForceCheck.</p>
 </div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#site_calc-instance_method" title="#site_calc (instance method)">- (Object) <strong>site_calc</strong>(i_atom) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>i_atomに対する微小移動に対するエネルギー変化をspec_moveで取得し， mapleにcenter_calc.mwでfittingさせ，
+tmp1.txtからforceを取得している．.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#site_res-instance_method" title="#site_res (instance method)">- (Object) <strong>site_res</strong>(ii) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -268,7 +266,7 @@ dev1=1.0+dev0はPOSCARの入力値がマイナス値を取れないため．1.0�
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    - (<tt><span class='object_link'><a href="" title="ForceCheck (class)">ForceCheck</a></span></tt>) <strong>initialize</strong>(dir_path) 
+    - (<tt><span class='object_link'><a href="" title="ForceCheck (class)">ForceCheck</a></span></tt>) <strong>initialize</strong>(dir_path, opts) 
   
 
   
@@ -291,70 +289,24 @@ dev1=1.0+dev0はPOSCARの入力値がマイナス値を取れないため．1.0�
       <pre class="lines">
 
 
-12
-13
-14</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/force_check.rb', line 12</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_dir_path'>dir_path</span><span class='rparen'>)</span>
-  <span class='ivar'>@dir_path</span> <span class='op'>=</span> <span class='id identifier rubyid_dir_path'>dir_path</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-  
-</div>
-
-  <div id="instance_attr_details" class="attr_details">
-    <h2>Instance Attribute Details</h2>
-    
-      
-      <span id="dir_path=-instance_method"></span>
-      <div class="method_details first">
-  <h3 class="signature first" id="dir_path-instance_method">
-  
-    - (<tt>Object</tt>) <strong>dir_path</strong> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Returns the value of attribute dir_path</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
+8
+9
 10
-11
-12</pre>
+11</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/force_check.rb', line 10</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/force_check.rb', line 8</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_dir_path'>dir_path</span>
-  <span class='ivar'>@dir_path</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_dir_path'>dir_path</span><span class='comma'>,</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
+  <span class='ivar'>@dir_path</span> <span class='op'>=</span> <span class='id identifier rubyid_dir_path'>dir_path</span>
+  <span class='ivar'>@opts</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
 </div>
-    
-  </div>
+  
+</div>
 
 
   <div id="instance_method_details" class="method_details_list">
@@ -362,9 +314,51 @@ dev1=1.0+dev0はPOSCARの入力値がマイナス値を取れないため．1.0�
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="all_calc-instance_method">
+  <h3 class="signature first" id="controller-instance_method">
   
-    - (<tt>Object</tt>) <strong>all_calc</strong>(i_atom) 
+    - (<tt>Object</tt>) <strong>controller</strong>(ii) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+75
+76
+77
+78
+79
+80
+81
+82
+83</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/force_check.rb', line 75</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_controller'>controller</span><span class='lparen'>(</span><span class='id identifier rubyid_ii'>ii</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_result'>result</span><span class='op'>=</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_ii'>ii</span><span class='op'>&lt;</span><span class='int'>0</span> <span class='kw'>then</span> <span class='comment'># for all_site in target_list
+</span>    <span class='int'>12</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_ii'>ii</span><span class='op'>|</span> <span class='id identifier rubyid_result'>result</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_site_res'>site_res</span><span class='lparen'>(</span><span class='id identifier rubyid_ii'>ii</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+  <span class='kw'>else</span> <span class='comment'># for specific site
+</span>    <span class='id identifier rubyid_result'>result</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_site_res'>site_res</span><span class='lparen'>(</span><span class='id identifier rubyid_ii'>ii</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_result'>result</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="site_calc-instance_method">
+  
+    - (<tt>Object</tt>) <strong>site_calc</strong>(i_atom) 
   
 
   
@@ -374,7 +368,7 @@ dev1=1.0+dev0はPOSCARの入力値がマイナス値を取れないため．1.0�
   <div class="discussion">
     
 <p>i_atomに対する微小移動に対するエネルギー変化をspec_moveで取得し， mapleにcenter_calc.mwでfittingさせ，
-tmp1.txtから取得している．</p>
+tmp1.txtからforceを取得している．</p>
 
 
   </div>
@@ -388,6 +382,8 @@ tmp1.txtから取得している．</p>
       <pre class="lines">
 
 
+16
+17
 18
 19
 20
@@ -398,19 +394,19 @@ tmp1.txtから取得している．</p>
 25
 26
 27
-28
-29</pre>
+28</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/force_check.rb', line 18</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/force_check.rb', line 16</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_all_calc'>all_calc</span><span class='lparen'>(</span><span class='id identifier rubyid_i_atom'>i_atom</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_site_calc'>site_calc</span><span class='lparen'>(</span><span class='id identifier rubyid_i_atom'>i_atom</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_i_atom_result'>i_atom_result</span><span class='op'>=</span><span class='lbracket'>[</span><span class='rbracket'>]</span>
   <span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span><span class='int'>1</span><span class='comma'>,</span><span class='int'>2</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_j_col'>j_col</span><span class='op'>|</span>
     <span class='id identifier rubyid_print'>print</span> <span class='id identifier rubyid_energy_data'>energy_data</span><span class='op'>=</span><span class='id identifier rubyid_spec_move'>spec_move</span><span class='lparen'>(</span><span class='id identifier rubyid_i_atom'>i_atom</span><span class='comma'>,</span><span class='id identifier rubyid_j_col'>j_col</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_open'>open</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>tmp.txt</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>w</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_f'>f</span><span class='op'>|</span> <span class='id identifier rubyid_f'>f</span><span class='period'>.</span><span class='id identifier rubyid_print'>print</span> <span class='id identifier rubyid_energy_data'>energy_data</span> <span class='rbrace'>}</span>
-    <span class='id identifier rubyid_command'>command</span><span class='op'>=</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/Library/Frameworks/Maple.framework/Versions/Current/bin/maple </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_dir_path'>dir_path</span><span class='embexpr_end'>}</span><span class='tstring_content'>/center_calc.mw</span><span class='tstring_end'>&quot;</span></span>
-    <span class='id identifier rubyid_status'>status</span><span class='comma'>,</span><span class='id identifier rubyid_stdout'>stdout</span><span class='comma'>,</span><span class='id identifier rubyid_stderr'>stderr</span><span class='op'>=</span><span class='id identifier rubyid_systemu'>systemu</span> <span class='id identifier rubyid_command'>command</span> 
+    <span class='id identifier rubyid_e_plot_file'>e_plot_file</span><span class='op'>=</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>tmp.txt</span><span class='tstring_end'>&#39;</span></span>
+    <span class='id identifier rubyid_open'>open</span><span class='lparen'>(</span><span class='id identifier rubyid_e_plot_file'>e_plot_file</span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>w</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_f'>f</span><span class='op'>|</span> <span class='id identifier rubyid_f'>f</span><span class='period'>.</span><span class='id identifier rubyid_print'>print</span> <span class='id identifier rubyid_energy_data'>energy_data</span> <span class='rbrace'>}</span>
+    <span class='id identifier rubyid_command'>command</span><span class='op'>=</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/Library/Frameworks/Maple.framework/Versions/Current/bin/maple center_calc.mw</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_status'>status</span><span class='comma'>,</span><span class='id identifier rubyid_stdout'>stdout</span><span class='comma'>,</span><span class='id identifier rubyid_stderr'>stderr</span><span class='op'>=</span><span class='id identifier rubyid_systemu'>systemu</span> <span class='id identifier rubyid_command'>command</span>
     <span class='id identifier rubyid_status'>status</span><span class='comma'>,</span><span class='id identifier rubyid_stdout'>stdout</span><span class='comma'>,</span><span class='id identifier rubyid_stderr'>stderr</span><span class='op'>=</span><span class='id identifier rubyid_systemu'>systemu</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>cat tmp1.txt</span><span class='tstring_end'>&quot;</span></span>
     <span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_i_atom_result'>i_atom_result</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_stdout'>stdout</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span>
   <span class='rbrace'>}</span>
@@ -422,27 +418,15 @@ tmp1.txtから取得している．</p>
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="controller-instance_method">
+  <h3 class="signature " id="site_res-instance_method">
   
-    - (<tt>Object</tt>) <strong>controller</strong>(ii) 
-  
-
+    - (<tt>Object</tt>) <strong>site_res</strong>(ii) 
   
 
   
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>計算をすべての原子にわたるか，特定の原子で行うかのcontroller 
-ii&lt;0ならすべての原子，それ以外はtarget_listの特定原子のforce_check</p>
 
-
-  </div>
-</div>
-<div class="tags">
   
-
-</div><table class="source_code">
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
@@ -453,44 +437,16 @@ ii&lt;0ならすべての原子，それ以外はtarget_listの特定原子のfo
 70
 71
 72
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87</pre>
+73</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/pseudovasp/force_check.rb', line 68</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_controller'>controller</span><span class='lparen'>(</span><span class='id identifier rubyid_ii'>ii</span><span class='rparen'>)</span>
-<span class='comment'>#    p ii
-</span>  <span class='id identifier rubyid_all_result'>all_result</span> <span class='op'>=</span><span class='lbracket'>[</span><span class='rbracket'>]</span>
-  <span class='id identifier rubyid_result'>result</span><span class='op'>=</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>def</span> <span class='id identifier rubyid_site_res'>site_res</span><span class='lparen'>(</span><span class='id identifier rubyid_ii'>ii</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_target_list'>target_list</span><span class='op'>=</span><span class='lbracket'>[</span><span class='int'>7</span><span class='comma'>,</span><span class='int'>9</span><span class='comma'>,</span><span class='int'>11</span><span class='comma'>,</span><span class='int'>13</span><span class='comma'>,</span><span class='int'>15</span><span class='comma'>,</span><span class='int'>16</span><span class='comma'>,</span><span class='int'>19</span><span class='comma'>,</span><span class='int'>20</span><span class='comma'>,</span><span class='int'>23</span><span class='comma'>,</span><span class='int'>24</span><span class='comma'>,</span><span class='int'>25</span><span class='comma'>,</span><span class='int'>26</span><span class='rbracket'>]</span>
-  <span class='kw'>if</span> <span class='id identifier rubyid_ii'>ii</span><span class='op'>&lt;</span><span class='int'>0</span> <span class='kw'>then</span>
-    <span class='id identifier rubyid_target_list'>target_list</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_i_atom'>i_atom</span><span class='op'>|</span>
-      <span class='id identifier rubyid_all_result'>all_result</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_all_calc'>all_calc</span><span class='lparen'>(</span><span class='id identifier rubyid_i_atom'>i_atom</span><span class='rparen'>)</span>
-    <span class='rbrace'>}</span>
-    <span class='id identifier rubyid_all_result'>all_result</span><span class='period'>.</span><span class='id identifier rubyid_each_with_index'>each_with_index</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_ele'>ele</span><span class='comma'>,</span><span class='id identifier rubyid_i'>i</span><span class='op'>|</span>
-      <span class='id identifier rubyid_result'>result</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_sprintf'>sprintf</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>||%4d|| %10.5f|| %10.5f|| %10.5f\n</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='id identifier rubyid_target_list'>target_list</span><span class='lbracket'>[</span><span class='id identifier rubyid_i'>i</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='id identifier rubyid_ele'>ele</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='id identifier rubyid_ele'>ele</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='id identifier rubyid_ele'>ele</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-    <span class='rbrace'>}</span>
-  <span class='kw'>else</span>
-    <span class='id identifier rubyid_i_atom'>i_atom</span><span class='op'>=</span><span class='id identifier rubyid_target_list'>target_list</span><span class='lbracket'>[</span><span class='id identifier rubyid_ii'>ii</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_all_result'>all_result</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_all_calc'>all_calc</span><span class='lparen'>(</span><span class='id identifier rubyid_i_atom'>i_atom</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_ele'>ele</span> <span class='op'>=</span> <span class='id identifier rubyid_all_result'>all_result</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_result'>result</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_sprintf'>sprintf</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>||%4d|| %10.5f|| %10.5f|| %10.5f\n</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='id identifier rubyid_target_list'>target_list</span><span class='lbracket'>[</span><span class='id identifier rubyid_ii'>ii</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='id identifier rubyid_ele'>ele</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='id identifier rubyid_ele'>ele</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='id identifier rubyid_ele'>ele</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-  <span class='kw'>end</span>
-  <span class='kw'>return</span> <span class='id identifier rubyid_result'>result</span>
+  <span class='id identifier rubyid_i_atom'>i_atom</span><span class='op'>=</span><span class='id identifier rubyid_target_list'>target_list</span><span class='lbracket'>[</span><span class='id identifier rubyid_ii'>ii</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_ele'>ele</span> <span class='op'>=</span> <span class='id identifier rubyid_site_calc'>site_calc</span><span class='lparen'>(</span><span class='id identifier rubyid_i_atom'>i_atom</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_sprintf'>sprintf</span><span class='lparen'>(</span><span class='const'>PRINT_3F</span><span class='comma'>,</span><span class='id identifier rubyid_i_atom'>i_atom</span><span class='comma'>,</span><span class='id identifier rubyid_ele'>ele</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='id identifier rubyid_ele'>ele</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='id identifier rubyid_ele'>ele</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -524,6 +480,7 @@ dev1=1.0+dev0はPOSCARの入力値がマイナス値を取れないため．1.0�
       <pre class="lines">
 
 
+33
 34
 35
 36
@@ -557,37 +514,38 @@ dev1=1.0+dev0はPOSCARの入力値がマイナス値を取れないため．1.0�
 64</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/force_check.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/force_check.rb', line 33</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_spec_move'>spec_move</span><span class='lparen'>(</span><span class='id identifier rubyid_i_atom'>i_atom</span><span class='comma'>,</span><span class='id identifier rubyid_j_col'>j_col</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_orig_poscar'>orig_poscar</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>POSCAR_orig</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_target_poscar'>target_poscar</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>POSCAR</span><span class='tstring_end'>&#39;</span></span>
   <span class='id identifier rubyid_energy_data'>energy_data</span> <span class='op'>=</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
   <span class='id identifier rubyid_n_loop'>n_loop</span><span class='op'>=</span><span class='int'>4</span>
   <span class='lparen'>(</span><span class='id identifier rubyid_n_loop'>n_loop</span><span class='op'>+</span><span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_ii'>ii</span><span class='op'>|</span>
-    <span class='id identifier rubyid_orig_poscar'>orig_poscar</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='ivar'>@dir_path</span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>POSCAR_orig</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_target_poscar'>target_poscar</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='ivar'>@dir_path</span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>POSCAR</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
     <span class='id identifier rubyid_tmp'>tmp</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_readlines'>readlines</span><span class='lparen'>(</span><span class='id identifier rubyid_orig_poscar'>orig_poscar</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_target_line'>target_line</span><span class='op'>=</span><span class='id identifier rubyid_i_atom'>i_atom</span><span class='op'>+</span><span class='int'>7</span>
     <span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_row'>row</span><span class='op'>=</span><span class='id identifier rubyid_tmp'>tmp</span><span class='lbracket'>[</span><span class='id identifier rubyid_target_line'>target_line</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\s+</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span>
     <span class='id identifier rubyid_dev'>dev</span><span class='op'>=</span><span class='lparen'>(</span><span class='id identifier rubyid_ii'>ii</span><span class='op'>-</span><span class='id identifier rubyid_n_loop'>n_loop</span><span class='op'>/</span><span class='float'>2.0</span><span class='rparen'>)</span><span class='op'>*</span><span class='float'>0.001</span>
     <span class='id identifier rubyid_dev0'>dev0</span><span class='op'>=</span><span class='lparen'>(</span><span class='id identifier rubyid_ii'>ii</span><span class='op'>-</span><span class='id identifier rubyid_n_loop'>n_loop</span><span class='op'>/</span><span class='float'>2.0</span><span class='rparen'>)</span><span class='op'>*</span><span class='float'>0.001</span><span class='op'>+</span><span class='id identifier rubyid_row'>row</span><span class='lbracket'>[</span><span class='id identifier rubyid_j_col'>j_col</span><span class='op'>+</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span>
-    <span class='lparen'>(</span><span class='id identifier rubyid_dev0'>dev0</span> <span class='op'>&lt;</span> <span class='float'>0.0</span><span class='rparen'>)</span><span class='op'>?</span> <span class='id identifier rubyid_dev1'>dev1</span> <span class='op'>=</span> <span class='float'>1.0</span><span class='op'>+</span><span class='id identifier rubyid_dev0'>dev0</span> <span class='op'>:</span> <span class='id identifier rubyid_dev1'>dev1</span> <span class='op'>=</span><span class='id identifier rubyid_dev0'>dev0</span>
+    <span class='id identifier rubyid_dev1'>dev1</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id identifier rubyid_dev0'>dev0</span> <span class='op'>&lt;</span> <span class='float'>0.0</span><span class='rparen'>)</span><span class='op'>?</span> <span class='float'>1.0</span><span class='op'>+</span><span class='id identifier rubyid_dev0'>dev0</span> <span class='op'>:</span> <span class='id identifier rubyid_dev0'>dev0</span>
     <span class='id identifier rubyid_row'>row</span><span class='lbracket'>[</span><span class='id identifier rubyid_j_col'>j_col</span><span class='op'>+</span><span class='int'>1</span><span class='rbracket'>]</span><span class='op'>=</span><span class='id identifier rubyid_sprintf'>sprintf</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%-11.8f</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='id identifier rubyid_dev1'>dev1</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_print'>print</span> <span class='id identifier rubyid_text'>text</span><span class='op'>=</span><span class='id identifier rubyid_sprintf'>sprintf</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%15.10f %15.10f %15.10f\n</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='id identifier rubyid_row'>row</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span><span class='comma'>,</span><span class='id identifier rubyid_row'>row</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span><span class='comma'>,</span><span class='id identifier rubyid_row'>row</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_print'>print</span> <span class='id identifier rubyid_text'>text</span><span class='op'>=</span><span class='id identifier rubyid_sprintf'>sprintf</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%15.10f %15.10f %15.10f\n</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+                 <span class='id identifier rubyid_row'>row</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span><span class='comma'>,</span><span class='id identifier rubyid_row'>row</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span><span class='comma'>,</span><span class='id identifier rubyid_row'>row</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_tmp'>tmp</span><span class='lbracket'>[</span><span class='id identifier rubyid_target_line'>target_line</span><span class='rbracket'>]</span><span class='op'>=</span><span class='id identifier rubyid_text'>text</span>
     <span class='id identifier rubyid_open'>open</span><span class='lparen'>(</span><span class='id identifier rubyid_target_poscar'>target_poscar</span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>w</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_f'>f</span><span class='op'>|</span>
       <span class='id identifier rubyid_tmp'>tmp</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_ele'>ele</span><span class='op'>|</span> <span class='id identifier rubyid_f'>f</span><span class='period'>.</span><span class='id identifier rubyid_print'>print</span> <span class='id identifier rubyid_ele'>ele</span> <span class='rbrace'>}</span>
     <span class='rbrace'>}</span>
 
-    <span class='comment'># systemからpseudoVASPを呼び出す代わりにobjectとしてnewして呼び出すためのidiom
+<span class='comment'># systemからpseudoVASPを呼び出す代わりにobjectとしてnewして呼び出すためのidiom
 </span><span class='comment'>#    text,target=vasp_calc(poscar_name)
 </span><span class='comment'>#      energy=text.match(/([+-]?\d+\.\d+) eV/)[1].to_f
-</span>    <span class='id identifier rubyid_opts'>opts</span><span class='op'>=</span><span class='lbrace'>{</span><span class='label'>output:</span> <span class='symbol'>:show_energy</span><span class='comma'>,</span> <span class='label'>potential:</span> <span class='symbol'>:lj</span><span class='rbrace'>}</span>
-    <span class='id identifier rubyid_lattice'>lattice</span><span class='op'>=</span><span class='const'>PseudoVASP</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_target_poscar'>target_poscar</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_open'>open</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>tmp.res</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>w</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_f'>f</span><span class='op'>|</span> <span class='id identifier rubyid_f'>f</span><span class='period'>.</span><span class='id identifier rubyid_print'>print</span> <span class='id identifier rubyid_lattice'>lattice</span><span class='period'>.</span><span class='id identifier rubyid_display'>display</span><span class='op'>+</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span><span class='rbrace'>}</span>
-    <span class='id identifier rubyid_status'>status</span><span class='comma'>,</span> <span class='id identifier rubyid_stdout'>stdout</span><span class='comma'>,</span> <span class='id identifier rubyid_stderr'>stderr</span> <span class='op'>=</span> <span class='id identifier rubyid_systemu'>systemu</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>grep TOTEN tmp.res</span><span class='tstring_end'>&quot;</span></span>
+</span><span class='comment'>#      energy_data &lt;&lt; sprintf(&quot;%15.10f %15.10f\n&quot;,dev.to_f,energy)
+</span>    <span class='id identifier rubyid_lattice'>lattice</span><span class='op'>=</span><span class='const'>PseudoVASP</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_target_poscar'>target_poscar</span><span class='comma'>,</span> <span class='ivar'>@opts</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_energy_file'>energy_file</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>energy_file.txt</span><span class='tstring_end'>&#39;</span></span>
+    <span class='id identifier rubyid_open'>open</span><span class='lparen'>(</span><span class='id identifier rubyid_energy_file'>energy_file</span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>w</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_f'>f</span><span class='op'>|</span> <span class='id identifier rubyid_f'>f</span><span class='period'>.</span><span class='id identifier rubyid_print'>print</span> <span class='id identifier rubyid_lattice'>lattice</span><span class='period'>.</span><span class='id identifier rubyid_display'>display</span><span class='op'>+</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span><span class='rbrace'>}</span>
+    <span class='id identifier rubyid_status'>status</span><span class='comma'>,</span> <span class='id identifier rubyid_stdout'>stdout</span><span class='comma'>,</span> <span class='id identifier rubyid_stderr'>stderr</span> <span class='op'>=</span> <span class='id identifier rubyid_systemu'>systemu</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>grep TOTEN </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_energy_file'>energy_file</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
     <span class='id identifier rubyid_energy_data'>energy_data</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_sprintf'>sprintf</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%15.10f %15.10f\n</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='id identifier rubyid_dev'>dev</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span><span class='comma'>,</span><span class='id identifier rubyid_stdout'>stdout</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'> </span><span class='regexp_end'>/</span></span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>6</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span><span class='rparen'>)</span>
-<span class='comment'>#      energy_data &lt;&lt; sprintf(&quot;%15.10f %15.10f\n&quot;,dev.to_f,energy)
-</span>  <span class='rbrace'>}</span>
+  <span class='rbrace'>}</span>
   <span class='kw'>return</span> <span class='id identifier rubyid_energy_data'>energy_data</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -600,7 +558,7 @@ dev1=1.0+dev0はPOSCARの入力値がマイナス値を取れないため．1.0�
 </div>
 
     <div id="footer">
-  Generated on Mon Jun  6 18:11:56 2016 by
+  Generated on Mon Jun  6 21:19:10 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.2).
 </div>

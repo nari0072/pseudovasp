@@ -61,23 +61,23 @@
 
     <iframe id="search_frame"></iframe>
 
-    <div id="content"><div id='filecontents'><h1>【概要】</h1>
+    <div id="content"><div id='filecontents'><h1>概要</h1>
 
 <p>pseudoVASPでforceの解析解と数値解が一致しているかを確かめるclass.</p>
 
-<h1>【使用例】</h1>
+<h1>使用例</h1>
 
 <p>LJでは一致を確認． </p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_ruby'>ruby</span> <span class='id identifier rubyid_force_check'>force_check</span><span class='period'>.</span><span class='id identifier rubyid_rb'>rb</span> <span class='int'>0</span>
+<pre class="code ruby"><code class="ruby">pvasp --force sample_calc/
 </code></pre>
 
 <p>などで起動．</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_ruby'>ruby</span> <span class='id identifier rubyid_force_check_test'>force_check_test</span><span class='period'>.</span><span class='id identifier rubyid_rb'>rb</span>
+<pre class="code ruby"><code class="ruby">--target site_number
 </code></pre>
 
-<p>で0番原子，およびすべての原子をcheck.</p>
+<p>でsite_number(0番)原子，およびすべての原子(negative)をcheck.</p>
 
 <h1>計算結果</h1>
 
@@ -164,8 +164,6 @@
 <td style="text-align: left">0.00012</td>
 </tr>
 </tbody></table>
-
-<h1>【実装】<a href="http://nishitani0.kwansei.ac.jp/%7Ebob/nishitani0/rdocs/force_check/index.html">rdocはこちら．</a></h1>
 
 <h1>【背景】</h1>
 
@@ -461,7 +459,7 @@ writedata(file2,[result]);
 </div></div>
 
     <div id="footer">
-  Generated on Mon Jun  6 18:11:56 2016 by
+  Generated on Mon Jun  6 21:19:10 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.2).
 </div>
