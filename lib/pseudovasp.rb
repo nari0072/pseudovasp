@@ -31,7 +31,7 @@ module PVasp
       end
       command_parser.banner = "Usage: pvasp [options] FILE"
       command_parser.parse!(@argv)
-      bare_run('POSCAR') if @argv[0]!=nil
+      bare_run('POSCAR') if @argv[0]==nil
     end
 
     def bare_run(file)
