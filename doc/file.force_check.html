@@ -1,0 +1,470 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>
+  File: force_check
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!file.force_check.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index</a> &raquo; 
+    <span class="title">File: force_check</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><div id='filecontents'><h1>【概要】</h1>
+
+<p>pseudoVASPでforceの解析解と数値解が一致しているかを確かめるclass.</p>
+
+<h1>【使用例】</h1>
+
+<p>LJでは一致を確認． </p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_ruby'>ruby</span> <span class='id identifier rubyid_force_check'>force_check</span><span class='period'>.</span><span class='id identifier rubyid_rb'>rb</span> <span class='int'>0</span>
+</code></pre>
+
+<p>などで起動．</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_ruby'>ruby</span> <span class='id identifier rubyid_force_check_test'>force_check_test</span><span class='period'>.</span><span class='id identifier rubyid_rb'>rb</span>
+</code></pre>
+
+<p>で0番原子，およびすべての原子をcheck.</p>
+
+<h1>計算結果</h1>
+
+<h2>新しい実装での結果．</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left">site</th>
+<th style="text-align: left">x</th>
+<th style="text-align: left">y</th>
+<th style="text-align: left">z</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">7</td>
+<td style="text-align: left">0.01207</td>
+<td style="text-align: left">0.01234</td>
+<td style="text-align: left">0.00000</td>
+</tr>
+<tr>
+<td style="text-align: left">9</td>
+<td style="text-align: left">0.01207</td>
+<td style="text-align: left">-0.01234</td>
+<td style="text-align: left">0.00000</td>
+</tr>
+<tr>
+<td style="text-align: left">11</td>
+<td style="text-align: left">0.01115</td>
+<td style="text-align: left">-0.01094</td>
+<td style="text-align: left">0.00000</td>
+</tr>
+<tr>
+<td style="text-align: left">13</td>
+<td style="text-align: left">0.01115</td>
+<td style="text-align: left">0.01094</td>
+<td style="text-align: left">0.00000</td>
+</tr>
+<tr>
+<td style="text-align: left">15</td>
+<td style="text-align: left">0.01207</td>
+<td style="text-align: left">0.00000</td>
+<td style="text-align: left">0.01234</td>
+</tr>
+<tr>
+<td style="text-align: left">16</td>
+<td style="text-align: left">0.01207</td>
+<td style="text-align: left">0.00000</td>
+<td style="text-align: left">-0.01234</td>
+</tr>
+<tr>
+<td style="text-align: left">19</td>
+<td style="text-align: left">0.01115</td>
+<td style="text-align: left">0.00000</td>
+<td style="text-align: left">-0.01094</td>
+</tr>
+<tr>
+<td style="text-align: left">20</td>
+<td style="text-align: left">0.01115</td>
+<td style="text-align: left">0.00000</td>
+<td style="text-align: left">0.01094</td>
+</tr>
+<tr>
+<td style="text-align: left">23</td>
+<td style="text-align: left">-0.00001</td>
+<td style="text-align: left">-0.00012</td>
+<td style="text-align: left">-0.00012</td>
+</tr>
+<tr>
+<td style="text-align: left">24</td>
+<td style="text-align: left">-0.00001</td>
+<td style="text-align: left">-0.00012</td>
+<td style="text-align: left">0.00012</td>
+</tr>
+<tr>
+<td style="text-align: left">25</td>
+<td style="text-align: left">-0.00001</td>
+<td style="text-align: left">0.00012</td>
+<td style="text-align: left">-0.00012</td>
+</tr>
+<tr>
+<td style="text-align: left">26</td>
+<td style="text-align: left">-0.00001</td>
+<td style="text-align: left">0.00012</td>
+<td style="text-align: left">0.00012</td>
+</tr>
+</tbody></table>
+
+<h1>【実装】<a href="http://nishitani0.kwansei.ac.jp/%7Ebob/nishitani0/rdocs/force_check/index.html">rdocはこちら．</a></h1>
+
+<h1>【背景】</h1>
+
+<h2><img src="EAM_force" alt=""></h2>
+
+<h2>maple script</h2>
+
+<p>mapleへは，２次関数でのfittingを外注している．tmp.txtにあるdataを読み出し，計算した後，tmp2.txtへ書き出している．</p>
+
+<pre class="code maple"><code class="maple">file1:=&quot;./tmp.txt&quot;;
+data:=readdata(file1,2);
+with(LinearAlgebra):
+data2:=convert(Transpose(Matrix(data)),listlist);
+with(stats):
+eq1:=fit[leastsquare[[x, y], y = a0+a1*x+a2*x^2, {a0,a1,a2}]](data2);
+result:=subs(x=0.25,diff(rhs(eq1),x))/8.0827999115;
+file2:=&quot;./tmp2.txt&quot;;
+writedata(file2,[result]);
+</code></pre>
+
+<h2>mapleのfitting結果</h2>
+
+<p>結果は</p>
+
+<pre class="code tcsh"><code class="tcsh">bob% rake seventh_calc
+0
+&quot;0.24800000 &quot;
+&quot;grep TOTEN tmp0.res&quot;
+&quot;-31.9994085&quot;
+1
+&quot;0.24900000 &quot;
+&quot;grep TOTEN tmp1.res&quot;
+&quot;-31.9994887&quot;
+2
+&quot;0.25000000 &quot;
+&quot;grep TOTEN tmp2.res&quot;
+&quot;-31.9995311&quot;
+3
+&quot;0.25100000 &quot;
+&quot;grep TOTEN tmp3.res&quot;
+&quot;-31.9995357&quot;
+4
+&quot;0.25200000 &quot;
+&quot;grep TOTEN tmp4.res&quot;
+&quot;-31.9995023&quot;
+[[0.248, -31.9994085], [0.249, -31.9994887], [0.25, -31.9995311], [0.251, -31.9995357], [0.252, -31.9995023]]
+-0.002845548604
+</code></pre>
+
+<p>となり中心原子を動かした状態で，７番原子を動かした時の計算がうまくいっていることを示している．</p>
+
+<h1>【結果】</h1>
+
+<h2>EAM</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left">サイト</th>
+<th style="text-align: left">数値解</th>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">7</td>
+<td style="text-align: left">0.00145</td>
+<td style="text-align: left">0.00160</td>
+</tr>
+<tr>
+<td style="text-align: left">9</td>
+<td style="text-align: left">0.00145</td>
+<td style="text-align: left">-0.00160</td>
+</tr>
+<tr>
+<td style="text-align: left">11</td>
+<td style="text-align: left">0.00133</td>
+<td style="text-align: left">-0.00142</td>
+</tr>
+<tr>
+<td style="text-align: left">13</td>
+<td style="text-align: left">0.00133</td>
+<td style="text-align: left">0.00142</td>
+</tr>
+<tr>
+<td style="text-align: left">15</td>
+<td style="text-align: left">0.00145</td>
+<td style="text-align: left">0.00000</td>
+</tr>
+<tr>
+<td style="text-align: left">16</td>
+<td style="text-align: left">0.00145</td>
+<td style="text-align: left">0.00000</td>
+</tr>
+<tr>
+<td style="text-align: left">19</td>
+<td style="text-align: left">0.00133</td>
+<td style="text-align: left">0.00000</td>
+</tr>
+<tr>
+<td style="text-align: left">20</td>
+<td style="text-align: left">0.00133</td>
+<td style="text-align: left">0.00000</td>
+</tr>
+<tr>
+<td style="text-align: left">23</td>
+<td style="text-align: left">-0.00023</td>
+<td style="text-align: left">-0.00001</td>
+</tr>
+<tr>
+<td style="text-align: left">24</td>
+<td style="text-align: left">-0.00023</td>
+<td style="text-align: left">-0.00001</td>
+</tr>
+<tr>
+<td style="text-align: left">25</td>
+<td style="text-align: left">-0.00023</td>
+<td style="text-align: left">0.00001</td>
+</tr>
+<tr>
+<td style="text-align: left">26</td>
+<td style="text-align: left">-0.00023</td>
+<td style="text-align: left">0.00001</td>
+</tr>
+</tbody></table>
+
+<h2>LJ</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left">サイト</th>
+<th style="text-align: left"></th>
+<th style="text-align: left">数値解</th>
+<th style="text-align: left"></th>
+<th style="text-align: left"></th>
+<th style="text-align: left">解析解</th>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">7</td>
+<td style="text-align: left">0.01207</td>
+<td style="text-align: left">0.01234</td>
+<td style="text-align: left">0.00000</td>
+<td style="text-align: left">0.012074</td>
+<td style="text-align: left">0.012333</td>
+<td style="text-align: left">0.000000</td>
+</tr>
+<tr>
+<td style="text-align: left">9</td>
+<td style="text-align: left">0.01207</td>
+<td style="text-align: left">-0.01234</td>
+<td style="text-align: left">0.00000</td>
+<td style="text-align: left">0.012074</td>
+<td style="text-align: left">-0.012333</td>
+<td style="text-align: left">0.000000</td>
+</tr>
+<tr>
+<td style="text-align: left">11</td>
+<td style="text-align: left">0.01115</td>
+<td style="text-align: left">-0.01094</td>
+<td style="text-align: left">0.00000</td>
+<td style="text-align: left">0.011147</td>
+<td style="text-align: left">-0.010941</td>
+<td style="text-align: left">0.000000</td>
+</tr>
+<tr>
+<td style="text-align: left">13</td>
+<td style="text-align: left">0.01115</td>
+<td style="text-align: left">0.01094</td>
+<td style="text-align: left">0.00000</td>
+<td style="text-align: left">0.011147</td>
+<td style="text-align: left">0.010941</td>
+<td style="text-align: left">0.000000</td>
+</tr>
+<tr>
+<td style="text-align: left">15</td>
+<td style="text-align: left">0.01207</td>
+<td style="text-align: left">0.00000</td>
+<td style="text-align: left">0.01234</td>
+<td style="text-align: left">0.012074</td>
+<td style="text-align: left">0.000000</td>
+<td style="text-align: left">0.012333</td>
+</tr>
+<tr>
+<td style="text-align: left">16</td>
+<td style="text-align: left">0.01207</td>
+<td style="text-align: left">0.00000</td>
+<td style="text-align: left">-0.01234</td>
+<td style="text-align: left">0.012074</td>
+<td style="text-align: left">0.000000</td>
+<td style="text-align: left">-0.012333</td>
+</tr>
+<tr>
+<td style="text-align: left">19</td>
+<td style="text-align: left">0.01115</td>
+<td style="text-align: left">0.00000</td>
+<td style="text-align: left">-0.01094</td>
+<td style="text-align: left">0.011147</td>
+<td style="text-align: left">0.000000</td>
+<td style="text-align: left">-0.010941</td>
+</tr>
+<tr>
+<td style="text-align: left">20</td>
+<td style="text-align: left">0.01115</td>
+<td style="text-align: left">0.00000</td>
+<td style="text-align: left">0.01094</td>
+<td style="text-align: left">0.011147</td>
+<td style="text-align: left">0.000000</td>
+<td style="text-align: left">0.010941</td>
+</tr>
+<tr>
+<td style="text-align: left">23</td>
+<td style="text-align: left">-0.00001</td>
+<td style="text-align: left">-0.00012</td>
+<td style="text-align: left">-0.00012</td>
+<td style="text-align: left">-0.000010</td>
+<td style="text-align: left">-0.000116</td>
+<td style="text-align: left">-0.000116</td>
+</tr>
+<tr>
+<td style="text-align: left">24</td>
+<td style="text-align: left">-0.00001</td>
+<td style="text-align: left">-0.00012</td>
+<td style="text-align: left">0.00012</td>
+<td style="text-align: left">-0.000010</td>
+<td style="text-align: left">-0.000116</td>
+<td style="text-align: left">0.000116</td>
+</tr>
+<tr>
+<td style="text-align: left">25</td>
+<td style="text-align: left">-0.00001</td>
+<td style="text-align: left">0.00012</td>
+<td style="text-align: left">-0.00012</td>
+<td style="text-align: left">-0.000010</td>
+<td style="text-align: left">0.000116</td>
+<td style="text-align: left">-0.000116</td>
+</tr>
+<tr>
+<td style="text-align: left">26</td>
+<td style="text-align: left">-0.00001</td>
+<td style="text-align: left">0.00012</td>
+<td style="text-align: left">0.00012</td>
+<td style="text-align: left">-0.000010</td>
+<td style="text-align: left">0.000116</td>
+<td style="text-align: left">0.000116</td>
+</tr>
+</tbody></table>
+
+<p>なんかまちがってるし．間違いらしきもん発見．
+零点から遠く離れたところでfittingするのは極めて困難．</p>
+
+<p>LJに関しては，数値解と解析解は完全に一致している．これは，</p>
+
+<ol>
+<li>解析解が正しく計算できていること</li>
+<li>数値解を求めるルーチンにバグがないこと
+を証明している．EAMでも一致させる必要がある．
+しかし，当面のスケジュールを考えてEAMではなく，LJでrelaxさせることにする．</li>
+</ol>
+
+<h1>EAMのcode</h1>
+
+<p>上記の計算結果よりLJでは解析解と数値解がほぼ一致することが確認できた．おなじ計算ルーチンを
+使ってEAMに適用した結果，片桐codeでは相当異なった数値となった．そこで，いくつかの見直しを
+行い暫定的なコードを以下の通りとした．まだ，一致が思わしくないので，EAMをrelaxに使うときには
+再検証が必要である．</p>
+
+<pre class="code ruby"><code class="ruby">  def atom_force_bob()
+    rho=0.0
+    f,f_p=[0.0,0.0,0.0],[0.0,0.0,0.0]
+    f_n_left,f_n_right=[0.0,0.0,0.0],[0.0,0.0,0.0]
+    nl.each do |aj|
+      xx=f_distance(@pos,aj.pos) 
+      r=distance(@pos,aj.pos) 
+      rho_j=0.0 #ここの計算がloopの中にあるのは正しいか？
+      aj.nl.each{|ak|
+#        next if (ak.pos==@pos) #こいつを除外する理由は何？
+        r_k=distance(aj.pos,ak.pos)
+        h_k=B0*exp(-Q*r_k)
+        rho_j+=h_k*h_k
+      }
+      dfdrho_j=1/(2*sqrt(rho_j))
+      dpdr=-A0*P*exp(-P*r) 
+      h=B0*exp(-Q*r)
+      rho+=h*h 
+      dhdr=-2*Q*h*h #phi&#39;(r)
+      xx.each_with_index{|xi,i| 
+        f_p[i]+=xi/r*dpdr
+        f_n_left[i]+= -xi/r*dhdr
+        f_n_right[i]+= xi/r*dhdr*dfdrho_j
+      }
+    end
+</code></pre>
+</div></div>
+
+    <div id="footer">
+  Generated on Mon Jun  6 18:11:56 2016 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.2.2).
+</div>
+
+  </body>
+</html>
