@@ -1,0 +1,12 @@
+---
+:type: lj_jindo
+:element: Cu
+:d0:   4125.70
+:n:   9.00
+:m:   5.50
+:r0:   2.5487e-8
+:alat:   3.6153e-8
+:atom_mass:   63.5460/6.023e23
+:energy:  d0*((r/r0)^(-n)*m-(r/r0)^(-m)*n)/(m-n)
+:dedr:    d0*m*n*((r/r0)^(-m)-(r/r0)^(-n))/(r*(m-n))
+

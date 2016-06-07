@@ -11,6 +11,7 @@ module LJ
     ene=0.0
     nl.each do |aj|
       r=distance(@pos,aj.pos)
+      p r
       ene += -A*(1/r**3)+B*(1/r**5)
     end
     return ene
@@ -22,6 +23,7 @@ module LJ
       x,y,z=f_distance(@pos,aj.pos)
       r=sqrt(x**2+y**2+z**2)
       dedr=((3.0*A/r**4)-(5.0*B/r**6))
+      p dedr
       f[0] += -x/r*dedr
       f[1] += -y/r*dedr
       f[2] += -z/r*dedr

@@ -167,11 +167,10 @@
 
 <h1>【背景】</h1>
 
-<h2><img src="EAM_force" alt=""></h2>
-
 <h2>maple script</h2>
 
-<p>mapleへは，２次関数でのfittingを外注している．tmp.txtにあるdataを読み出し，計算した後，tmp2.txtへ書き出している．</p>
+<p>mapleへは，２次関数でのfittingを外注している．
+tmp.txtにあるdataを読み出し，計算した後，tmp1.txtへ書き出している．</p>
 
 <pre class="code maple"><code class="maple">file1:=&quot;./tmp.txt&quot;;
 data:=readdata(file1,2);
@@ -180,7 +179,7 @@ data2:=convert(Transpose(Matrix(data)),listlist);
 with(stats):
 eq1:=fit[leastsquare[[x, y], y = a0+a1*x+a2*x^2, {a0,a1,a2}]](data2);
 result:=subs(x=0.25,diff(rhs(eq1),x))/8.0827999115;
-file2:=&quot;./tmp2.txt&quot;;
+file2:=&quot;./tmp1.txt&quot;;
 writedata(file2,[result]);
 </code></pre>
 
@@ -188,29 +187,22 @@ writedata(file2,[result]);
 
 <p>結果は</p>
 
-<pre class="code tcsh"><code class="tcsh">bob% rake seventh_calc
-0
-&quot;0.24800000 &quot;
-&quot;grep TOTEN tmp0.res&quot;
-&quot;-31.9994085&quot;
-1
-&quot;0.24900000 &quot;
-&quot;grep TOTEN tmp1.res&quot;
-&quot;-31.9994887&quot;
-2
-&quot;0.25000000 &quot;
-&quot;grep TOTEN tmp2.res&quot;
-&quot;-31.9995311&quot;
-3
-&quot;0.25100000 &quot;
-&quot;grep TOTEN tmp3.res&quot;
-&quot;-31.9995357&quot;
-4
-&quot;0.25200000 &quot;
-&quot;grep TOTEN tmp4.res&quot;
-&quot;-31.9995023&quot;
-[[0.248, -31.9994085], [0.249, -31.9994887], [0.25, -31.9995311], [0.251, -31.9995357], [0.252, -31.9995023]]
--0.002845548604
+<pre class="code tcsh"><code class="tcsh">[&quot;&quot;, &quot;0.250000000&quot;, &quot;0.250000000&quot;, &quot;0.000000000&quot;]
+   0.2480000000    0.2500000000    0.0000000000
+[&quot;&quot;, &quot;0.250000000&quot;, &quot;0.250000000&quot;, &quot;0.000000000&quot;]
+   0.2490000000    0.2500000000    0.0000000000
+[&quot;&quot;, &quot;0.250000000&quot;, &quot;0.250000000&quot;, &quot;0.000000000&quot;]
+   0.2500000000    0.2500000000    0.0000000000
+[&quot;&quot;, &quot;0.250000000&quot;, &quot;0.250000000&quot;, &quot;0.000000000&quot;]
+   0.2510000000    0.2500000000    0.0000000000
+[&quot;&quot;, &quot;0.250000000&quot;, &quot;0.250000000&quot;, &quot;0.000000000&quot;]
+   0.2520000000    0.2500000000    0.0000000000
+  -0.0020000000 -119.5189992000
+  -0.0010000000 -119.5196490000
+   0.0000000000 -119.5199957000
+   0.0010000000 -119.5200393000
+   0.0020000000 -119.5197800000
+[0.01207440504]
 </code></pre>
 
 <p>となり中心原子を動かした状態で，７番原子を動かした時の計算がうまくいっていることを示している．</p>
@@ -459,7 +451,7 @@ writedata(file2,[result]);
 </div></div>
 
     <div id="footer">
-  Generated on Mon Jun  6 21:19:10 2016 by
+  Generated on Tue Jun  7 13:07:00 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.2).
 </div>

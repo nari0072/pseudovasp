@@ -1,0 +1,66 @@
+! lj0
+標準的なLennard-Jonesポテンシャルの表式
+<<<
+bob% cat POTCAR
+---
+:type: lj0
+:element: Al
+:a0:  1.587401051*0.7071067812/2.857701314;
+:e0:  -1*4.0/12.0;
+:a:   18.19007708
+:b:   89.22765864
+:p:   3.0
+:q:   5.0
+:cut_off: 4.0*0.8
+:energy:  -a*(1/r**p)+b*(1/r**q)
+:dedr:    (p*a/r**(p+1.0))-(q*b/r**(q+1.0))
+>>>
+! lj_jindo
+神藤先生あるいはVu Van Huangが使っていたLennard-Jonesポテンシャルの表式．
+<<< ruby
+bob% cat POTCAR_jindo_Cu
+---
+:type: lj_jindo
+:element: Cu
+:d0:   4125.70
+:n:   9.00
+:m:   5.50
+:r0:   2.5487e-8
+:alat:   3.6153e-8
+:atom_mass:   63.5460/6.023e23
+:energy:  d0*((r/r0)^(-n)*m-(r/r0)^(-m)*n)/(m-n)
+:dedr:    d0*m*n*((r/r0)^(-m)-(r/r0)^(-n))/(r*(m-n))
+>>>
+<<<
+Cu
+d0 := 4125.70;
+vn := 9.00;
+vm := 5.50;
+r0 := 2.5487e-8;
+rh:=r0/rr;
+dedr:=unapply(-d0*vm*vn / ((vn-vm)*rr) * (rh**vn - rh**vm),rr);
+eq1:=int(dedr(r),r);
+func:=unapply(eq1,rr);
+r1:=2.5487*10^(-8)*0.8;
+r2:=2.5487*10^(-8)*1.5;
+plot(8.617385e-05*func(r),r=r1..r2);
+>>>
+{{attach_view(jindo_potentialplot2d1.gif)}}
+<<< math
+ dedr:=unapply(-d0*vm*vn / ((vn-vm)*rr) * (rh**vn - rh**vm),rr);
+ eq1:=int(dedr(r),r);
+<<< tex
+-{ 1.821482757\times 10^{-38}} r{-5.5}+
+{ 2.942122564\times 10^{-65}} r^{-9}
+>>>
+<<< math
+rh:=r0/rr;
+dedr:=normal(expand(d0*vm*vn / ((vn-vm)*rr) * (rh**vn - rh**vm)));
+eq1:=simplify(int(dedr,rr));
+latex(eq1);
+>>>
+
+{{dmath 'dedr=-\frac{ vn vm d0  \left(rh^{vn}- rh^{vm}\right) }{ \left(vn-vm \right) rr }'}}
+
+{{dmath '\frac{ d0 \left( r0/rr^{vn}vm-  r0/rr^{vm} vn \right) }{ -vn + vm }
+'}}
