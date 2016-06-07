@@ -1,9 +1,6 @@
 # -*- coding: utf-8 -*-
 include Math
 require 'pp'
-require_relative 'eam'
-require_relative 'lj'
-require_relative 'poscar'
 
 # Boundary modelでpseudoVASPとVASPを切り替えるために設けたadaptorのつもり．
 # target.displayがtextでの返し．targetはclassとしての返し．
@@ -205,6 +202,7 @@ class LJAtom < Atom
   include LJ
   def initialize(pos,number,element)
     super(pos,number,element)
+#    select()
     @cut_off = CUT_OFF
   end
 end

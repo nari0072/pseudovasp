@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+require "pseudovasp/lj"
+require "pseudovasp/eam"
 require "pseudovasp/poscar"
 require "pseudovasp/version"
 require "pseudovasp/pseudovasp"
@@ -27,8 +29,8 @@ module PVasp
           puts opt.ver
         }
         opt.on('--potential TYPE',[:eam,:lj],
-               'potential selection, TYPEs=eam or lj.') {|type| 
-          @opts[:potential]= type
+               'potential selection, TYPEs=file, eam or lj .') {|type| 
+            @opts[:potential]= type
         }
         opt.on('--force [SITE]','check force on SITE or all sites(SITE>99)') {|v|
           force_check(v,@argv)
@@ -52,6 +54,7 @@ module PVasp
       site=  v.to_i > 99 ? -1 : v.to_i
       target_path = @argv[0]==nil ? './' : @argv[0]
       FileUtils.cd(target_path){
+        LJ.select('POTCAR')
         force_check = ForceCheck.new(target_path,@opts)
         print force_check.controller(site)
       }
