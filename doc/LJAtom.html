@@ -115,7 +115,7 @@
   
   <h3 class="inherited">Constants included
      from <span class='object_link'><a href="LJ.html" title="LJ (module)">LJ</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="LJ.html#A-constant" title="LJ::A (constant)">LJ::A</a></span>, <span class='object_link'><a href="LJ.html#A0-constant" title="LJ::A0 (constant)">LJ::A0</a></span>, <span class='object_link'><a href="LJ.html#B-constant" title="LJ::B (constant)">LJ::B</a></span>, <span class='object_link'><a href="LJ.html#CUT_OFF-constant" title="LJ::CUT_OFF (constant)">LJ::CUT_OFF</a></span>, <span class='object_link'><a href="LJ.html#E0-constant" title="LJ::E0 (constant)">LJ::E0</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="LJ.html#CUT_OFF-constant" title="LJ::CUT_OFF (constant)">LJ::CUT_OFF</a></span></p>
 
 
 
@@ -173,7 +173,7 @@
   
   
   <h3 class="inherited">Methods included from <span class='object_link'><a href="LJ.html" title="LJ (module)">LJ</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="LJ.html#atom_energy-class_method" title="LJ.atom_energy (method)">atom_energy</a></span>, <span class='object_link'><a href="LJ.html#atom_force-class_method" title="LJ.atom_force (method)">atom_force</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="LJ.html#atom_energy-class_method" title="LJ.atom_energy (method)">atom_energy</a></span>, <span class='object_link'><a href="LJ.html#atom_force-class_method" title="LJ.atom_force (method)">atom_force</a></span>, <span class='object_link'><a href="LJ.html#select-class_method" title="LJ.select (method)">select</a></span></p>
 
   
   
@@ -214,17 +214,19 @@
       <pre class="lines">
 
 
+203
+204
+205
 206
-207
-208
-209</pre>
+207</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 206</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 203</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_pos'>pos</span><span class='comma'>,</span><span class='id identifier rubyid_number'>number</span><span class='comma'>,</span><span class='id identifier rubyid_element'>element</span><span class='rparen'>)</span>
   <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_pos'>pos</span><span class='comma'>,</span><span class='id identifier rubyid_number'>number</span><span class='comma'>,</span><span class='id identifier rubyid_element'>element</span><span class='rparen'>)</span>
-  <span class='ivar'>@cut_off</span> <span class='op'>=</span> <span class='const'>CUT_OFF</span>
+<span class='comment'>#    select()
+</span>  <span class='ivar'>@cut_off</span> <span class='op'>=</span> <span class='const'>CUT_OFF</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -237,7 +239,7 @@
 </div>
 
     <div id="footer">
-  Generated on Tue Jun  7 13:07:02 2016 by
+  Generated on Wed Jun  8 09:49:03 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.2).
 </div>

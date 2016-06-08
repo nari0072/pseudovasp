@@ -61,7 +61,42 @@
 
     <iframe id="search_frame"></iframe>
 
-    <div id="content"><div id='filecontents'><p>神藤先生あるいはVu Van Huangが使っていたLennard-Jonesポテンシャルの表式．</p>
+    <div id="content"><div id='filecontents'><h1>lj0</h1>
+
+<p>標準的なLennard-Jonesポテンシャルの表式</p>
+
+<pre class="code ruby"><code class="ruby">bob% cat POTCAR
+---
+:type: lj0
+:element: Al
+:a0:  1.587401051*0.7071067812/2.857701314;
+:e0:  -1*4.0/12.0;
+:a:   18.19007708
+:b:   89.22765864
+:p:   3.0
+:q:   5.0
+:cut_off: 4.0*0.8
+:energy:  -a*(1/r**p)+b*(1/r**q)
+:dedr:    (p*a/r**(p+1.0))-(q*b/r**(q+1.0))
+</code></pre>
+
+<h1>lj_jindo</h1>
+
+<p>神藤先生あるいはVu Van Huangが使っていたLennard-Jonesポテンシャルの表式．</p>
+
+<pre class="code ruby"><code class="ruby">bob% cat POTCAR_jindo_Cu
+---
+:type: lj_jindo
+:element: Cu
+:d0:   4125.70
+:n:   9.00
+:m:   5.50
+:r0:   2.5487e-8
+:alat:   3.6153e-8
+:atom_mass:   63.5460/6.023e23
+:energy:  d0*((r/r0)^(-n)*m-(r/r0)^(-m)*n)/(m-n)
+:dedr:    d0*m*n*((r/r0)^(-m)-(r/r0)^(-n))/(r*(m-n))
+</code></pre>
 
 <pre class="code ruby"><code class="ruby">Cu
 d0 := 4125.70;
@@ -91,10 +126,37 @@ latex(eq1);
 </code></pre>
 
 <p>&#39;\frac{ d0 \left( r0/rr^{vnvm-  r0/rr^vm vn \right) }{ -vn + vm }</p>
+
+<h1>ポテンシャル選択機構</h1>
+
+<p>module LJに記述</p>
+
+<pre class="code ruby"><code class="ruby">  <span class='kw'>def</span> <span class='id identifier rubyid_select'>select</span><span class='lparen'>(</span><span class='id identifier rubyid_file'>file</span><span class='op'>=</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>POTCAR</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+<span class='comment'>#    p src = YAML.load_file(ARGV[0])
+</span>    <span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_src'>src</span> <span class='op'>=</span> <span class='const'>YAML</span><span class='period'>.</span><span class='id identifier rubyid_load_file'>load_file</span><span class='lparen'>(</span><span class='id identifier rubyid_file'>file</span><span class='rparen'>)</span>
+    <span class='cvar'>@@potential</span><span class='op'>=</span><span class='kw'>case</span> <span class='id identifier rubyid_src'>src</span><span class='lbracket'>[</span><span class='symbol'>:type</span><span class='rbracket'>]</span>
+              <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>lj0</span><span class='tstring_end'>&#39;</span></span>
+                <span class='const'>LJ0</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_src'>src</span><span class='rparen'>)</span>
+              <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>lj_jindo</span><span class='tstring_end'>&#39;</span></span>
+                <span class='const'>LJ_Jindo</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_src'>src</span><span class='rparen'>)</span>
+              <span class='kw'>end</span>
+  <span class='kw'>end</span>
+</code></pre>
+
+<ul>
+<li>委譲による選択
+
+<ul>
+<li>pseudovasp.rbにLJ.select(&#39;POTCAR&#39;)がある．</li>
+<li>LJ0あるいはLJ_Jindoをclassとして用意．</li>
+</ul></li>
+<li>POTCARへのYAMLでの記述</li>
+<li>クラス変数によるクラス共通の変数定義</li>
+</ul>
 </div></div>
 
     <div id="footer">
-  Generated on Tue Jun  7 13:07:00 2016 by
+  Generated on Wed Jun  8 09:49:02 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.2).
 </div>

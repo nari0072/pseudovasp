@@ -382,14 +382,14 @@
       <pre class="lines">
 
 
+162
+163
+164
 165
-166
-167
-168
-169</pre>
+166</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 165</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 162</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_pos'>pos</span><span class='comma'>,</span><span class='id identifier rubyid_number'>number</span><span class='comma'>,</span><span class='id identifier rubyid_element'>element</span><span class='rparen'>)</span>
   <span class='ivar'>@nl</span><span class='op'>=</span><span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -434,12 +434,12 @@
       <pre class="lines">
 
 
-163
-164
-165</pre>
+160
+161
+162</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 163</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 160</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_cut_off'>cut_off</span>
   <span class='ivar'>@cut_off</span>
@@ -477,12 +477,12 @@
       <pre class="lines">
 
 
-163
-164
-165</pre>
+160
+161
+162</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 163</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 160</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_element'>element</span>
   <span class='ivar'>@element</span>
@@ -520,12 +520,12 @@
       <pre class="lines">
 
 
-163
-164
-165</pre>
+160
+161
+162</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 163</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 160</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_nl'>nl</span>
   <span class='ivar'>@nl</span>
@@ -563,12 +563,12 @@
       <pre class="lines">
 
 
-163
-164
-165</pre>
+160
+161
+162</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 163</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 160</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_number'>number</span>
   <span class='ivar'>@number</span>
@@ -606,12 +606,12 @@
       <pre class="lines">
 
 
-163
-164
-165</pre>
+160
+161
+162</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 163</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 160</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_pos'>pos</span>
   <span class='ivar'>@pos</span>
@@ -643,10 +643,10 @@
       <pre class="lines">
 
 
-170</pre>
+167</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 170</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 167</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_energy'>energy</span><span class='semicolon'>;</span> <span class='id identifier rubyid_atom_energy'>atom_energy</span><span class='semicolon'>;</span>  <span class='kw'>end</span></pre>
     </td>
@@ -669,10 +669,10 @@
       <pre class="lines">
 
 
-171</pre>
+168</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 171</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 168</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_force'>force</span><span class='semicolon'>;</span> <span class='id identifier rubyid_atom_force'>atom_force</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -695,10 +695,10 @@
       <pre class="lines">
 
 
-172</pre>
+169</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 172</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 169</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_show_nl'>show_nl</span><span class='semicolon'>;</span> <span class='ivar'>@nl</span><span class='period'>.</span><span class='id identifier rubyid_inject'>inject</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_res'>res</span><span class='comma'>,</span> <span class='id identifier rubyid_aj'>aj</span><span class='op'>|</span> <span class='id identifier rubyid_res'>res</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_aj'>aj</span><span class='period'>.</span><span class='id identifier rubyid_number'>number</span> <span class='rbrace'>}</span><span class='semicolon'>;</span>  <span class='kw'>end</span></pre>
     </td>
@@ -711,7 +711,7 @@
 </div>
 
     <div id="footer">
-  Generated on Tue Jun  7 13:07:02 2016 by
+  Generated on Wed Jun  8 09:49:03 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.2).
 </div>

@@ -64,3 +64,25 @@ latex(eq1);
 
 {{dmath '\frac{ d0 \left( r0/rr^{vn}vm-  r0/rr^{vm} vn \right) }{ -vn + vm }
 '}}
+
+!ポテンシャル選択機構
+module LJに記述
+<<< ruby
+  def select(file='POTCAR')
+#    p src = YAML.load_file(ARGV[0])
+    p src = YAML.load_file(file)
+    @@potential=case src[:type]
+              when 'lj0'
+                LJ0.new(src)
+              when 'lj_jindo'
+                LJ_Jindo.new(src)
+              end
+  end
+>>>
+* 委譲による選択
+** pseudovasp.rbにLJ.select('POTCAR')がある．
+** LJ0あるいはLJ_Jindoをclassとして用意．
+* POTCARへのYAMLでの記述
+* クラス変数によるクラス共通の変数定義
+
+
