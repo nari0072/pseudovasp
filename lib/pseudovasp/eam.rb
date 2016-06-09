@@ -2,13 +2,6 @@
 module EAM
   extend self
   # set for Al, E=-1.0 at r=4.04...
-=begin
-  Q=3.00*0.2474390089
-  A0=24.18922289
-  B0=3.612254621
-  POQ=3.0
-  P=Q*POQ
-=end
 # for phi(r0)=-1.0, poq=3.0, r0=2.8577
 A0,B0,P,POQ,Q=69.1378255, 12.47431958, 2.148157653, 2.893854749, 0.7423170267
 # for phi(r0)=-3.39, Ev=0.8, p=3.0 at r0, r0=2.8577
@@ -98,26 +91,7 @@ module_function
       f_n_left[i]*=f_rho
       f[i]=-(f_p[i]+f_n_left[i]+f_n_right[i])
     end
-#    print "bob\n"
-#    p f
-#    exit
     return f
   end
 
-=begin
-  A=18.19007708
-  B=89.22765864
-  def atom_force()
-    f=[0.0,0.0,0.0]
-    nl.each do |aj|
-      x,y,z=f_distance(@pos,aj.pos)
-      r=sqrt(x**2+y**2+z**2)
-      dedr=((3*A/(r)**4)-(5*B/(r)**6))
-      f[0] += -x/r*dedr
-      f[1] += -y/r*dedr
-      f[2] += -z/r*dedr
-    end
-    return f
-  end
-=end
 end    

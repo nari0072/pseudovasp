@@ -156,20 +156,6 @@ class PseudoVASP < Poscar
   end
 end
 
-class Atom 
-  attr_accessor :pos, :nl, :cut_off, :number, :element
-
-  def initialize(pos,number,element)
-    @nl=[]
-    @pos,@number=pos,number
-    @element = element
-  end
-  def energy; atom_energy;  end
-  def force; atom_force; end
-  def show_nl; @nl.inject([]){|res, aj| res << aj.number };  end
-end
-
-
 def distance(a,b)
   r=0.0
   3.times{|i|
@@ -188,23 +174,6 @@ def f_distance(a,b)
     t << x
   }
   return t
-end
-
-class EAMAtom < Atom
-  include EAM
-  def initialize(pos,number,element)
-    super(pos,number,element)
-    @cut_off = CUT_OFF
-  end
-end
-
-class LJAtom < Atom
-  include LJ
-  def initialize(pos,number,element)
-    super(pos,number,element)
-#    select()
-    @cut_off = CUT_OFF
-  end
 end
 
 

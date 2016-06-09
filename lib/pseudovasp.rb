@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 require "pseudovasp/lj"
 require "pseudovasp/eam"
+require "pseudovasp/atom"
 require "pseudovasp/poscar"
 require "pseudovasp/version"
 require "pseudovasp/pseudovasp"
@@ -19,7 +20,8 @@ module PVasp
 
     def initialize(argv=[])
       @argv = argv
-      @opts = {output: :show_force, potential: :lj}
+      @opts = {output: :show_force, potential: :lj, 
+               calculation: :energy, site: '100'}
     end
 
     def execute
@@ -28,12 +30,13 @@ module PVasp
           opt.version = PseudoVASP::VERSION
           puts opt.ver
         }
-        opt.on('--potential TYPE',[:eam,:lj],
-               'potential selection, TYPEs=file, eam or lj .') {|type| 
-            @opts[:potential]= type
+        opt.on('--potential TYPE',[:eam,:lj,:file],
+               'potential selection, TYPEs=file, eam or lj.') {|type| 
+          @opts[:potential]= type
         }
-        opt.on('--force [SITE]','check force on SITE or all sites(SITE>99)') {|v|
-          force_check(v,@argv)
+        opt.on('--force [SITE]','check force on SITE or all sites(SITE>=100)') {|v|
+          @opts[:calculation]= :force_check
+          @opts[:site]= v
         }
       end
       command_parser.banner = "Usage: pvasp [options] DIRECTORY"
@@ -45,21 +48,21 @@ module PVasp
 
     def bare_run(target_dir)
       FileUtils.cd(target_dir){
-        @lattice=PseudoVASP.new('POSCAR',@opts)
-        print @lattice.display+"\n"
-      }
-    end
-
-    def force_check(v,argv)
-      site=  v.to_i > 99 ? -1 : v.to_i
-      target_path = @argv[0]==nil ? './' : @argv[0]
-      FileUtils.cd(target_path){
+        p type = @opts[:potential]
         LJ.select('POTCAR')
-        force_check = ForceCheck.new(target_path,@opts)
-        print force_check.controller(site)
+        case @opts[:calculation]
+        when :energy then
+          @lattice=PseudoVASP.new('POSCAR',@opts)
+          print @lattice.display+"\n"
+        when :force_check then
+          v=@opts[:site]
+          site=  v.to_i > 99 ? -1 : v.to_i
+          force_check = ForceCheck.new(target_dir,@opts)
+          print force_check.controller(site)
+        else
+          ;
+        end
       }
-      exit
     end
   end
-
 end

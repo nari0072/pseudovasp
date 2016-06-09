@@ -1,13 +1,5 @@
 require 'yaml'
 module LJ
-=begin
-  A0=1.587401051*0.7071067812/2.857701314;
-  E0=-1*4.0/12.0;
-
-  A=18.19007708
-  B=89.22765864
-=end
-  CUT_OFF=4.0*0.8
   module_function
 
   def atom_energy()#LJP
@@ -34,7 +26,21 @@ module LJ
     return f
   end
 
+
+  def select(file='POTCAR')
+#    p src = YAML.load_file(ARGV[0])
+    p src = YAML.load_file(file)
+    @@potential=case src[:type]
+              when 'lj0'
+                LJ0.new(src)
+              when 'lj_jindo'
+                LJ_Jindo.new(src)
+              end
+  end
+end
+
   class LJ0
+    include LJ
     def initialize(src)
       @@a,@@b,@@p,@@q=src[:a],src[:b],src[:p],src[:q]
     end
@@ -47,6 +53,7 @@ module LJ
   end
 
   class LJ_Jindo
+    include LJ
     def initialize(src)
       @@d0,@@m,@@n,@@r0=src[:d0],src[:m],src[:n],src[:r0]
     end
@@ -58,18 +65,3 @@ module LJ
       @@d0*@@m*@@n*((r/@@r0)**(-@@m)-(r/@@r0)**(-@@n))/(r*(@@m-@@n))
     end
   end
-
-  def select(file='POTCAR')
-#    p src = YAML.load_file(ARGV[0])
-    p src = YAML.load_file(file)
-    @@potential=case src[:type]
-              when 'lj0'
-                LJ0.new(src)
-              when 'lj_jindo'
-                LJ_Jindo.new(src)
-              end
-  end
-  #p potential.energy(r)
-  #p potential.dedr(r)
-end
-
