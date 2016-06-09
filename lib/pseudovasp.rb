@@ -20,8 +20,8 @@ module PVasp
 
     def initialize(argv=[])
       @argv = argv
-      @opts = {output: :show_force, potential: :lj, 
-               calculation: :energy, site: '100'}
+      @opts = {output: :show_force, potential: :lj,
+               calculation: :energy, site: 100}
     end
 
     def execute
@@ -30,13 +30,17 @@ module PVasp
           opt.version = PseudoVASP::VERSION
           puts opt.ver
         }
-        opt.on('--potential TYPE',[:eam,:lj,:file],
-               'potential selection, TYPEs=file, eam or lj.') {|type| 
+        opt.on('--potential TYPE',[:eam,:lj],
+               'potential selection, TYPEs=eam or lj.') {|type|
           @opts[:potential]= type
+        }
+        opt.on('--potcar FILE','potcar name.') {|file|
+          @opts[:potential]= :lj
+          @opts[:potcar_name]= file
         }
         opt.on('--force [SITE]','check force on SITE or all sites(SITE>=100)') {|v|
           @opts[:calculation]= :force_check
-          @opts[:site]= v
+          @opts[:site]= v if v!=nil
         }
       end
       command_parser.banner = "Usage: pvasp [options] DIRECTORY"
@@ -48,8 +52,15 @@ module PVasp
 
     def bare_run(target_dir)
       FileUtils.cd(target_dir){
-        p type = @opts[:potential]
-        LJ.select('POTCAR')
+        case @opts[:potential]
+        when :lj then
+          potcar = @opts[:potcar_name]
+          potcar = 'POTCAR' if potcar == nil
+          LJ.select(potcar)
+        else
+          ;
+        end
+
         case @opts[:calculation]
         when :energy then
           @lattice=PseudoVASP.new('POSCAR',@opts)

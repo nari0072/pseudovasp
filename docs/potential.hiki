@@ -85,4 +85,19 @@ module LJに記述
 * POTCARへのYAMLでの記述
 * クラス変数によるクラス共通の変数定義
 
+EAMとの統一を考えたが，energy, forceのmethodの選択を
+どっかでしないとダメで，その綺麗なやり方が思いつかず，
+そのままにした．
+
+<<< ruby
+class EAMAtom < Atom
+  include EAM
+end
+
+class LJAtom < Atom
+  include LJ
+end
+>>>
+となっており，ほぼ元どおり．
+
 

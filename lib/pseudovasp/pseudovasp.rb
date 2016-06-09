@@ -25,47 +25,38 @@ $lattice=[[0.0,0.0,0.0],[0.0,0.0,0.0],[0.0,0.0,0.0]]
 #Version::   1.1 2014-12-20 bob
 #Version::   1.2 2015-05-31 bob
 #Copyright:: Copyright (C) Shigeto R. Nishitani, 2014-16. All rights reserved.
-#License::   Ruby ライセンスに準拠
-#
 #== 詳細
 #* VASPに似せて，POSCARの入力を受け取り，
 #* LJあるいはEAMのエネルギー計算を実行し，OUTCAR形式で出力する．
-#== 目的
-#* VASPを用いた粒子シミュレーションの開発段階において，
-#- 実行を加速するため，
-#* もしくはtrue VASPでは実行に時間がかかりすぎる系のだいたいの値を求めるために活用．
-
 class PseudoVASP < Poscar
-  attr_reader :atom_list, :options
+  attr_reader :atom_list, :opts
 
-#lattice, nlを作る．
-#format :: :show_force, :show_energy
-  def initialize(poscar_name, options={output: :show_force, potential: :eam})
+  def initialize(poscar_name, opts={output: :show_force, potential: :eam})
     super(poscar_name)
-    3.times{|i| 
+    3.times{|i|
       3.times{|j|
         $lattice[i][j]=@lat_vec[i][j]*@whole_scale
       }
     }
-    @options=options
+    @opts=opts
     mk_lattice
     mk_nl
   end
 
   def mk_lattice
     @atom_list=[]
-    @pos_size.times{|i| 
+    @pos_size.times{|i|
       pos1=[0.0,0.0,0.0]
-      3.times {|j| 
-        3.times {|k| 
+      3.times {|j|
+        3.times {|k|
           pos1[k]+=@pos[i][j].to_f*$lattice[j][k]
         }
       }
-      case @options[:potential]
+      case @opts[:potential]
       when :eam then
-        @atom_list << EAMAtom.new(pos1,i,@elements[i]) 
+        @atom_list << EAMAtom.new(pos1,i,@elements[i])
       when :lj then
-        @atom_list << LJAtom.new(pos1,i,@elements[i]) 
+        @atom_list << LJAtom.new(pos1,i,@elements[i])
       else
         ;
       end
@@ -90,12 +81,12 @@ class PseudoVASP < Poscar
   end
 
   def display
-    text=""
-    text << sprintf("FREE ENERGIE OF THE ION-ELECTRON (eV)\n")
+    text = sprintf("FREE ENERGIE OF THE ION-ELECTRON (eV)\n")
     text << sprintf("-----------------------------------------------------------------\n")
     text << sprintf("free energy TOTEN =   %10.7f eV\n\n",total_energy())
     text << sprintf("POSITION                                       TOTAL-FORCE (eV/Angst)\n")
     text << sprintf("-----------------------------------------------------------------\n")
+
     text << show_pos_force()
     return text
   end
@@ -103,26 +94,23 @@ class PseudoVASP < Poscar
   def show_pos_force
     show_list=[0,7,9,11,13,15,16,19,20,23,24,25,26]
     text=""
-    @atom_list.each_with_index {|ai,ii| 
+    @atom_list.each_with_index {|ai,ii|
       pos,f=ai.pos,ai.force
-      case @options[:output]
+      case @opts[:output]
       when :show_force then
         3.times {|i| text << sprintf("%10.6f",pos[i]/($lattice[i][i])) }
         3.times {|i| text << sprintf("%10.4f",f[i]) }
-        text << sprintf("%4d",ii) #not VASP but convenience to see
-        text << sprintf("\n")
+        text << sprintf("%4d\n",ii)
       when :show_energy then
         3.times {|i| text << sprintf("%10.6f",pos[i]/($lattice[i][i])) }
         3.times {|i| text << sprintf("%14.4f",f[i]) }
-        text << sprintf("%10.6f",ai.energy) 
-        text << sprintf("%4d",ii) #not VASP but convenience to see
-        text << sprintf("\n")
+        text << sprintf("%10.6f",ai.energy)
+        text << sprintf("%4d\n",ii)
       when :select_energy then
         next if !show_list.include?(ii)
-          text << sprintf("||%4d||",ii) #not VASP but convenience to see
+          text << sprintf("||%4d||",ii)
           3.times {|i| text << sprintf("%14.6f||",f[i]) }
-          text << sprintf("%10.6f",ai.energy) 
-          text << sprintf("\n")
+          text << sprintf("%10.6f\n",ai.energy)
       else
         ;
       end
@@ -145,7 +133,6 @@ class PseudoVASP < Poscar
   def a0
     x,y,z=@lat_vec[0][0],@lat_vec[1][1],@lat_vec[2][2]
     scale = @whole_scale
-#    volume = scale**3*x*y*z
     a0 = scale*x
     return a0
   end
