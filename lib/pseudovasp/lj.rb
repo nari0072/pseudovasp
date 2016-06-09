@@ -52,10 +52,11 @@ class LJ_Jindo
     @@d0,@@m,@@n,@@r0=src[:d0],src[:m],src[:n],src[:r0]
   end
   def energy(r)
-    ene=@@d0*((r/@@r0)**(-@@n)*@@m-(r/@@r0)**(-@@m)*@@n)/(@@m-@@n)
+    ene=-@@d0*((r/@@r0)**(-@@n)*@@m-(r/@@r0)**(-@@m)*@@n)/(@@m-@@n)
     ene*8.617385e-05
   end
   def dedr(r)
-    @@d0*@@m*@@n*((r/@@r0)**(-@@m)-(r/@@r0)**(-@@n))/(r*(@@m-@@n))
+    dedr=-@@d0*@@m*@@n*((r/@@r0)**(-@@m)-(r/@@r0)**(-@@n))/(r*(@@m-@@n))
+    dedr*8.617385e-05
   end
 end
