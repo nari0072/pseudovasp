@@ -6,6 +6,7 @@ require "pseudovasp/poscar"
 require "pseudovasp/version"
 require "pseudovasp/pseudovasp"
 require "pseudovasp/force_check"
+require "pseudovasp/momentmethod.rb"
 require 'optparse'
 require 'pp'
 
@@ -42,6 +43,9 @@ module PVasp
           @opts[:calculation]= :force_check
           @opts[:site]= v if v!=nil
         }
+        opt.on('--moment','calculate free energy by Moment method') {|v|
+          @opts[:calculation]= :moment_method
+        }
       end
       command_parser.banner = "Usage: pvasp [options] DIRECTORY"
       command_parser.parse!(@argv)
@@ -70,6 +74,8 @@ module PVasp
           site=  v.to_i > 99 ? -1 : v.to_i
           force_check = ForceCheck.new(target_dir,@opts)
           print force_check.controller(site)
+        when :moment_method then
+          MomentMethod.new(target_dir)
         else
           ;
         end
