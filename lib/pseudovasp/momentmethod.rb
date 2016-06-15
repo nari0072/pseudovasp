@@ -21,9 +21,8 @@ class MomentMethod
   def select(file='POTCAR')
     src = YAML.load_file(file)
     h=@@potential=case src[:type]
-    #ここの微分式POTCARのほうにしたい．メソッドそのままPOTCARに入れるのもありかも．．
+    #ここの微分式POTCARのほうにいれたい．メソッドそのままPOTCARに入れるのもありかも．．
     when 'lj_jindo'
-    #  diff_lj_jindo(src)
       DiffLjJindo.new(src)
     else
       p "*********************missed potcar*******************"
@@ -61,7 +60,7 @@ class MomentMethod
           gt_k2 = gamma*theta/k**2
           u0 = calc_u0(a1,a2)
           psi0 = calc_psi0(x,theta)
-          large_a = calc_lerge_a(x, gt_k2)
+          large_a = calc_large_a(x, gt_k2)
           y0 = calc_y0(k, gamma, theta, large_a)
           psi_nonli = calc_psi_nonli(k, x, gamma,theta) #nonlinear?thesis(1988)p516(19)
 
@@ -143,7 +142,7 @@ class MomentMethod
     return psai0 = 3.0*theta*(x+log(arg0))
   end
 
-  def calc_lerge_a(x, gt_k2)
+  def calc_large_a(x, gt_k2)
     xcothx = x/tanh(x)
     xcothx = x*(exp(x)+exp(-x))/(exp(x)-exp(-x))
     xcothx2 = xcothx**2
