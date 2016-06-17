@@ -1,6 +1,11 @@
 ! lj0
 標準的なLennard-Jonesポテンシャルの表式
 <<<
+\[
+\\frac{1}{2}
+\]
+>>>
+<<<
 bob% cat POTCAR
 ---
 :type: lj0

@@ -2,6 +2,18 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+      tex2jax:{
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
+      }
+      });
+    </script>
+    <script type="text/javascript"
+	    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+    </script>
+    <meta http-equiv="X-UA-Compatible" CONTENT="IE=EmulateIE7" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>
   File: atom
@@ -71,8 +83,9 @@
 
 <p>EAMは原子$i$のエネルギーを</p>
 
-<pre class="code math"><code class="math">E_i = \sum _ j\phi \left( r_{{j}} \right) + f(\rho)
-</code></pre>
+<p>$$
+E_i = \sum_j\phi \left( r_j \right) + f(\rho)
+$$</p>
 
 <p>と表記する．右辺第1項は単なる2体間の相互作用を表わす．
 右辺第2項が多体項と呼ばれるEAMに特徴的な項である．
@@ -81,8 +94,9 @@
 
 <p>さて，$r_j$はこの場合原子$j$との距離を意味しており，$E_i$は原子$i$の周りの原子との和によって求まる．多体項は，一般的に</p>
 
-<pre class="code math"><code class="math">f(\rho) =\sqrt{\rho}=\sqrt {\sum_j h^2 \left( r_{{j}} \right) }
-</code></pre>
+<p>$$
+f(\rho) =\sqrt\rho=\sqrt{\sum_j h^2 \left( r_j \right) }
+$$</p>
 
 <p>によって求められる．$\rho$は強結合(tight binding)の2次モーメント近似から，電子密度を表わすとされている．</p>
 
@@ -111,7 +125,7 @@ evalf(subs(r=r0,ene(r)-sqrt(rho(r))));
                           -3.390000002
 </code></pre>
 
-<pre class="code math"><code class="math">E_i = \sum _ j\phi \left( r_{{j}} \right) + \h \left( r_{{j}} \right) 
+<pre class="code math"><code class="math">E_i = \sum _ j\phi \left( r_{{j}} \right) + \h \left( r_{{j}} \right)
 </code></pre>
 
 <h1>LJ</h1>
@@ -142,20 +156,21 @@ phi(r0);
 
 <h2>background</h2>
 
-<p>MCにおいてNPT一定の計算がうまくいっていない．</p>
+<p>MCにおいて$NPT$一定の計算がうまくいっていない．</p>
 
 <ul>
-<li>覚埜式のE-Vプロットをすると小体積でのエネルギの上がりが低い．</li>
-<li>T=0.1[eV]で融けているよう
+<li>覚埜式の$E-V$プロットをすると小体積でのエネルギの上がりが低い．</li>
+<li>$T=0.1$[eV]で融けているよう
 なので，もう少し精密にEAMポテンシャルを構築してみる．</li>
 </ul>
 
 <h2>poq fixed</h2>
 
-<p>EAM potentialにおいて単原子空孔の生成エネルギEvは</p>
+<p>EAM potentialにおいて単原子空孔の生成エネルギ$E_v$は</p>
 
-<pre class="code math"><code class="math">E_v = -\frac{E_c}{2}\frac{2-poq}{1-poq}
-</code></pre>
+<p>$$
+E_v = -\fracE_c2 \frac2-poq1-poq
+$$</p>
 
 <p>の関係がある．したがって，</p>
 
@@ -166,9 +181,9 @@ solve(eq1,poq);
                           2.893854749
 </code></pre>
 
-<p>さらにこの値を使ってポテンシャルのパラメータを求めるのは以下の通り．ここで，qを設定している．</p>
+<p>さらにこの値を使ってポテンシャルのパラメータを求めるのは以下の通り．ここで，$q$を設定している．</p>
 
-<pre class="code maple"><code class="maple">phi:=r-&gt;12.0*A*exp(-p*r)-sqrt(12.0*(B*exp(-q*r))^2);
+<pre class="code ruby"><code class="ruby">phi:=r-&gt;12.0*A*exp(-p*r)-sqrt(12.0*(B*exp(-q*r))^2);
 poq:=2.893854749;
 q:=3.00*0.2474390089;
 a0:=8.0828/2;     
@@ -191,7 +206,7 @@ a0,b0,p,poq,q;
 </div></div>
 
     <div id="footer">
-  Generated on Wed Jun  8 09:49:02 2016 by
+  Generated on Fri Jun 17 19:56:26 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.2).
 </div>

@@ -2,6 +2,18 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+      tex2jax:{
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
+      }
+      });
+    </script>
+    <script type="text/javascript"
+	    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+    </script>
+    <meta http-equiv="X-UA-Compatible" CONTENT="IE=EmulateIE7" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>
   Class: Atom
@@ -94,7 +106,7 @@
   
   
     <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">lib/pseudovasp/pseudovasp.rb</dd>
+    <dd class="r2 last">lib/pseudovasp/atom.rb</dd>
   
 </dl>
 <div class="clear"></div>
@@ -103,6 +115,18 @@
   <h2>Direct Known Subclasses</h2>
   <p class="children"><span class='object_link'><a href="EAMAtom.html" title="EAMAtom (class)">EAMAtom</a></span>, <span class='object_link'><a href="LJAtom.html" title="LJAtom (class)">LJAtom</a></span></p>
 </div>
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="CUT_OFF-constant" class="">CUT_OFF =
+          
+        </dt>
+        <dd><pre class="code"><span class='float'>4.0</span><span class='op'>*</span><span class='float'>0.8</span></pre></dd>
+      
+    </dl>
+  
 
 
 
@@ -382,19 +406,21 @@
       <pre class="lines">
 
 
-162
-163
-164
-165
-166</pre>
+5
+6
+7
+8
+9
+10</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 162</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/atom.rb', line 5</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_pos'>pos</span><span class='comma'>,</span><span class='id identifier rubyid_number'>number</span><span class='comma'>,</span><span class='id identifier rubyid_element'>element</span><span class='rparen'>)</span>
   <span class='ivar'>@nl</span><span class='op'>=</span><span class='lbracket'>[</span><span class='rbracket'>]</span>
   <span class='ivar'>@pos</span><span class='comma'>,</span><span class='ivar'>@number</span><span class='op'>=</span><span class='id identifier rubyid_pos'>pos</span><span class='comma'>,</span><span class='id identifier rubyid_number'>number</span>
   <span class='ivar'>@element</span> <span class='op'>=</span> <span class='id identifier rubyid_element'>element</span>
+  <span class='ivar'>@cut_off</span> <span class='op'>=</span> <span class='const'>CUT_OFF</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -434,12 +460,12 @@
       <pre class="lines">
 
 
-160
-161
-162</pre>
+2
+3
+4</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 160</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/atom.rb', line 2</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_cut_off'>cut_off</span>
   <span class='ivar'>@cut_off</span>
@@ -477,12 +503,12 @@
       <pre class="lines">
 
 
-160
-161
-162</pre>
+2
+3
+4</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 160</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/atom.rb', line 2</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_element'>element</span>
   <span class='ivar'>@element</span>
@@ -520,12 +546,12 @@
       <pre class="lines">
 
 
-160
-161
-162</pre>
+2
+3
+4</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 160</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/atom.rb', line 2</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_nl'>nl</span>
   <span class='ivar'>@nl</span>
@@ -563,12 +589,12 @@
       <pre class="lines">
 
 
-160
-161
-162</pre>
+2
+3
+4</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 160</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/atom.rb', line 2</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_number'>number</span>
   <span class='ivar'>@number</span>
@@ -606,12 +632,12 @@
       <pre class="lines">
 
 
-160
-161
-162</pre>
+2
+3
+4</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 160</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/atom.rb', line 2</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_pos'>pos</span>
   <span class='ivar'>@pos</span>
@@ -643,10 +669,10 @@
       <pre class="lines">
 
 
-167</pre>
+11</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 167</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/atom.rb', line 11</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_energy'>energy</span><span class='semicolon'>;</span> <span class='id identifier rubyid_atom_energy'>atom_energy</span><span class='semicolon'>;</span>  <span class='kw'>end</span></pre>
     </td>
@@ -669,10 +695,10 @@
       <pre class="lines">
 
 
-168</pre>
+12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 168</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/atom.rb', line 12</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_force'>force</span><span class='semicolon'>;</span> <span class='id identifier rubyid_atom_force'>atom_force</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -695,10 +721,10 @@
       <pre class="lines">
 
 
-169</pre>
+13</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 169</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/atom.rb', line 13</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_show_nl'>show_nl</span><span class='semicolon'>;</span> <span class='ivar'>@nl</span><span class='period'>.</span><span class='id identifier rubyid_inject'>inject</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_res'>res</span><span class='comma'>,</span> <span class='id identifier rubyid_aj'>aj</span><span class='op'>|</span> <span class='id identifier rubyid_res'>res</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_aj'>aj</span><span class='period'>.</span><span class='id identifier rubyid_number'>number</span> <span class='rbrace'>}</span><span class='semicolon'>;</span>  <span class='kw'>end</span></pre>
     </td>
@@ -711,7 +737,7 @@
 </div>
 
     <div id="footer">
-  Generated on Wed Jun  8 09:49:03 2016 by
+  Generated on Fri Jun 17 19:56:27 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.2).
 </div>

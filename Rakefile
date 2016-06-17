@@ -16,6 +16,7 @@ end
 
 desc "make documents by yard"
 task :yard do
+=begin
   files = Dir.entries('docs')
   files.each{|file|
     name=file.split('.')
@@ -30,6 +31,7 @@ task :yard do
   system "cp docs/*.gif doc"
   system "cp docs/*.png #{basename}.wiki"
   system "cp docs/*.png doc"
+=end
   YARD::Rake::YardocTask.new
 end
 

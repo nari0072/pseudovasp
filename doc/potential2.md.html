@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+      <title>potential2</title>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    jax: ["input/TeX","output/HTML-CSS"],
+    extensions: [],
+    TeX: {
+      extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
+    },
+    showMathMenu: false
+  });
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js">
+</script>
+      <style>.markdown-preview:not([data-use-github-style]) { padding: 2em; font-size: 1.2em; color: rgb(85, 85, 85); overflow: auto; background-color: rgb(255, 255, 255); }
+.markdown-preview:not([data-use-github-style]) > :first-child { margin-top: 0px; }
+.markdown-preview:not([data-use-github-style]) h1, .markdown-preview:not([data-use-github-style]) h2, .markdown-preview:not([data-use-github-style]) h3, .markdown-preview:not([data-use-github-style]) h4, .markdown-preview:not([data-use-github-style]) h5, .markdown-preview:not([data-use-github-style]) h6 { line-height: 1.2; margin-top: 1.5em; margin-bottom: 0.5em; color: rgb(3, 3, 3); }
+.markdown-preview:not([data-use-github-style]) h1 { font-size: 2.4em; font-weight: 300; }
+.markdown-preview:not([data-use-github-style]) h2 { font-size: 1.8em; font-weight: 400; }
+.markdown-preview:not([data-use-github-style]) h3 { font-size: 1.5em; font-weight: 500; }
+.markdown-preview:not([data-use-github-style]) h4 { font-size: 1.2em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) h5 { font-size: 1.1em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) h6 { font-size: 1em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) strong { color: rgb(3, 3, 3); }
+.markdown-preview:not([data-use-github-style]) del { color: rgb(126, 126, 126); }
+.markdown-preview:not([data-use-github-style]) a, .markdown-preview:not([data-use-github-style]) a code { color: rgb(0, 0, 0); }
+.markdown-preview:not([data-use-github-style]) img { max-width: 100%; }
+.markdown-preview:not([data-use-github-style]) > p { margin-top: 0px; margin-bottom: 1.5em; }
+.markdown-preview:not([data-use-github-style]) > ul, .markdown-preview:not([data-use-github-style]) > ol { margin-bottom: 1.5em; }
+.markdown-preview:not([data-use-github-style]) blockquote { margin: 1.5em 0px; font-size: inherit; color: rgb(126, 126, 126); border-color: rgb(214, 214, 214); border-width: 4px; }
+.markdown-preview:not([data-use-github-style]) hr { margin: 3em 0px; border-top-width: 2px; border-top-style: dashed; border-top-color: rgb(214, 214, 214); background: none; }
+.markdown-preview:not([data-use-github-style]) table { margin: 1.5em 0px; }
+.markdown-preview:not([data-use-github-style]) th { color: rgb(3, 3, 3); }
+.markdown-preview:not([data-use-github-style]) th, .markdown-preview:not([data-use-github-style]) td { padding: 0.66em 1em; border: 1px solid rgb(214, 214, 214); }
+.markdown-preview:not([data-use-github-style]) pre, .markdown-preview:not([data-use-github-style]) code { color: rgb(3, 3, 3); background-color: rgb(240, 240, 240); }
+.markdown-preview:not([data-use-github-style]) pre, .markdown-preview:not([data-use-github-style]) pre.editor-colors { margin: 1.5em 0px; padding: 1em; font-size: 0.92em; border-radius: 3px; background-color: rgb(245, 245, 245); }
+.markdown-preview:not([data-use-github-style]) kbd { color: rgb(3, 3, 3); border-width: 1px 1px 2px; border-style: solid; border-color: rgb(214, 214, 214) rgb(214, 214, 214) rgb(199, 199, 199); background-color: rgb(240, 240, 240); }
+.markdown-preview[data-use-github-style] { font-family: 'Helvetica Neue', Helvetica, 'Segoe UI', Arial, freesans, sans-serif; line-height: 1.6; word-wrap: break-word; padding: 30px; font-size: 16px; color: rgb(51, 51, 51); overflow: scroll; background-color: rgb(255, 255, 255); }
+.markdown-preview[data-use-github-style] > :first-child { margin-top: 0px !important; }
+.markdown-preview[data-use-github-style] > :last-child { margin-bottom: 0px !important; }
+.markdown-preview[data-use-github-style] a:not([href]) { color: inherit; text-decoration: none; }
+.markdown-preview[data-use-github-style] .absent { color: rgb(204, 0, 0); }
+.markdown-preview[data-use-github-style] .anchor { position: absolute; top: 0px; left: 0px; display: block; padding-right: 6px; padding-left: 30px; margin-left: -30px; }
+.markdown-preview[data-use-github-style] .anchor:focus { outline: none; }
+.markdown-preview[data-use-github-style] h1, .markdown-preview[data-use-github-style] h2, .markdown-preview[data-use-github-style] h3, .markdown-preview[data-use-github-style] h4, .markdown-preview[data-use-github-style] h5, .markdown-preview[data-use-github-style] h6 { position: relative; margin-top: 1em; margin-bottom: 16px; font-weight: bold; line-height: 1.4; }
+.markdown-preview[data-use-github-style] h1 .octicon-link, .markdown-preview[data-use-github-style] h2 .octicon-link, .markdown-preview[data-use-github-style] h3 .octicon-link, .markdown-preview[data-use-github-style] h4 .octicon-link, .markdown-preview[data-use-github-style] h5 .octicon-link, .markdown-preview[data-use-github-style] h6 .octicon-link { display: none; color: rgb(0, 0, 0); vertical-align: middle; }
+.markdown-preview[data-use-github-style] h1:hover .anchor, .markdown-preview[data-use-github-style] h2:hover .anchor, .markdown-preview[data-use-github-style] h3:hover .anchor, .markdown-preview[data-use-github-style] h4:hover .anchor, .markdown-preview[data-use-github-style] h5:hover .anchor, .markdown-preview[data-use-github-style] h6:hover .anchor { padding-left: 8px; margin-left: -30px; text-decoration: none; }
+.markdown-preview[data-use-github-style] h1:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h2:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h3:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h4:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h5:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h6:hover .anchor .octicon-link { display: inline-block; }
+.markdown-preview[data-use-github-style] h1 tt, .markdown-preview[data-use-github-style] h2 tt, .markdown-preview[data-use-github-style] h3 tt, .markdown-preview[data-use-github-style] h4 tt, .markdown-preview[data-use-github-style] h5 tt, .markdown-preview[data-use-github-style] h6 tt, .markdown-preview[data-use-github-style] h1 code, .markdown-preview[data-use-github-style] h2 code, .markdown-preview[data-use-github-style] h3 code, .markdown-preview[data-use-github-style] h4 code, .markdown-preview[data-use-github-style] h5 code, .markdown-preview[data-use-github-style] h6 code { font-size: inherit; }
+.markdown-preview[data-use-github-style] h1 { padding-bottom: 0.3em; font-size: 2.25em; line-height: 1.2; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(238, 238, 238); }
+.markdown-preview[data-use-github-style] h1 .anchor { line-height: 1; }
+.markdown-preview[data-use-github-style] h2 { padding-bottom: 0.3em; font-size: 1.75em; line-height: 1.225; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(238, 238, 238); }
+.markdown-preview[data-use-github-style] h2 .anchor { line-height: 1; }
+.markdown-preview[data-use-github-style] h3 { font-size: 1.5em; line-height: 1.43; }
+.markdown-preview[data-use-github-style] h3 .anchor { line-height: 1.2; }
+.markdown-preview[data-use-github-style] h4 { font-size: 1.25em; }
+.markdown-preview[data-use-github-style] h4 .anchor { line-height: 1.2; }
+.markdown-preview[data-use-github-style] h5 { font-size: 1em; }
+.markdown-preview[data-use-github-style] h5 .anchor { line-height: 1.1; }
+.markdown-preview[data-use-github-style] h6 { font-size: 1em; color: rgb(119, 119, 119); }
+.markdown-preview[data-use-github-style] h6 .anchor { line-height: 1.1; }
+.markdown-preview[data-use-github-style] p, .markdown-preview[data-use-github-style] blockquote, .markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol, .markdown-preview[data-use-github-style] dl, .markdown-preview[data-use-github-style] table, .markdown-preview[data-use-github-style] pre { margin-top: 0px; margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] hr { height: 4px; padding: 0px; margin: 16px 0px; border: 0px none; background-color: rgb(231, 231, 231); }
+.markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol { padding-left: 2em; }
+.markdown-preview[data-use-github-style] ul.no-list, .markdown-preview[data-use-github-style] ol.no-list { padding: 0px; list-style-type: none; }
+.markdown-preview[data-use-github-style] ul ul, .markdown-preview[data-use-github-style] ul ol, .markdown-preview[data-use-github-style] ol ol, .markdown-preview[data-use-github-style] ol ul { margin-top: 0px; margin-bottom: 0px; }
+.markdown-preview[data-use-github-style] li > p { margin-top: 16px; }
+.markdown-preview[data-use-github-style] dl { padding: 0px; }
+.markdown-preview[data-use-github-style] dl dt { padding: 0px; margin-top: 16px; font-size: 1em; font-style: italic; font-weight: bold; }
+.markdown-preview[data-use-github-style] dl dd { padding: 0px 16px; margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] blockquote { padding: 0px 15px; color: rgb(119, 119, 119); border-left-width: 4px; border-left-style: solid; border-left-color: rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] blockquote > :first-child { margin-top: 0px; }
+.markdown-preview[data-use-github-style] blockquote > :last-child { margin-bottom: 0px; }
+.markdown-preview[data-use-github-style] table { display: block; width: 100%; overflow: auto; word-break: keep-all; }
+.markdown-preview[data-use-github-style] table th { font-weight: bold; }
+.markdown-preview[data-use-github-style] table th, .markdown-preview[data-use-github-style] table td { padding: 6px 13px; border: 1px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] table tr { border-top-width: 1px; border-top-style: solid; border-top-color: rgb(204, 204, 204); background-color: rgb(255, 255, 255); }
+.markdown-preview[data-use-github-style] table tr:nth-child(2n) { background-color: rgb(248, 248, 248); }
+.markdown-preview[data-use-github-style] img { max-width: 100%; box-sizing: border-box; }
+.markdown-preview[data-use-github-style] .emoji { max-width: none; }
+.markdown-preview[data-use-github-style] span.frame { display: block; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.frame > span { display: block; float: left; width: auto; padding: 7px; margin: 13px 0px 0px; overflow: hidden; border: 1px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] span.frame span img { display: block; float: left; }
+.markdown-preview[data-use-github-style] span.frame span span { display: block; padding: 5px 0px 0px; clear: both; color: rgb(51, 51, 51); }
+.markdown-preview[data-use-github-style] span.align-center { display: block; overflow: hidden; clear: both; }
+.markdown-preview[data-use-github-style] span.align-center > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: center; }
+.markdown-preview[data-use-github-style] span.align-center span img { margin: 0px auto; text-align: center; }
+.markdown-preview[data-use-github-style] span.align-right { display: block; overflow: hidden; clear: both; }
+.markdown-preview[data-use-github-style] span.align-right > span { display: block; margin: 13px 0px 0px; overflow: hidden; text-align: right; }
+.markdown-preview[data-use-github-style] span.align-right span img { margin: 0px; text-align: right; }
+.markdown-preview[data-use-github-style] span.float-left { display: block; float: left; margin-right: 13px; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.float-left span { margin: 13px 0px 0px; }
+.markdown-preview[data-use-github-style] span.float-right { display: block; float: right; margin-left: 13px; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.float-right > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: right; }
+.markdown-preview[data-use-github-style] code, .markdown-preview[data-use-github-style] tt { padding: 0.2em 0px; margin: 0px; font-size: 85%; border-radius: 3px; background-color: rgba(0, 0, 0, 0.0392157); }
+.markdown-preview[data-use-github-style] code::before, .markdown-preview[data-use-github-style] tt::before, .markdown-preview[data-use-github-style] code::after, .markdown-preview[data-use-github-style] tt::after { letter-spacing: -0.2em; content: " "; }
+.markdown-preview[data-use-github-style] code br, .markdown-preview[data-use-github-style] tt br { display: none; }
+.markdown-preview[data-use-github-style] del code { text-decoration: inherit; }
+.markdown-preview[data-use-github-style] pre > code { padding: 0px; margin: 0px; font-size: 100%; word-break: normal; white-space: pre; border: 0px; background: transparent; }
+.markdown-preview[data-use-github-style] .highlight { margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] .highlight pre, .markdown-preview[data-use-github-style] pre { padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; border-radius: 3px; background-color: rgb(247, 247, 247); }
+.markdown-preview[data-use-github-style] .highlight pre { margin-bottom: 0px; word-break: normal; }
+.markdown-preview[data-use-github-style] pre { word-wrap: normal; }
+.markdown-preview[data-use-github-style] pre code, .markdown-preview[data-use-github-style] pre tt { display: inline; max-width: initial; padding: 0px; margin: 0px; overflow: initial; line-height: inherit; word-wrap: normal; border: 0px; background-color: transparent; }
+.markdown-preview[data-use-github-style] pre code::before, .markdown-preview[data-use-github-style] pre tt::before, .markdown-preview[data-use-github-style] pre code::after, .markdown-preview[data-use-github-style] pre tt::after { content: normal; }
+.markdown-preview[data-use-github-style] kbd { display: inline-block; padding: 3px 5px; font-size: 11px; line-height: 10px; color: rgb(85, 85, 85); vertical-align: middle; border-style: solid; border-width: 1px; border-color: rgb(204, 204, 204) rgb(204, 204, 204) rgb(187, 187, 187); border-radius: 3px; box-shadow: rgb(187, 187, 187) 0px -1px 0px inset; background-color: rgb(252, 252, 252); }
+.markdown-preview[data-use-github-style] a { color: rgb(51, 122, 183); }
+.markdown-preview[data-use-github-style] pre, .markdown-preview[data-use-github-style] code { color: inherit; }
+.markdown-preview[data-use-github-style] pre, .markdown-preview[data-use-github-style] pre.editor-colors { padding: 0.8em 1em; margin-bottom: 1em; font-size: 0.85em; border-radius: 4px; overflow: auto; }
+.scrollbars-visible-always .markdown-preview pre.editor-colors::shadow .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors::shadow .horizontal-scrollbar { visibility: hidden; }
+.scrollbars-visible-always .markdown-preview pre.editor-colors:hover::shadow .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors:hover::shadow .horizontal-scrollbar { visibility: visible; }
+.markdown-preview del { text-decoration: none; position: relative; }
+.markdown-preview del::after { border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black; content: ""; left: 0px; position: absolute; right: 0px; top: 50%; }
+.markdown-preview .flash { animation: flash 1s ease-out 1; outline: rgba(255, 0, 0, 0) solid 1px; }
+.markdown-preview .flash:not(li) { display: block; }
+.bracket-matcher .region {
+  border-bottom: 1px dotted lime;
+  position: absolute;
+}
+
+.spell-check-misspelling .region {
+  border-bottom: 2px dotted rgba(255, 51, 51, 0.75);
+}
+
+pre.editor-colors,
+.host {
+  background-color: #ffffff;
+  color: #555555;
+}
+pre.editor-colors .invisible-character,
+.host .invisible-character {
+  color: rgba(85, 85, 85, 0.2);
+}
+pre.editor-colors .indent-guide,
+.host .indent-guide {
+  color: rgba(85, 85, 85, 0.2);
+}
+pre.editor-colors .wrap-guide,
+.host .wrap-guide {
+  background-color: rgba(85, 85, 85, 0.2);
+}
+pre.editor-colors .gutter,
+.host .gutter {
+  color: #555555;
+  background: #ffffff;
+}
+pre.editor-colors .gutter .line-number.folded,
+.host .gutter .line-number.folded,
+pre.editor-colors .gutter .line-number:after,
+.host .gutter .line-number:after,
+pre.editor-colors .fold-marker:after,
+.host .fold-marker:after {
+  color: #e87b00;
+}
+pre.editor-colors .invisible,
+.host .invisible {
+  color: #555;
+}
+pre.editor-colors .selection .region,
+.host .selection .region {
+  background-color: #e1e1e1;
+}
+pre.editor-colors.is-focused .cursor,
+.host.is-focused .cursor {
+  border-color: #000000;
+}
+pre.editor-colors.is-focused .selection .region,
+.host.is-focused .selection .region {
+  background-color: #afc4da;
+}
+pre.editor-colors.is-focused .line-number.cursor-line-no-selection,
+.host.is-focused .line-number.cursor-line-no-selection,
+pre.editor-colors.is-focused .line.cursor-line,
+.host.is-focused .line.cursor-line {
+  background-color: rgba(255, 255, 134, 0.34);
+}
+pre.editor-colors .source.gfm,
+.host .source.gfm {
+  color: #444;
+}
+pre.editor-colors .gfm .markup.heading,
+.host .gfm .markup.heading {
+  color: #111;
+}
+pre.editor-colors .gfm .link,
+.host .gfm .link {
+  color: #888;
+}
+pre.editor-colors .gfm .variable.list,
+.host .gfm .variable.list {
+  color: #888;
+}
+pre.editor-colors .markdown .paragraph,
+.host .markdown .paragraph {
+  color: #444;
+}
+pre.editor-colors .markdown .heading,
+.host .markdown .heading {
+  color: #111;
+}
+pre.editor-colors .markdown .link,
+.host .markdown .link {
+  color: #888;
+}
+pre.editor-colors .markdown .link .string,
+.host .markdown .link .string {
+  color: #888;
+}
+.host(.is-focused) .cursor {
+  border-color: #000000;
+}
+.host(.is-focused) .selection .region {
+  background-color: #afc4da;
+}
+.host(.is-focused) .line-number.cursor-line-no-selection,
+.host(.is-focused) .line.cursor-line {
+  background-color: rgba(255, 255, 134, 0.34);
+}
+.comment {
+  color: #999988;
+  font-style: italic;
+}
+.string {
+  color: #D14;
+}
+.string .source,
+.string .meta.embedded.line {
+  color: #5A5A5A;
+}
+.string .punctuation.section.embedded {
+  color: #920B2D;
+}
+.string .punctuation.section.embedded .source {
+  color: #920B2D;
+}
+.constant.numeric {
+  color: #D14;
+}
+.constant.language {
+  color: #606aa1;
+}
+.constant.character,
+.constant.other {
+  color: #606aa1;
+}
+.constant.symbol {
+  color: #990073;
+}
+.constant.numeric.line-number.find-in-files .match {
+  color: rgba(143, 190, 0, 0.63);
+}
+.variable {
+  color: #008080;
+}
+.variable.parameter {
+  color: #606aa1;
+}
+.keyword {
+  color: #222;
+  font-weight: bold;
+}
+.keyword.unit {
+  color: #445588;
+}
+.keyword.special-method {
+  color: #0086B3;
+}
+.storage {
+  color: #222;
+}
+.storage.type {
+  color: #222;
+}
+.entity.name.class {
+  text-decoration: underline;
+  color: #606aa1;
+}
+.entity.other.inherited-class {
+  text-decoration: underline;
+  color: #606aa1;
+}
+.entity.name.function {
+  color: #900;
+}
+.entity.name.tag {
+  color: #008080;
+}
+.entity.other.attribute-name {
+  color: #458;
+  font-weight: bold;
+}
+.entity.name.filename.find-in-files {
+  color: #E6DB74;
+}
+.support.constant,
+.support.function,
+.support.type {
+  color: #458;
+}
+.support.class {
+  color: #008080;
+}
+.invalid {
+  color: #F8F8F0;
+  background-color: #00A8C6;
+}
+.invalid.deprecated {
+  color: #F8F8F0;
+  background-color: #8FBE00;
+}
+.meta.structure.dictionary.json > .string.quoted.double.json,
+.meta.structure.dictionary.json > .string.quoted.double.json .punctuation.string {
+  color: #000080;
+}
+.meta.structure.dictionary.value.json > .string.quoted.double.json {
+  color: #d14;
+}
+.meta.diff,
+.meta.diff.header {
+  color: #75715E;
+}
+.css.support.property-name {
+  font-weight: bold;
+  color: #333;
+}
+.css.constant {
+  color: #099;
+}
+.bracket-matcher .region {
+  background-color: #C9C9C9;
+  opacity: .7;
+  border-bottom: 0 none;
+}
+</style>
+  </head>
+  <body class='markdown-preview'><h1>lj0</h1>
+<p>標準的なLennard-Jonesポテンシャルの表式</p>
+<span class="math"><script type="math/tex; mode=display">F(s)=\int_{0}^{\infty}f(t)e^{-st}dt 
+</script></span>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>bob%&nbsp;cat&nbsp;POTCAR</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>---</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>:type:&nbsp;lj0</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>:element:&nbsp;Al</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>:a0:&nbsp;&nbsp;1.587401051*0.7071067812/2.857701314;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>:e0:&nbsp;&nbsp;-1*4.0/12.0;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>:a:&nbsp;&nbsp;&nbsp;18.19007708</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>:b:&nbsp;&nbsp;&nbsp;89.22765864</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>:p:&nbsp;&nbsp;&nbsp;3.0</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>:q:&nbsp;&nbsp;&nbsp;5.0</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>:cut_off:&nbsp;4.0*0.8</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>:energy:&nbsp;&nbsp;-a*(1/r**p)+b*(1/r**q)</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>:dedr:&nbsp;&nbsp;&nbsp;&nbsp;(p*a/r**(p+1.0))-(q*b/r**(q+1.0))</span></span></span></div></pre>
+<h1>lj_jindo</h1>
+<p>神藤先生あるいはVu Van Huangが使っていたLennard-Jonesポテンシャルの表式．</p>
+<pre class="editor-colors lang-ruby"><div class="line"><span class="source ruby"><span>bob</span><span class="keyword operator arithmetic ruby"><span>%</span></span><span>&nbsp;cat&nbsp;</span><span class="variable other constant ruby"><span>POTCAR_jindo_Cu</span></span></span></div><div class="line"><span class="source ruby"><span class="keyword operator arithmetic ruby"><span>-</span><span>-</span><span>-</span></span></span></div><div class="line"><span class="source ruby"><span class="constant other symbol ruby"><span class="punctuation definition constant ruby"><span>:</span></span><span>type</span></span><span class="punctuation separator other ruby"><span>:</span></span><span>&nbsp;lj_jindo</span></span></div><div class="line"><span class="source ruby"><span class="constant other symbol ruby"><span class="punctuation definition constant ruby"><span>:</span></span><span>element</span></span><span class="punctuation separator other ruby"><span>:</span></span><span>&nbsp;</span><span class="variable other constant ruby"><span>Cu</span></span></span></div><div class="line"><span class="source ruby"><span class="constant other symbol ruby"><span class="punctuation definition constant ruby"><span>:</span></span><span>d0</span></span><span class="punctuation separator other ruby"><span>:</span></span><span>&nbsp;&nbsp;&nbsp;</span><span class="constant numeric ruby"><span>4125.70</span></span></span></div><div class="line"><span class="source ruby"><span class="constant other symbol ruby"><span class="punctuation definition constant ruby"><span>:</span></span><span>n</span></span><span class="punctuation separator other ruby"><span>:</span></span><span>&nbsp;&nbsp;&nbsp;</span><span class="constant numeric ruby"><span>9.00</span></span></span></div><div class="line"><span class="source ruby"><span class="constant other symbol ruby"><span class="punctuation definition constant ruby"><span>:</span></span><span>m</span></span><span class="punctuation separator other ruby"><span>:</span></span><span>&nbsp;&nbsp;&nbsp;</span><span class="constant numeric ruby"><span>5.50</span></span></span></div><div class="line"><span class="source ruby"><span class="constant other symbol ruby"><span class="punctuation definition constant ruby"><span>:</span></span><span>r0</span></span><span class="punctuation separator other ruby"><span>:</span></span><span>&nbsp;&nbsp;&nbsp;</span><span class="constant numeric ruby"><span>2.5487e-8</span></span></span></div><div class="line"><span class="source ruby"><span class="constant other symbol ruby"><span class="punctuation definition constant ruby"><span>:</span></span><span>alat</span></span><span class="punctuation separator other ruby"><span>:</span></span><span>&nbsp;&nbsp;&nbsp;</span><span class="constant numeric ruby"><span>3.6153e-8</span></span></span></div><div class="line"><span class="source ruby"><span class="constant other symbol ruby"><span class="punctuation definition constant ruby"><span>:</span></span><span>atom_mass</span></span><span class="punctuation separator other ruby"><span>:</span></span><span>&nbsp;&nbsp;&nbsp;</span><span class="constant numeric ruby"><span>63.5460</span></span><span class="keyword operator arithmetic ruby"><span>/</span></span><span class="constant numeric ruby"><span>6.023e23</span></span></span></div><div class="line"><span class="source ruby"><span class="constant other symbol ruby"><span class="punctuation definition constant ruby"><span>:</span></span><span>energy</span></span><span class="punctuation separator other ruby"><span>:</span></span><span>&nbsp;&nbsp;d0</span><span class="keyword operator arithmetic ruby"><span>*</span></span><span class="punctuation section function ruby"><span>(</span><span>(</span></span><span>r</span><span class="keyword operator arithmetic ruby"><span>/</span></span><span>r0</span><span class="punctuation section function ruby"><span>)</span></span><span class="keyword operator logical ruby"><span>^</span></span><span class="punctuation section function ruby"><span>(</span></span><span class="keyword operator arithmetic ruby"><span>-</span></span><span>n</span><span class="punctuation section function ruby"><span>)</span></span><span class="keyword operator arithmetic ruby"><span>*</span></span><span>m</span><span class="keyword operator arithmetic ruby"><span>-</span></span><span class="punctuation section function ruby"><span>(</span></span><span>r</span><span class="keyword operator arithmetic ruby"><span>/</span></span><span>r0</span><span class="punctuation section function ruby"><span>)</span></span><span class="keyword operator logical ruby"><span>^</span></span><span class="punctuation section function ruby"><span>(</span></span><span class="keyword operator arithmetic ruby"><span>-</span></span><span>m</span><span class="punctuation section function ruby"><span>)</span></span><span class="keyword operator arithmetic ruby"><span>*</span></span><span>n</span><span class="punctuation section function ruby"><span>)</span></span><span class="keyword operator arithmetic ruby"><span>/</span></span><span class="punctuation section function ruby"><span>(</span></span><span>m</span><span class="keyword operator arithmetic ruby"><span>-</span></span><span>n</span><span class="punctuation section function ruby"><span>)</span></span></span></div><div class="line"><span class="source ruby"><span class="constant other symbol ruby"><span class="punctuation definition constant ruby"><span>:</span></span><span>dedr</span></span><span class="punctuation separator other ruby"><span>:</span></span><span>&nbsp;&nbsp;&nbsp;&nbsp;d0</span><span class="keyword operator arithmetic ruby"><span>*</span></span><span>m</span><span class="keyword operator arithmetic ruby"><span>*</span></span><span>n</span><span class="keyword operator arithmetic ruby"><span>*</span></span><span class="punctuation section function ruby"><span>(</span><span>(</span></span><span>r</span><span class="keyword operator arithmetic ruby"><span>/</span></span><span>r0</span><span class="punctuation section function ruby"><span>)</span></span><span class="keyword operator logical ruby"><span>^</span></span><span class="punctuation section function ruby"><span>(</span></span><span class="keyword operator arithmetic ruby"><span>-</span></span><span>m</span><span class="punctuation section function ruby"><span>)</span></span><span class="keyword operator arithmetic ruby"><span>-</span></span><span class="punctuation section function ruby"><span>(</span></span><span>r</span><span class="keyword operator arithmetic ruby"><span>/</span></span><span>r0</span><span class="punctuation section function ruby"><span>)</span></span><span class="keyword operator logical ruby"><span>^</span></span><span class="punctuation section function ruby"><span>(</span></span><span class="keyword operator arithmetic ruby"><span>-</span></span><span>n</span><span class="punctuation section function ruby"><span>)</span><span>)</span></span><span class="keyword operator arithmetic ruby"><span>/</span></span><span class="punctuation section function ruby"><span>(</span></span><span>r</span><span class="keyword operator arithmetic ruby"><span>*</span></span><span class="punctuation section function ruby"><span>(</span></span><span>m</span><span class="keyword operator arithmetic ruby"><span>-</span></span><span>n</span><span class="punctuation section function ruby"><span>)</span><span>)</span></span></span></div></pre>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Cu</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>d0&nbsp;:=&nbsp;4125.70;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>vn&nbsp;:=&nbsp;9.00;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>vm&nbsp;:=&nbsp;5.50;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>r0&nbsp;:=&nbsp;2.5487e-8;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>rh:=r0/rr;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>dedr:=unapply(-d0*vm*vn&nbsp;/&nbsp;((vn-vm)*rr)&nbsp;*&nbsp;(rh**vn&nbsp;-&nbsp;rh**vm),rr);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>eq1:=int(dedr(r),r);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>func:=unapply(eq1,rr);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>r1:=2.5487*10^(-8)*0.8;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>r2:=2.5487*10^(-8)*1.5;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>plot(8.617385e-05*func(r),r=r1..r2);</span></span></span></div></pre>
+<pre class="editor-colors lang-ruby"><div class="line"><span class="source ruby"><span>&nbsp;</span><span class="constant other symbol hashkey ruby"><span>dedr</span><span class="punctuation definition constant hashkey ruby"><span>:</span></span></span><span class="keyword operator assignment ruby"><span>=</span></span><span>unapply</span><span class="punctuation section function ruby"><span>(</span></span><span class="keyword operator arithmetic ruby"><span>-</span></span><span>d0</span><span class="keyword operator arithmetic ruby"><span>*</span></span><span>vm</span><span class="keyword operator arithmetic ruby"><span>*</span></span><span>vn&nbsp;</span><span class="keyword operator arithmetic ruby"><span>/</span></span><span>&nbsp;</span><span class="punctuation section function ruby"><span>(</span><span>(</span></span><span>vn</span><span class="keyword operator arithmetic ruby"><span>-</span></span><span>vm</span><span class="punctuation section function ruby"><span>)</span></span><span class="keyword operator arithmetic ruby"><span>*</span></span><span>rr</span><span class="punctuation section function ruby"><span>)</span></span><span>&nbsp;</span><span class="keyword operator arithmetic ruby"><span>*</span></span><span>&nbsp;</span><span class="punctuation section function ruby"><span>(</span></span><span>rh</span><span class="keyword operator arithmetic ruby"><span>**</span></span><span>vn&nbsp;</span><span class="keyword operator arithmetic ruby"><span>-</span></span><span>&nbsp;rh</span><span class="keyword operator arithmetic ruby"><span>**</span></span><span>vm</span><span class="punctuation section function ruby"><span>)</span></span><span class="punctuation separator object ruby"><span>,</span></span><span>rr</span><span class="punctuation section function ruby"><span>)</span></span><span class="punctuation separator statement ruby"><span>;</span></span></span></div><div class="line"><span class="source ruby"><span>&nbsp;</span><span class="constant other symbol hashkey ruby"><span>eq1</span><span class="punctuation definition constant hashkey ruby"><span>:</span></span></span><span class="keyword operator assignment ruby"><span>=</span></span><span>int</span><span class="punctuation section function ruby"><span>(</span></span><span>dedr</span><span class="punctuation section function ruby"><span>(</span></span><span>r</span><span class="punctuation section function ruby"><span>)</span></span><span class="punctuation separator object ruby"><span>,</span></span><span>r</span><span class="punctuation section function ruby"><span>)</span></span><span class="punctuation separator statement ruby"><span>;</span></span></span></div><div class="line"><span class="source ruby"><span class="keyword operator arithmetic ruby"><span>-</span></span><span class="punctuation section scope begin ruby"><span>{</span></span><span class="meta syntax ruby start-block"><span>&nbsp;</span></span><span class="constant numeric ruby"><span>1.821482757</span></span><span>\times&nbsp;</span><span class="constant numeric ruby"><span>10</span></span><span class="keyword operator logical ruby"><span>^</span></span><span class="punctuation section scope begin ruby"><span>{</span></span><span class="keyword operator arithmetic ruby"><span>-</span></span><span class="constant numeric ruby"><span>38</span></span><span class="punctuation section scope end ruby"><span>}</span><span>}</span></span><span>&nbsp;r</span><span class="punctuation section scope begin ruby"><span>{</span></span><span class="keyword operator arithmetic ruby"><span>-</span></span><span class="constant numeric ruby"><span>5.5</span></span><span class="punctuation section scope end ruby"><span>}</span></span><span class="keyword operator arithmetic ruby"><span>+</span></span></span></div><div class="line"><span class="source ruby"><span class="punctuation section scope begin ruby"><span>{</span></span><span class="meta syntax ruby start-block"><span>&nbsp;</span></span><span class="constant numeric ruby"><span>2.942122564</span></span><span>\times&nbsp;</span><span class="constant numeric ruby"><span>10</span></span><span class="keyword operator logical ruby"><span>^</span></span><span class="punctuation section scope begin ruby"><span>{</span></span><span class="keyword operator arithmetic ruby"><span>-</span></span><span class="constant numeric ruby"><span>65</span></span><span class="punctuation section scope end ruby"><span>}</span><span>}</span></span><span>&nbsp;r</span><span class="keyword operator logical ruby"><span>^</span></span><span class="punctuation section scope begin ruby"><span>{</span></span><span class="keyword operator arithmetic ruby"><span>-</span></span><span class="constant numeric ruby"><span>9</span></span><span class="punctuation section scope end ruby"><span>}</span></span></span></div></pre>
+<pre class="editor-colors lang-ruby"><div class="line"><span class="source ruby"><span class="constant other symbol hashkey ruby"><span>rh</span><span class="punctuation definition constant hashkey ruby"><span>:</span></span></span><span class="keyword operator assignment ruby"><span>=</span></span><span>r0</span><span class="keyword operator arithmetic ruby"><span>/</span></span><span>rr</span><span class="punctuation separator statement ruby"><span>;</span></span></span></div><div class="line"><span class="source ruby"><span class="constant other symbol hashkey ruby"><span>dedr</span><span class="punctuation definition constant hashkey ruby"><span>:</span></span></span><span class="keyword operator assignment ruby"><span>=</span></span><span>normal</span><span class="punctuation section function ruby"><span>(</span></span><span>expand</span><span class="punctuation section function ruby"><span>(</span></span><span>d0</span><span class="keyword operator arithmetic ruby"><span>*</span></span><span>vm</span><span class="keyword operator arithmetic ruby"><span>*</span></span><span>vn&nbsp;</span><span class="keyword operator arithmetic ruby"><span>/</span></span><span>&nbsp;</span><span class="punctuation section function ruby"><span>(</span><span>(</span></span><span>vn</span><span class="keyword operator arithmetic ruby"><span>-</span></span><span>vm</span><span class="punctuation section function ruby"><span>)</span></span><span class="keyword operator arithmetic ruby"><span>*</span></span><span>rr</span><span class="punctuation section function ruby"><span>)</span></span><span>&nbsp;</span><span class="keyword operator arithmetic ruby"><span>*</span></span><span>&nbsp;</span><span class="punctuation section function ruby"><span>(</span></span><span>rh</span><span class="keyword operator arithmetic ruby"><span>**</span></span><span>vn&nbsp;</span><span class="keyword operator arithmetic ruby"><span>-</span></span><span>&nbsp;rh</span><span class="keyword operator arithmetic ruby"><span>**</span></span><span>vm</span><span class="punctuation section function ruby"><span>)</span><span>)</span><span>)</span></span><span class="punctuation separator statement ruby"><span>;</span></span></span></div><div class="line"><span class="source ruby"><span class="constant other symbol hashkey ruby"><span>eq1</span><span class="punctuation definition constant hashkey ruby"><span>:</span></span></span><span class="keyword operator assignment ruby"><span>=</span></span><span>simplify</span><span class="punctuation section function ruby"><span>(</span></span><span>int</span><span class="punctuation section function ruby"><span>(</span></span><span>dedr</span><span class="punctuation separator object ruby"><span>,</span></span><span>rr</span><span class="punctuation section function ruby"><span>)</span><span>)</span></span><span class="punctuation separator statement ruby"><span>;</span></span></span></div></pre>
+<span class="math"><script type="math/tex; mode=display">
+r_1=r/r_0
+
+\frac{ d_0 \left( r_1^{-n}m-  r_1^{-m} n \right) }{ -n + m }
+</script></span>
+<h1>ポテンシャル選択機構</h1>
+<p>module LJに記述</p>
+<pre class="editor-colors lang-ruby"><div class="line"><span class="source ruby"><span>&nbsp;&nbsp;</span><span class="meta function method with-arguments ruby"><span class="keyword control def ruby"><span>def</span></span><span>&nbsp;</span><span class="entity name function ruby"><span>select</span></span><span class="punctuation definition parameters ruby"><span>(</span></span><span class="variable parameter function ruby"><span>file</span></span><span class="keyword operator assignment ruby"><span>=</span></span><span class="string quoted single ruby"><span class="punctuation definition string begin ruby"><span>&#39;</span></span><span>POTCAR</span><span class="punctuation definition string end ruby"><span>&#39;</span></span></span><span class="punctuation definition parameters ruby"><span>)</span></span></span></span></div><div class="line"><span class="source ruby"><span class="comment line number-sign ruby"><span class="punctuation definition comment ruby"><span>#</span></span><span>&nbsp;&nbsp;&nbsp;&nbsp;p&nbsp;src&nbsp;=&nbsp;YAML.load_file(ARGV[0])</span><span>&nbsp;</span></span></span></div><div class="line"><span class="source ruby"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="support function kernel ruby"><span>p</span></span><span>&nbsp;src&nbsp;</span><span class="keyword operator assignment ruby"><span>=</span></span><span>&nbsp;</span><span class="support class ruby"><span>YAML</span></span><span class="punctuation separator method ruby"><span>.</span></span><span>load_file</span><span class="punctuation section function ruby"><span>(</span></span><span>file</span><span class="punctuation section function ruby"><span>)</span></span></span></div><div class="line"><span class="source ruby"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="variable other readwrite class ruby"><span class="punctuation definition variable ruby"><span>@@</span></span><span>potential</span></span><span class="keyword operator assignment ruby"><span>=</span></span><span class="keyword control ruby"><span>case</span></span><span>&nbsp;src</span><span class="punctuation section array begin ruby"><span>[</span></span><span class="constant other symbol ruby"><span class="punctuation definition constant ruby"><span>:</span></span><span>type</span></span><span class="punctuation section array end ruby"><span>]</span></span></span></div><div class="line"><span class="source ruby"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword control ruby"><span>when</span></span><span>&nbsp;</span><span class="string quoted single ruby"><span class="punctuation definition string begin ruby"><span>&#39;</span></span><span>lj0</span><span class="punctuation definition string end ruby"><span>&#39;</span></span></span></span></div><div class="line"><span class="source ruby"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="support class ruby"><span>LJ0</span></span><span class="punctuation separator method ruby"><span>.</span></span><span class="keyword other special-method ruby"><span>new</span></span><span class="punctuation section function ruby"><span>(</span></span><span>src</span><span class="punctuation section function ruby"><span>)</span></span></span></div><div class="line"><span class="source ruby"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword control ruby"><span>when</span></span><span>&nbsp;</span><span class="string quoted single ruby"><span class="punctuation definition string begin ruby"><span>&#39;</span></span><span>lj_jindo</span><span class="punctuation definition string end ruby"><span>&#39;</span></span></span></span></div><div class="line"><span class="source ruby"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="support class ruby"><span>LJ_Jindo</span></span><span class="punctuation separator method ruby"><span>.</span></span><span class="keyword other special-method ruby"><span>new</span></span><span class="punctuation section function ruby"><span>(</span></span><span>src</span><span class="punctuation section function ruby"><span>)</span></span></span></div><div class="line"><span class="source ruby"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword control ruby"><span>end</span></span></span></div><div class="line"><span class="source ruby"><span>&nbsp;&nbsp;</span><span class="keyword control ruby"><span>end</span></span></span></div></pre>
+<ul>
+<li>委譲による選択
+<ul>
+<li>pseudovasp.rbにLJ.select(‘POTCAR’)がある．</li>
+<li>LJ0あるいはLJ_Jindoをclassとして用意．</li>
+</ul>
+</li>
+<li>POTCARへのYAMLでの記述</li>
+<li>クラス変数によるクラス共通の変数定義</li>
+</ul>
+<p>EAMとの統一を考えたが，energy, forceのmethodの選択を
+どっかでしないとダメで，その綺麗なやり方が思いつかず，
+そのままにした．</p>
+<pre class="editor-colors lang-ruby"><div class="line"><span class="source ruby"><span class="meta class ruby"><span class="keyword control class ruby"><span>class</span></span><span>&nbsp;</span><span class="entity name type class ruby"><span>EAMAtom</span><span class="entity other inherited-class ruby"><span>&nbsp;</span><span class="punctuation separator inheritance ruby"><span>&lt;</span></span><span>&nbsp;Atom</span></span></span></span></span></div><div class="line"><span class="source ruby"><span>&nbsp;&nbsp;</span><span class="keyword other special-method ruby"><span>include</span></span><span>&nbsp;</span><span class="variable other constant ruby"><span>EAM</span></span></span></div><div class="line"><span class="source ruby"><span class="keyword control ruby"><span>end</span></span></span></div><div class="line"><span class="source ruby"><span>&nbsp;</span></span></div><div class="line"><span class="source ruby"><span class="meta class ruby"><span class="keyword control class ruby"><span>class</span></span><span>&nbsp;</span><span class="entity name type class ruby"><span>LJAtom</span><span class="entity other inherited-class ruby"><span>&nbsp;</span><span class="punctuation separator inheritance ruby"><span>&lt;</span></span><span>&nbsp;Atom</span></span></span></span></span></div><div class="line"><span class="source ruby"><span>&nbsp;&nbsp;</span><span class="keyword other special-method ruby"><span>include</span></span><span>&nbsp;</span><span class="variable other constant ruby"><span>LJ</span></span></span></div><div class="line"><span class="source ruby"><span class="keyword control ruby"><span>end</span></span></span></div></pre>
+<p>となっており，ほぼ元どおり．</p></body>
+</html>

@@ -2,6 +2,18 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+      tex2jax:{
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
+      }
+      });
+    </script>
+    <script type="text/javascript"
+	    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+    </script>
+    <meta http-equiv="X-UA-Compatible" CONTENT="IE=EmulateIE7" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>
   Class: EAMAtom
@@ -100,7 +112,7 @@
   
   
     <dt class="r1 last">Defined in:</dt>
-    <dd class="r1 last">lib/pseudovasp/pseudovasp.rb</dd>
+    <dd class="r1 last">lib/pseudovasp/atom.rb</dd>
   
 </dl>
 <div class="clear"></div>
@@ -117,6 +129,12 @@
      from <span class='object_link'><a href="EAM.html" title="EAM (module)">EAM</a></span></h3>
   <p class="inherited"><span class='object_link'><a href="EAM.html#CUT_OFF-constant" title="EAM::CUT_OFF (constant)">EAM::CUT_OFF</a></span></p>
 
+  
+  
+  <h3 class="inherited">Constants inherited
+     from <span class='object_link'><a href="Atom.html" title="Atom (class)">Atom</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Atom.html#CUT_OFF-constant" title="Atom::CUT_OFF (constant)">Atom::CUT_OFF</a></span></p>
+
 
 
 
@@ -126,43 +144,6 @@
   <p class="inherited"><span class='object_link'><a href="Atom.html#cut_off-instance_method" title="Atom#cut_off (method)">#cut_off</a></span>, <span class='object_link'><a href="Atom.html#element-instance_method" title="Atom#element (method)">#element</a></span>, <span class='object_link'><a href="Atom.html#nl-instance_method" title="Atom#nl (method)">#nl</a></span>, <span class='object_link'><a href="Atom.html#number-instance_method" title="Atom#number (method)">#number</a></span>, <span class='object_link'><a href="Atom.html#pos-instance_method" title="Atom#pos (method)">#pos</a></span></p>
 
 
-  
-    <h2>
-      Instance Method Summary
-      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
-    </h2>
-
-    <ul class="summary">
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#initialize-instance_method" title="#initialize (instance method)">- (EAMAtom) <strong>initialize</strong>(pos, number, element) </a>
-    
-
-    
-  </span>
-  
-  
-    <span class="note title constructor">constructor</span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of EAMAtom.</p>
-</div></span>
-  
-</li>
-
-      
-    </ul>
-  
-
 
   
   
@@ -170,7 +151,7 @@
   
   
   
-  
+  <h2>Method Summary</h2>
   
   <h3 class="inherited">Methods included from <span class='object_link'><a href="EAM.html" title="EAM (module)">EAM</a></span></h3>
   <p class="inherited"><span class='object_link'><a href="EAM.html#atom_energy-class_method" title="EAM.atom_energy (method)">atom_energy</a></span>, <span class='object_link'><a href="EAM.html#atom_force-class_method" title="EAM.atom_force (method)">atom_force</a></span>, <span class='object_link'><a href="EAM.html#atom_force_bob-class_method" title="EAM.atom_force_bob (method)">atom_force_bob</a></span>, <span class='object_link'><a href="EAM.html#atom_force_katagiri-class_method" title="EAM.atom_force_katagiri (method)">atom_force_katagiri</a></span></p>
@@ -184,52 +165,11 @@
   
   
   <h3 class="inherited">Methods inherited from <span class='object_link'><a href="Atom.html" title="Atom (class)">Atom</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Atom.html#energy-instance_method" title="Atom#energy (method)">#energy</a></span>, <span class='object_link'><a href="Atom.html#force-instance_method" title="Atom#force (method)">#force</a></span>, <span class='object_link'><a href="Atom.html#show_nl-instance_method" title="Atom#show_nl (method)">#show_nl</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="Atom.html#energy-instance_method" title="Atom#energy (method)">#energy</a></span>, <span class='object_link'><a href="Atom.html#force-instance_method" title="Atom#force (method)">#force</a></span>, <span class='object_link'><a href="Atom.html#initialize-instance_method" title="Atom#initialize (method)">#initialize</a></span>, <span class='object_link'><a href="Atom.html#show_nl-instance_method" title="Atom#show_nl (method)">#show_nl</a></span></p>
 <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
-    <div class="method_details first">
-  <h3 class="signature first" id="initialize-instance_method">
-  
-    - (<tt><span class='object_link'><a href="" title="EAMAtom (class)">EAMAtom</a></span></tt>) <strong>initialize</strong>(pos, number, element) 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Returns a new instance of EAMAtom</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-195
-196
-197
-198</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 195</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_pos'>pos</span><span class='comma'>,</span><span class='id identifier rubyid_number'>number</span><span class='comma'>,</span><span class='id identifier rubyid_element'>element</span><span class='rparen'>)</span>
-  <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_pos'>pos</span><span class='comma'>,</span><span class='id identifier rubyid_number'>number</span><span class='comma'>,</span><span class='id identifier rubyid_element'>element</span><span class='rparen'>)</span>
-  <span class='ivar'>@cut_off</span> <span class='op'>=</span> <span class='const'>CUT_OFF</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
+    <p class="notice">This class inherits a constructor from <span class='object_link'><a href="Atom.html#initialize-instance_method" title="Atom#initialize (method)">Atom</a></span></p>
   
 </div>
 
@@ -237,7 +177,7 @@
 </div>
 
     <div id="footer">
-  Generated on Wed Jun  8 09:49:03 2016 by
+  Generated on Fri Jun 17 19:56:27 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.2).
 </div>

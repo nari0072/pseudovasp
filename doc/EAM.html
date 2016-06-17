@@ -2,6 +2,18 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+      tex2jax:{
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
+      }
+      });
+    </script>
+    <script type="text/javascript"
+	    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+    </script>
+    <meta http-equiv="X-UA-Compatible" CONTENT="IE=EmulateIE7" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>
   Module: EAM
@@ -255,19 +267,19 @@
       <pre class="lines">
 
 
+12
+13
+14
+15
+16
+17
+18
 19
 20
-21
-22
-23
-24
-25
-26
-27
-28</pre>
+21</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/eam.rb', line 19</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/eam.rb', line 12</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_atom_energy'>atom_energy</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='comment'>#LJP
 </span>  <span class='id identifier rubyid_ene'>ene</span><span class='comma'>,</span><span class='id identifier rubyid_rho'>rho</span><span class='op'>=</span><span class='float'>0.0</span><span class='comma'>,</span><span class='float'>0.0</span>
@@ -299,13 +311,13 @@
       <pre class="lines">
 
 
-30
-31
-32
-33</pre>
+23
+24
+25
+26</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/eam.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/eam.rb', line 23</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_atom_force'>atom_force</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_atom_force_katagiri'>atom_force_katagiri</span>
@@ -331,6 +343,13 @@
       <pre class="lines">
 
 
+28
+29
+30
+31
+32
+33
+34
 35
 36
 37
@@ -356,17 +375,10 @@
 57
 58
 59
-60
-61
-62
-63
-64
-65
-66
-67</pre>
+60</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/eam.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/eam.rb', line 28</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_atom_force_bob'>atom_force_bob</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_rho'>rho</span><span class='op'>=</span><span class='float'>0.0</span>
@@ -421,6 +433,13 @@
       <pre class="lines">
 
 
+62
+63
+64
+65
+66
+67
+68
 69
 70
 71
@@ -447,20 +466,10 @@
 92
 93
 94
-95
-96
-97
-98
-99
-100
-101
-102
-103
-104
-105</pre>
+95</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/eam.rb', line 69</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/eam.rb', line 62</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_atom_force_katagiri'>atom_force_katagiri</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_rho'>rho</span><span class='op'>=</span><span class='float'>0.0</span>
@@ -494,10 +503,7 @@
     <span class='id identifier rubyid_f_n_left'>f_n_left</span><span class='lbracket'>[</span><span class='id identifier rubyid_i'>i</span><span class='rbracket'>]</span><span class='op'>*=</span><span class='id identifier rubyid_f_rho'>f_rho</span>
     <span class='id identifier rubyid_f'>f</span><span class='lbracket'>[</span><span class='id identifier rubyid_i'>i</span><span class='rbracket'>]</span><span class='op'>=</span><span class='op'>-</span><span class='lparen'>(</span><span class='id identifier rubyid_f_p'>f_p</span><span class='lbracket'>[</span><span class='id identifier rubyid_i'>i</span><span class='rbracket'>]</span><span class='op'>+</span><span class='id identifier rubyid_f_n_left'>f_n_left</span><span class='lbracket'>[</span><span class='id identifier rubyid_i'>i</span><span class='rbracket'>]</span><span class='op'>+</span><span class='id identifier rubyid_f_n_right'>f_n_right</span><span class='lbracket'>[</span><span class='id identifier rubyid_i'>i</span><span class='rbracket'>]</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
-<span class='comment'>#    print &quot;bob\n&quot;
-</span><span class='comment'>#    p f
-</span><span class='comment'>#    exit
-</span>  <span class='kw'>return</span> <span class='id identifier rubyid_f'>f</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_f'>f</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -509,7 +515,7 @@
 </div>
 
     <div id="footer">
-  Generated on Wed Jun  8 09:49:02 2016 by
+  Generated on Fri Jun 17 19:56:27 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.2).
 </div>

@@ -16,7 +16,7 @@
     <meta http-equiv="X-UA-Compatible" CONTENT="IE=EmulateIE7" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>
-  File: potential
+  File: potential2
   
     &mdash; Documentation by YARD 0.8.7.6
   
@@ -29,7 +29,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '';
-  framesUrl = "frames.html#!file.potential.html";
+  framesUrl = "frames.html#!file.potential2.html";
 </script>
 
 
@@ -44,7 +44,7 @@
       <div id="menu">
   
     <a href="_index.html">Index</a> &raquo; 
-    <span class="title">File: potential</span>
+    <span class="title">File: potential2</span>
   
 
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
@@ -77,10 +77,7 @@
 
 <p>標準的なLennard-Jonesポテンシャルの表式</p>
 
-<pre class="code ruby"><code class="ruby">\[
-\\frac{1}{2}
-\]
-</code></pre>
+<p>$$ F(s)=\int_0^\inftyf(t)e^-stdt $$</p>
 
 <pre class="code ruby"><code class="ruby">bob% cat POTCAR
 ---
@@ -129,20 +126,22 @@ r2:=2.5487*10^(-8)*1.5;
 plot(8.617385e-05*func(r),r=r1..r2);
 </code></pre>
 
-<pre class="code math"><code class="math"> dedr:=unapply(-d0*vm*vn / ((vn-vm)*rr) * (rh**vn - rh**vm),rr);
+<pre class="code ruby"><code class="ruby"> dedr:=unapply(-d0*vm*vn / ((vn-vm)*rr) * (rh**vn - rh**vm),rr);
  eq1:=int(dedr(r),r);
 &lt;&lt;&lt; tex
 -{ 1.821482757\times 10^{-38}} r{-5.5}+
 { 2.942122564\times 10^{-65}} r^{-9}
 </code></pre>
 
-<pre class="code math"><code class="math">rh:=r0/rr;
+<pre class="code ruby"><code class="ruby">rh:=r0/rr;
 dedr:=normal(expand(d0*vm*vn / ((vn-vm)*rr) * (rh**vn - rh**vm)));
 eq1:=simplify(int(dedr,rr));
 latex(eq1);
 </code></pre>
 
-<p>&#39;\frac{ d0 \left( r0/rr^{vnvm-  r0/rr^vm vn \right) }{ -vn + vm }</p>
+<p>$$
+\frac{ d0 \left( r0/rr^vnvm-  r0/rr^vm vn \right) }{ -vn + vm }
+$$</p>
 
 <h1>ポテンシャル選択機構</h1>
 

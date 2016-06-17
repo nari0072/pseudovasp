@@ -2,6 +2,18 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+      tex2jax:{
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
+      }
+      });
+    </script>
+    <script type="text/javascript"
+	    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+    </script>
+    <meta http-equiv="X-UA-Compatible" CONTENT="IE=EmulateIE7" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>
   Top Level Namespace
@@ -93,7 +105,7 @@
     
   
     
-      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Atom.html" title="Atom (class)">Atom</a></span>, <span class='object_link'><a href="EAMAtom.html" title="EAMAtom (class)">EAMAtom</a></span>, <span class='object_link'><a href="ForceCheck.html" title="ForceCheck (class)">ForceCheck</a></span>, <span class='object_link'><a href="Force_check_TC.html" title="Force_check_TC (class)">Force_check_TC</a></span>, <span class='object_link'><a href="LJAtom.html" title="LJAtom (class)">LJAtom</a></span>, <span class='object_link'><a href="Poscar.html" title="Poscar (class)">Poscar</a></span>, <span class='object_link'><a href="PseudoVASP.html" title="PseudoVASP (class)">PseudoVASP</a></span>
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Atom.html" title="Atom (class)">Atom</a></span>, <span class='object_link'><a href="EAMAtom.html" title="EAMAtom (class)">EAMAtom</a></span>, <span class='object_link'><a href="ForceCheck.html" title="ForceCheck (class)">ForceCheck</a></span>, <span class='object_link'><a href="Force_check_TC.html" title="Force_check_TC (class)">Force_check_TC</a></span>, <span class='object_link'><a href="LJ0.html" title="LJ0 (class)">LJ0</a></span>, <span class='object_link'><a href="LJAtom.html" title="LJAtom (class)">LJAtom</a></span>, <span class='object_link'><a href="LJ_Jindo.html" title="LJ_Jindo (class)">LJ_Jindo</a></span>, <span class='object_link'><a href="Poscar.html" title="Poscar (class)">Poscar</a></span>, <span class='object_link'><a href="PseudoVASP.html" title="PseudoVASP (class)">PseudoVASP</a></span>
     
   
 </p>
@@ -207,18 +219,18 @@ trueVASPの時には，targetに必要な情報を取り込む関数を組み込
       <pre class="lines">
 
 
-173
-174
-175
-176
-177
-178
-179
-180
-181</pre>
+146
+147
+148
+149
+150
+151
+152
+153
+154</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 173</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 146</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_distance'>distance</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span><span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_r'>r</span><span class='op'>=</span><span class='float'>0.0</span>
@@ -249,18 +261,18 @@ trueVASPの時には，targetに必要な情報を取り込む関数を組み込
       <pre class="lines">
 
 
-183
-184
-185
-186
-187
-188
-189
-190
-191</pre>
+156
+157
+158
+159
+160
+161
+162
+163
+164</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 183</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/pseudovasp.rb', line 156</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_f_distance'>f_distance</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span><span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_t'>t</span><span class='op'>=</span><span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -336,7 +348,7 @@ trueVASPの時には，targetに必要な情報を取り込む関数を組み込
 </div>
 
     <div id="footer">
-  Generated on Wed Jun  8 09:49:02 2016 by
+  Generated on Fri Jun 17 19:56:27 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.2).
 </div>

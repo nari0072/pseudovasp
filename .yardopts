@@ -1,3 +1,4 @@
+-t mathjax -p templates
 -
 pseudovasp.wiki/*.md
 
