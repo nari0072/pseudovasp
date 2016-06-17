@@ -22,7 +22,7 @@ module PVasp
     def initialize(argv=[])
       @argv = argv
       @opts = {output: :show_force, potential: :lj,
-               calculation: :energy, site: 100}
+               calculation: :energy, site: 100,structure: :jindofcc}
     end
 
     def execute
@@ -43,8 +43,9 @@ module PVasp
           @opts[:calculation]= :force_check
           @opts[:site]= v if v!=nil
         }
-        opt.on('--moment','calculate free energy by Moment method') {|v|
+        opt.on('--moment [STRUCTURE]','calculate free energy by Moment method, STRUCTURE=jindofcc, sakakifcc') {|v|
           @opts[:calculation]= :moment_method
+          @opts[:structure]= v if v!=nil
         }
       end
       command_parser.banner = "Usage: pvasp [options] DIRECTORY"
@@ -75,7 +76,9 @@ module PVasp
           force_check = ForceCheck.new(target_dir,@opts)
           print force_check.controller(site)
         when :moment_method then
-          MomentMethod.new(target_dir)
+          #case :potentialの処理よりも先に持ってきてもいい．LJ.selectを実行する必要がないから．
+          MomentMethod.new(@opts[:structure].to_s)
+
         else
           ;
         end

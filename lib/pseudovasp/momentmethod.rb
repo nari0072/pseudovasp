@@ -1,15 +1,17 @@
 require 'yaml'
 include Math
 
+
 class MomentMethod
   BOLTZ = 1.380658e-16
   PLANCK = 6.626e-27
   HBAR = PLANCK/(2.0*PI)
   AVOGADO = 6.023e23
-  STRUCTURE = "jindofcc"
 
-  def initialize(dir_path)
-    p 'Hi, moment'
+  def initialize(structure)
+    puts "Hi,moment"
+    @structure=structure
+    puts "structure = #{@structure}"
     select
     calc_moment
   end
@@ -20,7 +22,7 @@ class MomentMethod
 
   def select(file='POTCAR')
     src = YAML.load_file(file)
-    h=@@potential=case src[:type]
+    @@potential=case src[:type]
     #ここの微分式POTCARのほうにいれたい．メソッドそのままPOTCARに入れるのもありかも．．
     when 'lj_jindo'
       DiffLjJindo.new(src)
@@ -40,65 +42,51 @@ class MomentMethod
       temp = 10 if i==1
       theta = BOLTZ*temp
       gap = Array.new(6){ Array.new(201) }
-      aa1=[]
+      aa1,aa2=[],[]
       aa1[0]=a0
-      aa2=[]
-      diff=[]
       comp_gap = 0
-      for change in 1..5
+      for change in 1..5 #width to displece
         for same in 1..200
           gap[change][same] = (same-1)*(10**(-(9+change))).to_f
           aa1[change] = aa1[change-1] + gap[change][same]
           aa2[change] = aa1[change]*sqrt(2)
-          a1 = aa1[change]
-          a2 = aa2[change]
+          a1, a2 = aa1[change], aa2[change]
           k = calc_k(a1,a2)
           atom_mass = @@potential.atom_mass/AVOGADO
           omega = sqrt(k/atom_mass)
           x = HBAR*omega/(2.0*theta)
-          gamma = calc_gamma(a1,a2,STRUCTURE)
+          gamma = calc_gamma(a1,a2,@structure)
           gt_k2 = gamma*theta/k**2
           u0 = calc_u0(a1,a2)
           psi0 = calc_psi0(x,theta)
           large_a = calc_large_a(x, gt_k2)
           y0 = calc_y0(k, gamma, theta, large_a)
-          psi_nonli = calc_psi_nonli(k, x, gamma,theta) #nonlinear?thesis(1988)p516(19)
-
-          #*************ここからまだ元のまま，，，これから作成．．
+          psi_nonli = calc_psi_nonli(k, x, gamma,theta) #nonlinear fcc thesis(1988)p516(19)
           total_gap = comp_gap + gap[change][same]
-          diff[same] = y0 - total_gap
-          break if diff_sign?(diff[same], diff[same-1]) if same > 1
-          #end
+          break if y0 - total_gap < 0
         end
-
-        aa1[change] = aa1[change] + gap[change][same-1] - gap[change][same] if same >1 #一応jy0 > 1つけとく
+        aa1[change] = aa1[change] - (10**(-(9+change))).to_f
         aa2[change] = aa1[change]*sqrt(2)
-        comp_gap = comp_gap + gap[change][same-1]
+        comp_gap += gap[change][same-1]
         a1_cal = a0+comp_gap
         a2_cal = sqrt(2)*a1_cal
       end
+      #ここから出力
       a1_cal = a1_cal*1.0e8
       a2_cal = a2_cal*1.0e8
-      #harmonic = u0+psai0#これ使ってない
       puts "T(K), a1, a2_cal(A), k, g="
       check(temp, a1_cal, a2_cal, k, gamma)
       puts "temp, u0, harmonic free, free="
       check(temp, u0, psi0, psi_nonli)
       #eVに単位変換
-      u0_ev = u0*8.617385e-05
-      psi0_ev = psi0*6.2415064e11
-      psi_nonli_ev = psi_nonli*6.2415064e11
+      u0_ev = ev_from_kelvin(u0)
+      psi0_ev = ev_from_erg(psi0)
+      psi_nonli_ev = ev_from_erg(psi_nonli)
       psi = u0_ev + psi0_ev + psi_nonli_ev
       puts "u0_ev, psi0_ev, psi_nonli_ev, psi, large_a"
       check(u0_ev, psi0_ev, psi_nonli_ev, psi, large_a)
       puts"\n"
     end
-
-  end
-
-  def diff_sign?(n1, n2)
-    return true if n1*n2 < 0
-    return false
   end
 
   def calc_a0(m, n, r0)
@@ -124,6 +112,9 @@ class MomentMethod
       diff_u4_a2 = 2.0*@@potential.de4dr4(a2) + 12.0*@@potential.de2dr2(a2)/(a2*a2) - 12.0*@@potential.dedr(a2)/(a2*a2*a2)
       diff_x2y2_a1 = @@potential.de4dr4(a1) + 2.0*@@potential.de3dr3(a1)/a1 + 3.0*@@potential.de2dr2(a1)/(a1*a1) - 3.0*@@potential.dedr(a1)/(a1*a1*a1)
       diff_x2y2_a2 = 4.0*@@potential.de3dr3(a2)/a2 - 6.0*@@potential.de2dr2(a2)/(a2*a2) + 6.0*@@potential.dedr(a2)/(a2*a2*a2)
+    else
+      p "*******************missed structure**********************"
+      exit(0)
     end
     @gamma1 = (1.0/48)*(diff_u4_a1 + diff_u4_a2)*BOLTZ
     @gamma2 = (6.0/48)*(diff_x2y2_a1 + diff_x2y2_a2)*BOLTZ
@@ -173,6 +164,14 @@ class MomentMethod
     term2 = (4.0*@gamma2**2 / 3.0)*xcothx*fac1-2.0*fac_gam*fac1*fac2
     term2 = (2.0*theta**3/k**4)*term2
     return 3.0*(term1+term2)
+  end
+
+  def ev_from_kelvin(a)
+    return a*8.617385e-05
+  end
+
+  def ev_from_erg(a)
+    return a*6.2415064e11
   end
 
 end
