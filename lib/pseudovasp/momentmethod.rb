@@ -45,7 +45,7 @@ class MomentMethod
       aa1,aa2=[],[]
       aa1[0]=a0
       comp_gap = 0
-      for change in 1..5 #width to displece
+      for change in 1..5 #width to displace
         for same in 1..200
           gap[change][same] = (same-1)*(10**(-(9+change))).to_f
           aa1[change] = aa1[change-1] + gap[change][same]
