@@ -6,6 +6,7 @@ require "pseudovasp/poscar"
 require "pseudovasp/version"
 require "pseudovasp/pseudovasp"
 require "pseudovasp/force_check"
+require "pseudovasp/momentmethod.rb"
 require 'optparse'
 require 'pp'
 
@@ -21,7 +22,7 @@ module PVasp
     def initialize(argv=[])
       @argv = argv
       @opts = {output: :show_force, potential: :lj,
-               calculation: :energy, site: 100}
+               calculation: :energy, site: 100,structure: :jindofcc}
     end
 
     def execute
@@ -41,6 +42,10 @@ module PVasp
         opt.on('--force [SITE]','check force on SITE or all sites(SITE>=100)') {|v|
           @opts[:calculation]= :force_check
           @opts[:site]= v if v!=nil
+        }
+        opt.on('--moment [STRUCTURE]','calculate free energy by Moment method, STRUCTURE=jindofcc, sakakifcc') {|v|
+          @opts[:calculation]= :moment_method
+          @opts[:structure]= v if v!=nil
         }
       end
       command_parser.banner = "Usage: pvasp [options] DIRECTORY"
@@ -70,6 +75,10 @@ module PVasp
           site=  v.to_i > 99 ? -1 : v.to_i
           force_check = ForceCheck.new(target_dir,@opts)
           print force_check.controller(site)
+        when :moment_method then
+          #case :potentialの処理よりも先に持ってきてもいい．LJ.selectを実行する必要がないから．
+          MomentMethod.new(@opts[:structure].to_s)
+
         else
           ;
         end
