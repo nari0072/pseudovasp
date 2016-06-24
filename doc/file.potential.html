@@ -4,14 +4,14 @@
   <head>
     <script type="text/x-mathjax-config">
       MathJax.Hub.Config({
-      tex2jax:{
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
-      }
-      });
+                           tex2jax:{
+      inlineMath: [ ['$','$'], ["\(","\)"] ],
+      displayMath: [ ['$$','$$'], ["\[","\]"] ]
+                           }
+                         });
     </script>
     <script type="text/javascript"
-	    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+            src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
     </script>
     <meta http-equiv="X-UA-Compatible" CONTENT="IE=EmulateIE7" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -77,11 +77,6 @@
 
 <p>標準的なLennard-Jonesポテンシャルの表式</p>
 
-<pre class="code ruby"><code class="ruby">\[
-\\frac{1}{2}
-\]
-</code></pre>
-
 <pre class="code ruby"><code class="ruby">bob% cat POTCAR
 ---
 :type: lj0
@@ -129,20 +124,25 @@ r2:=2.5487*10^(-8)*1.5;
 plot(8.617385e-05*func(r),r=r1..r2);
 </code></pre>
 
-<pre class="code math"><code class="math"> dedr:=unapply(-d0*vm*vn / ((vn-vm)*rr) * (rh**vn - rh**vm),rr);
+<pre class="code maple"><code class="maple"> dedr:=unapply(-d0*vm*vn / ((vn-vm)*rr) * (rh**vn - rh**vm),rr);
  eq1:=int(dedr(r),r);
 &lt;&lt;&lt; tex
 -{ 1.821482757\times 10^{-38}} r{-5.5}+
 { 2.942122564\times 10^{-65}} r^{-9}
 </code></pre>
 
-<pre class="code math"><code class="math">rh:=r0/rr;
+<pre class="code maple"><code class="maple">rh:=r0/rr;
 dedr:=normal(expand(d0*vm*vn / ((vn-vm)*rr) * (rh**vn - rh**vm)));
 eq1:=simplify(int(dedr,rr));
 latex(eq1);
 </code></pre>
 
-<p>&#39;\frac{ d0 \left( r0/rr^{vnvm-  r0/rr^vm vn \right) }{ -vn + vm }</p>
+<p>$$
+\beginalign*
+dedr=-\frac{ vn vm d0  \left(rh^vn- rh^vm\right) }{ \left(vn-vm \right) rr } \
+\frac{ d0 \left( r0/rr^vnvm-  r0/rr^vm vn \right) }{ -vn + vm }
+\endalign*
+$$</p>
 
 <h1>ポテンシャル選択機構</h1>
 
@@ -188,7 +188,7 @@ latex(eq1);
 </div></div>
 
     <div id="footer">
-  Generated on Fri Jun 17 19:56:26 2016 by
+  Generated on Fri Jun 24 19:26:36 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.2).
 </div>

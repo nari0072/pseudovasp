@@ -4,14 +4,14 @@
   <head>
     <script type="text/x-mathjax-config">
       MathJax.Hub.Config({
-      tex2jax:{
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
-      }
-      });
+                           tex2jax:{
+      inlineMath: [ ['$','$'], ["\(","\)"] ],
+      displayMath: [ ['$$','$$'], ["\[","\]"] ]
+                           }
+                         });
     </script>
     <script type="text/javascript"
-	    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+            src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
     </script>
     <meta http-equiv="X-UA-Compatible" CONTENT="IE=EmulateIE7" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -302,19 +302,19 @@
       <pre class="lines">
 
 
-21
 22
 23
 24
-25</pre>
+25
+26</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp.rb', line 21</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp.rb', line 22</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_argv'>argv</span><span class='op'>=</span><span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rparen'>)</span>
   <span class='ivar'>@argv</span> <span class='op'>=</span> <span class='id identifier rubyid_argv'>argv</span>
   <span class='ivar'>@opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='label'>output:</span> <span class='symbol'>:show_force</span><span class='comma'>,</span> <span class='label'>potential:</span> <span class='symbol'>:lj</span><span class='comma'>,</span>
-           <span class='label'>calculation:</span> <span class='symbol'>:energy</span><span class='comma'>,</span> <span class='label'>site:</span> <span class='int'>100</span><span class='rbrace'>}</span>
+           <span class='label'>calculation:</span> <span class='symbol'>:energy</span><span class='comma'>,</span> <span class='label'>site:</span> <span class='int'>100</span><span class='comma'>,</span><span class='label'>structure:</span> <span class='symbol'>:jindofcc</span><span class='rbrace'>}</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -354,12 +354,12 @@
       <pre class="lines">
 
 
-16
 17
-18</pre>
+18
+19</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp.rb', line 16</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp.rb', line 17</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_opts'>opts</span>
   <span class='ivar'>@opts</span>
@@ -391,12 +391,12 @@
       <pre class="lines">
 
 
-17
 18
-19</pre>
+19
+20</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp.rb', line 17</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp.rb', line 18</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_run'>run</span><span class='lparen'>(</span><span class='id identifier rubyid_argv'>argv</span><span class='op'>=</span><span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_argv'>argv</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span>
@@ -427,11 +427,6 @@
       <pre class="lines">
 
 
-53
-54
-55
-56
-57
 58
 59
 60
@@ -451,10 +446,19 @@
 74
 75
 76
-77</pre>
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp.rb', line 53</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp.rb', line 58</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_bare_run'>bare_run</span><span class='lparen'>(</span><span class='id identifier rubyid_target_dir'>target_dir</span><span class='rparen'>)</span>
   <span class='const'>FileUtils</span><span class='period'>.</span><span class='id identifier rubyid_cd'>cd</span><span class='lparen'>(</span><span class='id identifier rubyid_target_dir'>target_dir</span><span class='rparen'>)</span><span class='lbrace'>{</span>
@@ -476,6 +480,10 @@
       <span class='id identifier rubyid_site'>site</span><span class='op'>=</span>  <span class='id identifier rubyid_v'>v</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span> <span class='op'>&gt;</span> <span class='int'>99</span> <span class='op'>?</span> <span class='op'>-</span><span class='int'>1</span> <span class='op'>:</span> <span class='id identifier rubyid_v'>v</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
       <span class='id identifier rubyid_force_check'>force_check</span> <span class='op'>=</span> <span class='const'>ForceCheck</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_target_dir'>target_dir</span><span class='comma'>,</span><span class='ivar'>@opts</span><span class='rparen'>)</span>
       <span class='id identifier rubyid_print'>print</span> <span class='id identifier rubyid_force_check'>force_check</span><span class='period'>.</span><span class='id identifier rubyid_controller'>controller</span><span class='lparen'>(</span><span class='id identifier rubyid_site'>site</span><span class='rparen'>)</span>
+    <span class='kw'>when</span> <span class='symbol'>:moment_method</span> <span class='kw'>then</span>
+      <span class='comment'>#case :potentialの処理よりも先に持ってきてもいい．LJ.selectを実行する必要がないから．
+</span>      <span class='const'>MomentMethod</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@opts</span><span class='lbracket'>[</span><span class='symbol'>:structure</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span>
+
     <span class='kw'>else</span>
       <span class='semicolon'>;</span>
     <span class='kw'>end</span>
@@ -501,7 +509,6 @@
       <pre class="lines">
 
 
-27
 28
 29
 30
@@ -525,10 +532,15 @@
 48
 49
 50
-51</pre>
+51
+52
+53
+54
+55
+56</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp.rb', line 27</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp.rb', line 28</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_execute'>execute</span>
   <span class='id identifier rubyid_command_parser'>command_parser</span> <span class='op'>=</span> <span class='const'>OptionParser</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_opt'>opt</span><span class='op'>|</span>
@@ -548,6 +560,10 @@
       <span class='ivar'>@opts</span><span class='lbracket'>[</span><span class='symbol'>:calculation</span><span class='rbracket'>]</span><span class='op'>=</span> <span class='symbol'>:force_check</span>
       <span class='ivar'>@opts</span><span class='lbracket'>[</span><span class='symbol'>:site</span><span class='rbracket'>]</span><span class='op'>=</span> <span class='id identifier rubyid_v'>v</span> <span class='kw'>if</span> <span class='id identifier rubyid_v'>v</span><span class='op'>!=</span><span class='kw'>nil</span>
     <span class='rbrace'>}</span>
+    <span class='id identifier rubyid_opt'>opt</span><span class='period'>.</span><span class='id identifier rubyid_on'>on</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>--moment [STRUCTURE]</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>calculate free energy by Moment method, STRUCTURE=jindofcc, sakakifcc</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_v'>v</span><span class='op'>|</span>
+      <span class='ivar'>@opts</span><span class='lbracket'>[</span><span class='symbol'>:calculation</span><span class='rbracket'>]</span><span class='op'>=</span> <span class='symbol'>:moment_method</span>
+      <span class='ivar'>@opts</span><span class='lbracket'>[</span><span class='symbol'>:structure</span><span class='rbracket'>]</span><span class='op'>=</span> <span class='id identifier rubyid_v'>v</span> <span class='kw'>if</span> <span class='id identifier rubyid_v'>v</span><span class='op'>!=</span><span class='kw'>nil</span>
+    <span class='rbrace'>}</span>
   <span class='kw'>end</span>
   <span class='id identifier rubyid_command_parser'>command_parser</span><span class='period'>.</span><span class='id identifier rubyid_banner'>banner</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Usage: pvasp [options] DIRECTORY</span><span class='tstring_end'>&quot;</span></span>
   <span class='id identifier rubyid_command_parser'>command_parser</span><span class='period'>.</span><span class='id identifier rubyid_parse!'>parse!</span><span class='lparen'>(</span><span class='ivar'>@argv</span><span class='rparen'>)</span>
@@ -565,7 +581,7 @@
 </div>
 
     <div id="footer">
-  Generated on Fri Jun 17 19:56:27 2016 by
+  Generated on Fri Jun 24 19:26:36 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.2).
 </div>

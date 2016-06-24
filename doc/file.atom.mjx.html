@@ -16,7 +16,7 @@
     <meta http-equiv="X-UA-Compatible" CONTENT="IE=EmulateIE7" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>
-  File: atom
+  File: atom.mjx
   
     &mdash; Documentation by YARD 0.8.7.6
   
@@ -29,7 +29,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '';
-  framesUrl = "frames.html#!file.atom.html";
+  framesUrl = "frames.html#!file.atom.mjx.html";
 </script>
 
 
@@ -44,7 +44,7 @@
       <div id="menu">
   
     <a href="_index.html">Index</a> &raquo; 
-    <span class="title">File: atom</span>
+    <span class="title">File: atom.mjx</span>
   
 
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
@@ -82,18 +82,14 @@
 <h2>エネルギー表記</h2>
 
 <p>EAMは原子$i$のエネルギーを
-$$
-E_i = \sum _ j\phi \left( r_j \right) + f(\rho)
-$$
-と表記する．右辺第1項は単なる2体間の相互作用を表わす．
+$$E_i = \sum _ j\phi \left( r_j \right) + f(\rho)
+$$と表記する．右辺第1項は単なる2体間の相互作用を表わす．
 右辺第2項が多体項と呼ばれるEAMに特徴的な項である．
 $r_j$はこの場合原子$j$との距離を意味しており，
 $E_i$は原子$i$の周りの原子との和によって求まる．
 多体項は，一般的に
-$$
-f(\rho) =\sqrt\rho=\sqrt {\sum_j h^2 \left( r_j \right) }
-$$
-によって求められる．$\rho$は強結合(tight binding)の2次モーメント近似から，
+$$f(\rho) =\sqrt{\rho}=\sqrt {\sum_j h^2 \left( r_j \right) }
+$$によって求められる．$\rho$は強結合(tight binding)の2次モーメント近似から，
 電子密度を表わすとされている．
 これによって原子空孔を初め多くの金属物性を
 うまく表現することが可能となった．詳しくは西谷・赤本参照．</p>
@@ -166,11 +162,9 @@ phi(r0);
 
 <p>EAM potentialにおいて単原子空孔の生成エネルギEvは</p>
 
-<p>$$
-E_v = -\fracE_c2\frac2-poq1-poq
-$$</p>
-
-<p>の関係がある．したがって，</p>
+<p>$$E_v = -\frac{E_c}{2}\frac{2-poq}{1-poq}
+$$
+の関係がある．したがって，</p>
 
 <pre class="code maple"><code class="maple">Ev:=0.8;                         
 Ec:=3.39;                    

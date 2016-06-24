@@ -1,11 +1,6 @@
 ! lj0
 標準的なLennard-Jonesポテンシャルの表式
 <<<
-\[
-\\frac{1}{2}
-\]
->>>
-<<<
 bob% cat POTCAR
 ---
 :type: lj0
@@ -51,24 +46,26 @@ r2:=2.5487*10^(-8)*1.5;
 plot(8.617385e-05*func(r),r=r1..r2);
 >>>
 {{attach_view(jindo_potentialplot2d1.gif)}}
-<<< math
+<<< maple
  dedr:=unapply(-d0*vm*vn / ((vn-vm)*rr) * (rh**vn - rh**vm),rr);
  eq1:=int(dedr(r),r);
 <<< tex
 -{ 1.821482757\times 10^{-38}} r{-5.5}+
 { 2.942122564\times 10^{-65}} r^{-9}
 >>>
-<<< math
+<<< maple
 rh:=r0/rr;
 dedr:=normal(expand(d0*vm*vn / ((vn-vm)*rr) * (rh**vn - rh**vm)));
 eq1:=simplify(int(dedr,rr));
 latex(eq1);
 >>>
 
-{{dmath 'dedr=-\frac{ vn vm d0  \left(rh^{vn}- rh^{vm}\right) }{ \left(vn-vm \right) rr }'}}
-
-{{dmath '\frac{ d0 \left( r0/rr^{vn}vm-  r0/rr^{vm} vn \right) }{ -vn + vm }
-'}}
+$$
+\begin{align*}
+dedr=-\frac{ vn vm d0  \left(rh^{vn}- rh^{vm}\right) }{ \left(vn-vm \right) rr } \\
+\frac{ d0 \left( r0/rr^{vn}vm-  r0/rr^{vm} vn \right) }{ -vn + vm }
+\end{align*}
+$$
 
 !ポテンシャル選択機構
 module LJに記述

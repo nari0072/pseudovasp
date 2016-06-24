@@ -14,9 +14,13 @@ task :spec do
   RSpec::Core::RakeTask.new(:spec)
 end
 
-desc "make documents by yard"
-task :yard do
-=begin
+desc "make yard documents with yardmath"
+task :myard => [:hiki2md, :pre_math,:yard] do
+  system('mathjax-yard --post')
+end
+
+desc "make md documents from hiki"
+task :hiki2md do
   files = Dir.entries('docs')
   files.each{|file|
     name=file.split('.')
@@ -31,9 +35,18 @@ task :yard do
   system "cp docs/*.gif doc"
   system "cp docs/*.png #{basename}.wiki"
   system "cp docs/*.png doc"
-=end
+end
+
+desc "arrange yard target by mathjax-yard"
+task :pre_math do
+  system('mathjax-yard')
+end
+
+desc "make documents by yard"
+task :yard do
   YARD::Rake::YardocTask.new
 end
+
 
 desc "submit files on github."
 task :update =>[:setenv] do
