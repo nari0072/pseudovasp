@@ -186,7 +186,7 @@ class MomentPlot < MomentMethod
     min = 2.6e-8 - (1e-9)*range
     max = 2.5e-8 + (1e-9)*range
     stepno = (max - min)/50
-    moment_check( min, max, stepno)
+    moment_plot( min, max, stepno)
   end
 
   def moment_plot(min, max, stepno)
@@ -230,7 +230,7 @@ class MomentPlot < MomentMethod
   def make_gp #gnuplot用，ベタ書き，それぞれのポテンシャルのフォルダの中に保存される．
     File.open("./plot_k.gp",'w'){|io|
       io.print("
-      set format x \"%.3e\"\n
+      set format x \"%.2e\"\n
       set xlabel \"a1\"
       set ylabel \"erg\"
       plot \"./k.txt\" using 1:2 title \"k\" w lp\n
@@ -242,7 +242,7 @@ class MomentPlot < MomentMethod
 
     File.open("./plot_gamma.gp",'w'){|io|
       io.print("
-      set format x \"%.3e\"\n
+      set format x \"%.2e\"\n
       set xlabel \"a1\"
       set ylabel \"erg\"
       plot \"./gamma.txt\" using 1:2 title \"gamma\" w lp\n

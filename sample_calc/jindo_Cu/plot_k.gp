@@ -1,5 +1,5 @@
 
-      set format x "%.3e"
+      set format x "%.2e"
 
       set xlabel "a1"
       set ylabel "erg"
