@@ -119,6 +119,7 @@ class MomentMethod
     @gamma1 = (1.0/48)*(diff_u4_a1 + diff_u4_a2)*BOLTZ
     @gamma2 = (6.0/48)*(diff_x2y2_a1 + diff_x2y2_a2)*BOLTZ
     return gamma = 4.0*(@gamma1+@gamma2)#p516(18)
+    #return 4*@gamma1
   end
 
   def calc_u0(a1,a2)
@@ -173,9 +174,83 @@ class MomentMethod
   def ev_from_erg(a)
     return a*6.2415064e11
   end
-
 end
 
+class MomentPlot < MomentMethod
+  def initialize(structure, range)
+    puts "Hi,MomentPlot"
+    @structure=structure
+    puts "structure = #{@structure}"
+    select
+    #2.5e-8から2.6e-8
+    min = 2.6e-8 - (1e-9)*range
+    max = 2.5e-8 + (1e-9)*range
+    stepno = (max - min)/50
+    moment_check( min, max, stepno)
+  end
+
+  def moment_plot(min, max, stepno)
+    puts "start moment_check"
+    make_gp
+      #make k date ．ベタ書き
+    tmp=""
+    min.step(max, stepno) do |r|
+      tmp << r.to_s
+      tmp << " "
+      tmp << calc_k(r, r*sqrt(2)).to_s
+      tmp << " "
+      tmp << (2.0*@@potential.de2dr2(r)*BOLTZ).to_s
+      tmp << " "
+      tmp << (4.0*@@potential.dedr(r)/r*BOLTZ).to_s
+      tmp << " "
+      tmp << (@@potential.de2dr2(r*sqrt(2))*BOLTZ).to_s
+      tmp << " "
+      tmp << (2.0*@@potential.dedr(r*sqrt(2))/(r*sqrt(2))*BOLTZ).to_s
+      tmp << "\n"
+    #  printf("%e %.10e\n", r, calc_k(r, r*sqrt(2)))
+      File.open("./k.txt",'w'){|io| io.print(tmp)}
+    end
+    #make gamma data
+    tmp=""
+    min.step(max, stepno) do |r|
+      tmp << r.to_s
+      tmp << " "
+      tmp << calc_gamma(r, r*sqrt(2), @structure).to_s
+      tmp << " "
+      tmp << (@gamma1*4).to_s
+      tmp << " "
+      tmp << (@gamma2*4).to_s
+      tmp << "\n"
+      #printf("%e %.10e\n", r, calc_k(r, r*sqrt(2)))
+      File.open("./gamma.txt",'w'){|io| io.print(tmp)}
+    end
+    system "gnuplot plot_k.gp"
+    system "gnuplot plot_gamma.gp"
+  end
+  def make_gp #gnuplot用，ベタ書き，それぞれのポテンシャルのフォルダの中に保存される．
+    File.open("./plot_k.gp",'w'){|io|
+      io.print("
+      set format x \"%.3e\"\n
+      set xlabel \"a1\"
+      set ylabel \"erg\"
+      plot \"./k.txt\" using 1:2 title \"k\" w lp\n
+      replot \"./k.txt\" using 1:3 title \"term 1\" w lp\n
+      replot \"./k.txt\" using 1:4 title \"term 2\" w lp\n
+      replot \"./k.txt\" using 1:5 title \"term 3\" w lp\n
+      replot \"./k.txt\" using 1:6 title \"term 4\" w lp\n
+      ")}
+
+    File.open("./plot_gamma.gp",'w'){|io|
+      io.print("
+      set format x \"%.3e\"\n
+      set xlabel \"a1\"
+      set ylabel \"erg\"
+      plot \"./gamma.txt\" using 1:2 title \"gamma\" w lp\n
+      replot \"./gamma.txt\" using 1:3 title \"xxxx\" w lp\n
+      replot \"./gamma.txt\" using 1:4 title \"xxyy\" w lp\n
+      ")}
+  end
+end
 #lj.rbにclassLJ_jindoがあるけど，後の切り分けのために新たに作成.理想はPOTCARの中
 class DiffLjJindo
   attr_reader :m, :n, :r0, :atom_mass
