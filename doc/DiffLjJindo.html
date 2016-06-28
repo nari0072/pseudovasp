@@ -2,18 +2,6 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-                           tex2jax:{
-      inlineMath: [ ['$','$'], ["\(","\)"] ],
-      displayMath: [ ['$$','$$'], ["\[","\]"] ]
-                           }
-                         });
-    </script>
-    <script type="text/javascript"
-            src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
-    </script>
-    <meta http-equiv="X-UA-Compatible" CONTENT="IE=EmulateIE7" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>
   Class: DiffLjJindo
@@ -426,13 +414,13 @@
       <pre class="lines">
 
 
-182
-183
-184
-185</pre>
+257
+258
+259
+260</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/momentmethod.rb', line 182</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/momentmethod.rb', line 257</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_src'>src</span><span class='rparen'>)</span>
   <span class='cvar'>@@d0</span><span class='comma'>,</span><span class='cvar'>@@m</span><span class='comma'>,</span><span class='cvar'>@@n</span><span class='comma'>,</span><span class='cvar'>@@r0</span><span class='op'>=</span><span class='id identifier rubyid_src'>src</span><span class='lbracket'>[</span><span class='symbol'>:d0</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='id identifier rubyid_src'>src</span><span class='lbracket'>[</span><span class='symbol'>:m</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='id identifier rubyid_src'>src</span><span class='lbracket'>[</span><span class='symbol'>:n</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='id identifier rubyid_src'>src</span><span class='lbracket'>[</span><span class='symbol'>:r0_no_angstrom</span><span class='rbracket'>]</span>
@@ -476,12 +464,12 @@
       <pre class="lines">
 
 
-181
-182
-183</pre>
+256
+257
+258</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/momentmethod.rb', line 181</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/momentmethod.rb', line 256</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_atom_mass'>atom_mass</span>
   <span class='ivar'>@atom_mass</span>
@@ -519,12 +507,12 @@
       <pre class="lines">
 
 
-181
-182
-183</pre>
+256
+257
+258</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/momentmethod.rb', line 181</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/momentmethod.rb', line 256</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_m'>m</span>
   <span class='ivar'>@m</span>
@@ -562,12 +550,12 @@
       <pre class="lines">
 
 
-181
-182
-183</pre>
+256
+257
+258</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/momentmethod.rb', line 181</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/momentmethod.rb', line 256</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_n'>n</span>
   <span class='ivar'>@n</span>
@@ -605,12 +593,12 @@
       <pre class="lines">
 
 
-181
-182
-183</pre>
+256
+257
+258</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/momentmethod.rb', line 181</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/momentmethod.rb', line 256</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_r0'>r0</span>
   <span class='ivar'>@r0</span>
@@ -642,12 +630,12 @@
       <pre class="lines">
 
 
-195
-196
-197</pre>
+270
+271
+272</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/momentmethod.rb', line 195</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/momentmethod.rb', line 270</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_de2dr2'>de2dr2</span><span class='lparen'>(</span><span class='id identifier rubyid_r'>r</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_de2dr2'>de2dr2</span> <span class='op'>=</span> <span class='cvar'>@@d0</span><span class='op'>*</span><span class='cvar'>@@m</span><span class='op'>*</span><span class='cvar'>@@n</span> <span class='op'>/</span> <span class='lparen'>(</span><span class='lparen'>(</span><span class='cvar'>@@n</span><span class='op'>-</span><span class='cvar'>@@m</span><span class='rparen'>)</span><span class='op'>*</span><span class='id identifier rubyid_r'>r</span><span class='op'>**</span><span class='int'>2</span><span class='rparen'>)</span> <span class='op'>*</span> <span class='lparen'>(</span><span class='lparen'>(</span><span class='cvar'>@@n</span><span class='op'>+</span><span class='int'>1</span><span class='rparen'>)</span><span class='op'>*</span><span class='lparen'>(</span><span class='cvar'>@@r0</span><span class='op'>/</span><span class='id identifier rubyid_r'>r</span><span class='rparen'>)</span><span class='op'>**</span><span class='cvar'>@@n</span> <span class='op'>-</span> <span class='lparen'>(</span><span class='cvar'>@@m</span><span class='op'>+</span><span class='int'>1</span><span class='rparen'>)</span><span class='op'>*</span><span class='lparen'>(</span><span class='cvar'>@@r0</span><span class='op'>/</span><span class='id identifier rubyid_r'>r</span><span class='rparen'>)</span><span class='op'>**</span><span class='cvar'>@@m</span><span class='rparen'>)</span>
@@ -672,12 +660,12 @@
       <pre class="lines">
 
 
-199
-200
-201</pre>
+274
+275
+276</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/momentmethod.rb', line 199</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/momentmethod.rb', line 274</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_de3dr3'>de3dr3</span><span class='lparen'>(</span><span class='id identifier rubyid_r'>r</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_de3dr3'>de3dr3</span> <span class='op'>=</span> <span class='cvar'>@@d0</span><span class='op'>*</span><span class='cvar'>@@m</span><span class='op'>*</span><span class='cvar'>@@n</span> <span class='op'>/</span> <span class='lparen'>(</span><span class='lparen'>(</span><span class='cvar'>@@n</span><span class='op'>-</span><span class='cvar'>@@m</span><span class='rparen'>)</span><span class='op'>*</span><span class='id identifier rubyid_r'>r</span><span class='op'>**</span><span class='int'>3</span><span class='rparen'>)</span> <span class='op'>*</span> <span class='lparen'>(</span><span class='lparen'>(</span><span class='cvar'>@@m</span><span class='op'>+</span><span class='int'>1</span><span class='rparen'>)</span><span class='op'>*</span><span class='lparen'>(</span><span class='cvar'>@@m</span><span class='op'>+</span><span class='int'>2</span><span class='rparen'>)</span><span class='op'>*</span><span class='lparen'>(</span><span class='cvar'>@@r0</span><span class='op'>/</span><span class='id identifier rubyid_r'>r</span><span class='rparen'>)</span><span class='op'>**</span><span class='cvar'>@@m</span> <span class='op'>-</span> <span class='lparen'>(</span><span class='cvar'>@@n</span><span class='op'>+</span><span class='int'>1</span><span class='rparen'>)</span><span class='op'>*</span><span class='lparen'>(</span><span class='cvar'>@@n</span><span class='op'>+</span><span class='int'>2</span><span class='rparen'>)</span><span class='op'>*</span><span class='lparen'>(</span><span class='cvar'>@@r0</span><span class='op'>/</span><span class='id identifier rubyid_r'>r</span><span class='rparen'>)</span><span class='op'>**</span><span class='cvar'>@@n</span><span class='rparen'>)</span>
@@ -702,12 +690,12 @@
       <pre class="lines">
 
 
-203
-204
-205</pre>
+278
+279
+280</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/momentmethod.rb', line 203</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/momentmethod.rb', line 278</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_de4dr4'>de4dr4</span><span class='lparen'>(</span><span class='id identifier rubyid_r'>r</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_de4dr4'>de4dr4</span> <span class='op'>=</span> <span class='cvar'>@@d0</span><span class='op'>*</span><span class='cvar'>@@m</span><span class='op'>*</span><span class='cvar'>@@n</span> <span class='op'>/</span> <span class='lparen'>(</span><span class='lparen'>(</span><span class='cvar'>@@n</span><span class='op'>-</span><span class='cvar'>@@m</span><span class='rparen'>)</span><span class='op'>*</span><span class='id identifier rubyid_r'>r</span><span class='op'>**</span><span class='int'>4</span><span class='rparen'>)</span> <span class='op'>*</span> <span class='lparen'>(</span><span class='lparen'>(</span><span class='cvar'>@@n</span><span class='op'>+</span><span class='int'>1</span><span class='rparen'>)</span><span class='op'>*</span><span class='lparen'>(</span><span class='cvar'>@@n</span><span class='op'>+</span><span class='int'>2</span><span class='rparen'>)</span><span class='op'>*</span><span class='lparen'>(</span><span class='cvar'>@@n</span><span class='op'>+</span><span class='int'>3</span><span class='rparen'>)</span><span class='op'>*</span><span class='lparen'>(</span><span class='cvar'>@@r0</span><span class='op'>/</span><span class='id identifier rubyid_r'>r</span><span class='rparen'>)</span><span class='op'>**</span><span class='cvar'>@@n</span> <span class='op'>-</span> <span class='lparen'>(</span><span class='cvar'>@@m</span><span class='op'>+</span><span class='int'>1</span><span class='rparen'>)</span><span class='op'>*</span><span class='lparen'>(</span><span class='cvar'>@@m</span><span class='op'>+</span><span class='int'>2</span><span class='rparen'>)</span><span class='op'>*</span><span class='lparen'>(</span><span class='cvar'>@@m</span><span class='op'>+</span><span class='int'>3</span><span class='rparen'>)</span><span class='op'>*</span><span class='lparen'>(</span><span class='cvar'>@@r0</span><span class='op'>/</span><span class='id identifier rubyid_r'>r</span><span class='rparen'>)</span><span class='op'>**</span><span class='cvar'>@@m</span><span class='rparen'>)</span>
@@ -732,12 +720,12 @@
       <pre class="lines">
 
 
-191
-192
-193</pre>
+266
+267
+268</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/momentmethod.rb', line 191</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/momentmethod.rb', line 266</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_dedr'>dedr</span><span class='lparen'>(</span><span class='id identifier rubyid_r'>r</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_dedr'>dedr</span><span class='op'>=</span><span class='op'>-</span><span class='cvar'>@@d0</span><span class='op'>*</span><span class='cvar'>@@m</span><span class='op'>*</span><span class='cvar'>@@n</span> <span class='op'>/</span> <span class='lparen'>(</span><span class='lparen'>(</span><span class='cvar'>@@n</span><span class='op'>-</span><span class='cvar'>@@m</span><span class='rparen'>)</span><span class='op'>*</span><span class='id identifier rubyid_r'>r</span><span class='rparen'>)</span> <span class='op'>*</span> <span class='lparen'>(</span><span class='lparen'>(</span><span class='cvar'>@@r0</span><span class='op'>/</span><span class='id identifier rubyid_r'>r</span><span class='rparen'>)</span><span class='op'>**</span><span class='cvar'>@@n</span> <span class='op'>-</span> <span class='lparen'>(</span><span class='cvar'>@@r0</span><span class='op'>/</span><span class='id identifier rubyid_r'>r</span><span class='rparen'>)</span><span class='op'>**</span><span class='cvar'>@@m</span><span class='rparen'>)</span>
@@ -762,12 +750,12 @@
       <pre class="lines">
 
 
-187
-188
-189</pre>
+262
+263
+264</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pseudovasp/momentmethod.rb', line 187</span>
+      <pre class="code"><span class="info file"># File 'lib/pseudovasp/momentmethod.rb', line 262</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_energy'>energy</span><span class='lparen'>(</span><span class='id identifier rubyid_r'>r</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_ene'>ene</span><span class='op'>=</span><span class='op'>-</span><span class='cvar'>@@d0</span><span class='op'>*</span><span class='lparen'>(</span><span class='lparen'>(</span><span class='id identifier rubyid_r'>r</span><span class='op'>/</span><span class='cvar'>@@r0</span><span class='rparen'>)</span><span class='op'>**</span><span class='lparen'>(</span><span class='op'>-</span><span class='cvar'>@@n</span><span class='rparen'>)</span><span class='op'>*</span><span class='cvar'>@@m</span><span class='op'>-</span><span class='lparen'>(</span><span class='id identifier rubyid_r'>r</span><span class='op'>/</span><span class='cvar'>@@r0</span><span class='rparen'>)</span><span class='op'>**</span><span class='lparen'>(</span><span class='op'>-</span><span class='cvar'>@@m</span><span class='rparen'>)</span><span class='op'>*</span><span class='cvar'>@@n</span><span class='rparen'>)</span><span class='op'>/</span><span class='lparen'>(</span><span class='cvar'>@@m</span><span class='op'>-</span><span class='cvar'>@@n</span><span class='rparen'>)</span>
@@ -782,9 +770,9 @@
 </div>
 
     <div id="footer">
-  Generated on Fri Jun 24 19:26:37 2016 by
+  Generated on Tue Jun 28 17:46:15 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.2.2).
+  0.8.7.6 (ruby-2.0.0).
 </div>
 
   </body>

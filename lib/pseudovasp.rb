@@ -22,7 +22,7 @@ module PVasp
     def initialize(argv=[])
       @argv = argv
       @opts = {output: :show_force, potential: :lj,
-               calculation: :energy, site: 100,structure: :jindofcc}
+               calculation: :energy, site: 100,structure: "jindofcc", plot: nil}
     end
 
     def execute
@@ -46,6 +46,13 @@ module PVasp
         opt.on('--moment [STRUCTURE]','calculate free energy by Moment method, STRUCTURE=jindofcc, sakakifcc') {|v|
           @opts[:calculation]= :moment_method
           @opts[:structure]= v if v!=nil
+        }
+        opt.on('--momentplot [STRUCTURE]','plot k and gamma in Moment method by gnuplot, STRUCTURE=jindofcc, sakakifcc') {|v|
+          @opts[:calculation]= :moment_plot
+          @opts[:structure]= v.to_s if v!=nil
+        }
+        opt.on('--plot [VALUE]','plot k and gamma by gnuplot, expand plot range to VALUE, default 2.5e-8 <-> 2.6e-8') {|v|
+          v ? @opts[:plot]= v.to_i : @opts[:plot]= 1
         }
       end
       command_parser.banner = "Usage: pvasp [options] DIRECTORY"
@@ -77,8 +84,7 @@ module PVasp
           print force_check.controller(site)
         when :moment_method then
           #case :potentialの処理よりも先に持ってきてもいい．LJ.selectを実行する必要がないから．
-          MomentMethod.new(@opts[:structure].to_s)
-
+          @opts[:plot] ? MomentPlot.new(@opts[:structure], @opts[:plot]) : MomentMethod.new(@opts[:structure])
         else
           ;
         end

@@ -1,25 +1,25 @@
 ---
 lib/../pseudovasp.wiki/atom.mjx.md:
-  "$MATHJAX1$": "$i$"
-  "$MATHJAX2$": |-
+  $MATHJAX1$: $i$
+  $MATHJAX2$: |-
     $$E_i = \sum _ j\phi \left( r_j \right) + f(\rho)
     $$
-  "$MATHJAX3$": "$r_j$"
-  "$MATHJAX4$": "$j$"
-  "$MATHJAX5$": "$E_i$"
-  "$MATHJAX6$": "$i$"
-  "$MATHJAX7$": |-
+  $MATHJAX3$: $r_j$
+  $MATHJAX4$: $j$
+  $MATHJAX5$: $E_i$
+  $MATHJAX6$: $i$
+  $MATHJAX7$: |-
     $$f(\rho) =\sqrt{\rho}=\sqrt {\sum_j h^2 \left( r_j \right) }
     $$
-  "$MATHJAX8$": "$\\rho$"
-  "$MATHJAX9$": "$NPT$"
-  "$MATHJAX10$": "$E-V$"
-  "$MATHJAX11$": |-
+  $MATHJAX8$: $\rho$
+  $MATHJAX9$: $NPT$
+  $MATHJAX10$: $E-V$
+  $MATHJAX11$: |-
     $$E_v = -\frac{E_c}{2}\frac{2-poq}{1-poq}
     $$
-  "$MATHJAX12$": "$q$"
+  $MATHJAX12$: $q$
 lib/../pseudovasp.wiki/potential.mjx.md:
-  "$MATHJAX13$": |-
+  $MATHJAX13$: |-
     $$\begin{align*}
     dedr=-\frac{ vn vm d0  \left(rh^{vn}- rh^{vm}\right) }{ \left(vn-vm \right) rr } \\
     \frac{ d0 \left( r0/rr^{vn}vm-  r0/rr^{vm} vn \right) }{ -vn + vm }
